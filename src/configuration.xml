@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>
+		<property name="driver" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/batissql?characterEncoding=utf8" />
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
+	</properties>
+	
+	<settings>
+		<setting name="cacheEnabled" value="true"></setting>
+		<setting name="lazyLoadingEnabled" value="true"></setting>
+	</settings>
+	
+    <typeAliases> 
+        <typeAlias alias="User" type="com.game.mybatis.model.User"/> 
+        <typeAlias alias="Battle_Info" type="com.game.mybatis.model.Battle_Info"/> 
+        <typeAlias alias="Skill_Info" type="com.game.mybatis.model.Skill_Info"/>
+        <typeAlias alias="Role_Info" type="com.game.mybatis.model.Role_Info"/> 
+        <typeAlias alias="Map_Info" type="com.game.mybatis.model.Map_Info"/>
+        <typeAlias alias="Game_Info" type="com.game.mybatis.model.Game_Info"/> 
+        <typeAlias alias="Dialog_Info" type="com.game.mybatis.model.Dialog_Info"/>   
+    </typeAliases> 
+	
+    <environments default="development">
+        <environment id="development">
+        	<transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="${driver}"/>
+            <property name="url" value="${url}" />
+            <property name="username" value="${username}"/>
+            <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/game/mybatis/mapper/UserMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Battle_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Skill_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Role_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Map_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Game_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Dialog_InfoMapper.xml"/>
+    </mappers>
+</configuration>

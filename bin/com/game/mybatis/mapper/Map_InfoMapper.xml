@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Map_InfoMapper" >
+  <resultMap id="MapResult" type="com.game.mybatis.model.Map_Info" >
+    <id column="map_id" property="mapId" jdbcType="INTEGER" />
+    <result column="map_name" property="mapName" jdbcType="VARCHAR" />
+    <result column="playerMinCount" property="playermincount" jdbcType="INTEGER" />
+    <result column="playerMaxCount" property="playermaxcount" jdbcType="INTEGER" />
+    <result column="support_tangled_fight" property="supportTangledFight" jdbcType="INTEGER" />
+    <result column="support_team_battle" property="supportTeamBattle" jdbcType="INTEGER" />
+    <result column="suport_flag_battle" property="suportFlagBattle" jdbcType="INTEGER" />
+    <result column="support_boss_annihilate_battle" property="supportBossAnnihilateBattle" jdbcType="INTEGER" />
+  </resultMap>
+ 
+  <select id="selectById" resultMap="MapResult" parameterType="java.lang.Integer" >
+    select * from map_info
+    where map_id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from map_info
+    where map_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertMapInfo" parameterType="com.game.mybatis.model.Map_Info" >
+    insert into map_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mapId != null" >
+        map_id,
+      </if>
+      <if test="mapName != null" >
+        map_name,
+      </if>
+      <if test="playermincount != null" >
+        playerMinCount,
+      </if>
+      <if test="playermaxcount != null" >
+        playerMaxCount,
+      </if>
+      <if test="supportTangledFight != null" >
+        support_tangled_fight,
+      </if>
+      <if test="supportTeamBattle != null" >
+        support_team_battle,
+      </if>
+      <if test="suportFlagBattle != null" >
+        suport_flag_battle,
+      </if>
+      <if test="supportBossAnnihilateBattle != null" >
+        support_boss_annihilate_battle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mapId != null" >
+        #{mapId,jdbcType=INTEGER},
+      </if>
+      <if test="mapName != null" >
+        #{mapName,jdbcType=VARCHAR},
+      </if>
+      <if test="playermincount != null" >
+        #{playermincount,jdbcType=INTEGER},
+      </if>
+      <if test="playermaxcount != null" >
+        #{playermaxcount,jdbcType=INTEGER},
+      </if>
+      <if test="supportTangledFight != null" >
+        #{supportTangledFight,jdbcType=INTEGER},
+      </if>
+      <if test="supportTeamBattle != null" >
+        #{supportTeamBattle,jdbcType=INTEGER},
+      </if>
+      <if test="suportFlagBattle != null" >
+        #{suportFlagBattle,jdbcType=INTEGER},
+      </if>
+      <if test="supportBossAnnihilateBattle != null" >
+        #{supportBossAnnihilateBattle,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateMapInfo" parameterType="com.game.mybatis.model.Map_Info" >
+    update map_info
+    <set >
+      <if test="mapName != null" >
+        map_name = #{mapName},
+      </if>
+      <if test="playermincount != null" >
+        playerMinCount = #{playermincount,jdbcType=INTEGER},
+      </if>
+      <if test="playermaxcount != null" >
+        playerMaxCount = #{playermaxcount,jdbcType=INTEGER},
+      </if>
+      <if test="supportTangledFight != null" >
+        support_tangled_fight = #{supportTangledFight,jdbcType=INTEGER},
+      </if>
+      <if test="supportTeamBattle != null" >
+        support_team_battle = #{supportTeamBattle,jdbcType=INTEGER},
+      </if>
+      <if test="suportFlagBattle != null" >
+        suport_flag_battle = #{suportFlagBattle,jdbcType=INTEGER},
+      </if>
+      <if test="supportBossAnnihilateBattle != null" >
+        support_boss_annihilate_battle = #{supportBossAnnihilateBattle,jdbcType=INTEGER},
+      </if>
+    </set>
+    where map_id = #{mapId}
+  </update>
+</mapper>

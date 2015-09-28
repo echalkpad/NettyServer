@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Skill_InfoMapper" >
+  <resultMap id="SkillResult" type="com.game.mybatis.model.Skill_Info" >
+    <id column="skill_id" property="skillId" jdbcType="INTEGER" />
+    <result column="skill_name" property="skillName" jdbcType="VARCHAR" />
+    <result column="skill_type" property="skillType" jdbcType="INTEGER" />
+    <result column="duration" property="duration" jdbcType="REAL" />
+    <result column="is_Group" property="isGroup" jdbcType="INTEGER" />
+    <result column="skill_base_hurt" property="skillBaseHurt" jdbcType="INTEGER" />
+    <result column="can_Vertigo" property="canVertigo" jdbcType="INTEGER" />
+    <result column="can_Deceleration" property="canDeceleration" jdbcType="INTEGER" />
+    <result column="skill_hurt_Factor" property="skillHurtFactor" jdbcType="REAL" />
+    <result column="skill_buffer_time" property="skillBufferTime" jdbcType="REAL" />
+    <result column="skill_buffer_factor" property="skillBufferFactor" jdbcType="REAL" />
+    <result column="skill_add_Base_Hp" property="skillAddBaseHp" jdbcType="INTEGER" />
+    <result column="skill_add_Base_Attack" property="skillAddBaseAttack" jdbcType="INTEGER" />
+    <result column="skill_add_Base_Speed" property="skillAddBaseSpeed" jdbcType="INTEGER" />
+    <result column="skill_add_Hp_Factor" property="skillAddHpFactor" jdbcType="REAL" />
+    <result column="skill_add_Attack_Factor" property="skillAddAttackFactor" jdbcType="REAL" />
+    <result column="skill_add_Speed_Factor" property="skillAddSpeedFactor" jdbcType="REAL" />
+  </resultMap>
+  
+  <select id="selectById" resultMap="SkillResult" parameterType="java.lang.Integer" >
+    select * from skill_info
+    where skill_id = #{skillId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from skill_info
+    where skill_id = #{skillId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSkill" parameterType="com.game.mybatis.model.Skill_Info" >
+    insert into skill_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="skillId != null" >
+        skill_id,
+      </if>
+      <if test="skillName != null" >
+        skill_name,
+      </if>
+      <if test="skillType != null" >
+        skill_type,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+      <if test="isGroup != null" >
+        is_Group,
+      </if>
+      <if test="skillBaseHurt != null" >
+        skill_base_hurt,
+      </if>
+      <if test="canVertigo != null" >
+        can_Vertigo,
+      </if>
+      <if test="canDeceleration != null" >
+        can_Deceleration,
+      </if>
+      <if test="skillHurtFactor != null" >
+        skill_hurt_Factor,
+      </if>
+      <if test="skillBufferTime != null" >
+        skill_buffer_time,
+      </if>
+      <if test="skillBufferFactor != null" >
+        skill_buffer_factor,
+      </if>
+      <if test="skillAddBaseHp != null" >
+        skill_add_Base_Hp,
+      </if>
+      <if test="skillAddBaseAttack != null" >
+        skill_add_Base_Attack,
+      </if>
+      <if test="skillAddBaseSpeed != null" >
+        skill_add_Base_Speed,
+      </if>
+      <if test="skillAddHpFactor != null" >
+        skill_add_Hp_Factor,
+      </if>
+      <if test="skillAddAttackFactor != null" >
+        skill_add_Attack_Factor,
+      </if>
+      <if test="skillAddSpeedFactor != null" >
+        skill_add_Speed_Factor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="skillId != null" >
+        #{skillId,jdbcType=INTEGER},
+      </if>
+      <if test="skillName != null" >
+        #{skillName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillType != null" >
+        #{skillType,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=REAL},
+      </if>
+      <if test="isGroup != null" >
+        #{isGroup,jdbcType=INTEGER},
+      </if>
+      <if test="skillBaseHurt != null" >
+        #{skillBaseHurt,jdbcType=INTEGER},
+      </if>
+      <if test="canVertigo != null" >
+        #{canVertigo,jdbcType=INTEGER},
+      </if>
+      <if test="canDeceleration != null" >
+        #{canDeceleration,jdbcType=INTEGER},
+      </if>
+      <if test="skillHurtFactor != null" >
+        #{skillHurtFactor,jdbcType=REAL},
+      </if>
+      <if test="skillBufferTime != null" >
+        #{skillBufferTime,jdbcType=REAL},
+      </if>
+      <if test="skillBufferFactor != null" >
+        #{skillBufferFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddBaseHp != null" >
+        #{skillAddBaseHp,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddBaseAttack != null" >
+        #{skillAddBaseAttack,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddBaseSpeed != null" >
+        #{skillAddBaseSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddHpFactor != null" >
+        #{skillAddHpFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddAttackFactor != null" >
+        #{skillAddAttackFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddSpeedFactor != null" >
+        #{skillAddSpeedFactor,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateSkill" parameterType="com.game.mybatis.model.Skill_Info" >
+    update skill_info
+    <set >
+      <if test="skillName != null" >
+        skill_name = #{skillName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillType != null" >
+        skill_type = #{skillType,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        duration = #{duration,jdbcType=REAL},
+      </if>
+      <if test="isGroup != null" >
+        is_Group = #{isGroup,jdbcType=INTEGER},
+      </if>
+      <if test="skillBaseHurt != null" >
+        skill_base_hurt = #{skillBaseHurt,jdbcType=INTEGER},
+      </if>
+      <if test="canVertigo != null" >
+        can_Vertigo = #{canVertigo,jdbcType=INTEGER},
+      </if>
+      <if test="canDeceleration != null" >
+        can_Deceleration = #{canDeceleration,jdbcType=INTEGER},
+      </if>
+      <if test="skillHurtFactor != null" >
+        skill_hurt_Factor = #{skillHurtFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddBaseHp != null" >
+        skill_add_Base_Hp = #{skillAddBaseHp,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddBaseAttack != null" >
+        skill_add_Base_Attack = #{skillAddBaseAttack,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddBaseSpeed != null" >
+        skill_add_Base_Speed = #{skillAddBaseSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="skillAddHpFactor != null" >
+        skill_add_Hp_Factor = #{skillAddHpFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddAttackFactor != null" >
+        skill_add_Attack_Factor = #{skillAddAttackFactor,jdbcType=REAL},
+      </if>
+      <if test="skillAddSpeedFactor != null" >
+        skill_add_Speed_Factor = #{skillAddSpeedFactor,jdbcType=REAL},
+      </if>
+    </set>
+    where skill_id = #{skillId,jdbcType=INTEGER}
+  </update>
+</mapper>
