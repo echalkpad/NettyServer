@@ -9,5 +9,5 @@ public interface Role_InfoMapper {
 
     Role_Info selectById(Integer id);
 
-    int updateById(Role_Info role);
+    int updateRoleInfo(Role_Info role);
 }

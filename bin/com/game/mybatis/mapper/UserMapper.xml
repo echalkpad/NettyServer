@@ -12,41 +12,18 @@
     <result column="location" property="location" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
     <result column="ipAddress" property="ipAddress" jdbcType="VARCHAR" />
-    <association property="game_Info" column="game_info_id" javaType="Game_Info" select="selectGameInfo">
+    <association property="game_Info" column="game_info_id" javaType="Game_Info" resultMap="com.game.mybatis.dao.Game_InfoMapper.GameInfoResult">
     </association>
-    <association property="battle_Info" column="battle_info_id" javaType="Battle_Info" select="selectBattleInfo">
+    <association property="battle_Info" column="battle_info_id" javaType="Battle_Info" 
+        resultMap="com.game.mybatis.dao.Battle_InfoMapper.BattleResultMap">
     </association>
-    <association property="role_Info" column="role_info_id" javaType="Role_Info" select="selectRoleInfo">
+    <association property="role_Info" column="role_info_id" javaType="Role_Info" resultMap="com.game.mybatis.dao.Role_InfoMapper.RoleResult">
     </association>
   </resultMap>
   
-  <resultMap id="GameInfoResult" type="Game_Info" >
-  	<id property="game_id" column="game_info_id"></id>
-  </resultMap>
-  <resultMap id="BattleInfoResult" type="Battle_Info" >
-  	<id property="battle_id" column="battle_info_id"></id>
-  </resultMap>
-  <resultMap id="RoleInfoResult" type="Role_Info" >
-  	<id property="roleId" column="role_id"></id>
-  </resultMap>
-  
-  <select id="selectGameInfo" resultMap="GameInfoResult">
-  	select * from game_info where game_id = #{id}
-  </select>
-  <select id="selectBattleInfo" resultMap="BattleInfoResult">
-  	select * from battle_info where battle_id = #{id}
-  </select>
-  <select id="selectRoleInfo" resultMap="RoleInfoResult">
-  	select * from role_info where role_id = #{id}
-  </select>
- <!--  <select id="selectById" resultMap="UserResult" parameterType="java.lang.Integer" >
-    select u.user_id, g.game_id as game_info_id, b.battle_id as battle_info_id, r.role_id as role_info_id
-    from user u left outer join game_info g on u.game_info_id = g.game_id
-    left outer join battle_info b on u.battle_info_id = b.battle_id left outer join role_info r
-    on u.role_info_id = r.role_id where u.user_id = #{id}
-  </select> -->
-  <select id="selectById" resultMap="UserResult" parameterType="java.lang.Integer" >
-    select * from user where user_id = #{id}
+ <select id="selectById" resultMap="UserResult" parameterType="java.lang.Integer" >
+   select u.*, g.*,r.*,b.* from user u, game_info g, role_info r, battle_info b where u.game_info_id = g.game_id 
+   and r.role_id = u.role_info_id and b.battle_id = u.battle_info_id and u.user_id = #{id}
   </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from user
@@ -95,13 +72,13 @@
         ipAddress = #{ipAddress,jdbcType=VARCHAR},
       </if>
       <if test="game_Info != null" >
-        game_info_id = #{game_Info.game_id,jdbcType=INTEGER},
+        game_info_id = #{game_Info.gameId,jdbcType=INTEGER},
       </if>
       <if test="battle_Info != null" >
         battle_info_id = #{battle_Info.battle_id,jdbcType=INTEGER},
       </if>
       <if test="role_Info != null" >
-        role_info_id = #{role_Info.role_id,jdbcType=INTEGER},
+        role_info_id = #{role_Info.roleId,jdbcType=INTEGER},
       </if>
     </set>
     where user_id = #{user_id,jdbcType=INTEGER}

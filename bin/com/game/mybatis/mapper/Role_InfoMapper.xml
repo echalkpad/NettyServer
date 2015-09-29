@@ -51,7 +51,7 @@
   </select>
   <select id="selectSkill" resultMap="SkillInfoResult">
   	select * from skill_info
-    where skill_id = #{skillId}
+    where skill_id = #{id}
   </select>
   <select id="selectById" resultMap="RoleResult" parameterType="java.lang.Integer" >
     select * from role_info
@@ -62,22 +62,15 @@
     where role_id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insertRoleInfo" parameterType="com.game.mybatis.model.Role_Info" >
-    <!-- insert into role_info (user_id, order_id, type, level, hp, attack, speed, pos_x, pos_y,
+    insert into role_info (user_id, order_id, type, level, hp, attack, speed, pos_x, pos_y,
     veloc_x, veloc_y, last_update_pos_time, attack_target, cast_skill_id, cast_skill_target,
     last_update_attack_time, skill1_id, skill2_id, skill3_id, skill4_id)
     values (#{user.user_id}, #{order_id}, #{type}, #{level}, #{hp}, #{attack}, #{speed},
     #{posX}, #{posY}, #{velocX}, #{velocY}, #{lastUpdatePos_Time}, #{attact_target.user_id},
-    #{castSkill.skill_id}, #{castSkillTarget.user_id}, #{lastUpdateAttackTime}, #{skill1.skill_id},
-    #{skill2.skill_id}, #{skill3.skill_id}, #{skill4.skill_id}) -->
-    insert into role_info (user_id, order_id, type, level, hp, attack, speed, pos_x, pos_y,
-    veloc_x, veloc_y, last_update_pos_time, last_update_attack_time, attack_target,
-    cast_skill_id)
-    values (#{user.user_id}, #{order_id}, #{type}, #{level}, #{hp}, #{attack}, #{speed},
-    #{posX}, #{posY}, #{velocX}, #{velocY}, #{lastUpdatePos_Time}, #{lastUpdateAttackTime},
-    #{attact_target.user_id}, #{castSkill.skill_id}
-    )
+    #{castSkill.skillId}, #{castSkillTarget.user_id}, #{lastUpdateAttackTime}, #{skill1.skillId},
+    #{skill2.skillId}, #{skill3.skillId}, #{skill4.skillId})
   </insert>
-  <update id="updateById" parameterType="com.game.mybatis.model.Role_Info" >
+  <update id="updateRoleInfo" parameterType="com.game.mybatis.model.Role_Info" >
     update role_info
     <set >
       <if test="user != null" >
@@ -120,7 +113,7 @@
         attack_target = #{attact_target.user_id,jdbcType=INTEGER},
       </if>
       <if test="castSkill != null" >
-        cast_skill_id = #{castSkill.skill_id,jdbcType=INTEGER},
+        cast_skill_id = #{castSkill.skillId,jdbcType=INTEGER},
       </if>
       <if test="castSkillTarget != null" >
         cast_skill_target = #{castSkillTarget.user_id,jdbcType=INTEGER},
@@ -129,16 +122,16 @@
         last_update_attack_time = #{lastUpdateAttackTime,jdbcType=INTEGER},
       </if>
       <if test="skill1 != null" >
-        skill1_id = #{skill1.skill_id,jdbcType=INTEGER},
+        skill1_id = #{skill1.skillId,jdbcType=INTEGER},
       </if>
       <if test="skill2 != null" >
-        skill2_id = #{skill2.skill_id,jdbcType=INTEGER},
+        skill2_id = #{skill2.skillId,jdbcType=INTEGER},
       </if>
       <if test="skill3 != null" >
-        skill3_id = #{skill3.skill_id,jdbcType=INTEGER},
+        skill3_id = #{skill3.skillId,jdbcType=INTEGER},
       </if>
       <if test="skill4 != null" >
-        skill4_id = #{skill4.skill_id,jdbcType=INTEGER},
+        skill4_id = #{skill4.skillId,jdbcType=INTEGER},
       </if>
     </set>
     where role_id = #{roleId,jdbcType=INTEGER}

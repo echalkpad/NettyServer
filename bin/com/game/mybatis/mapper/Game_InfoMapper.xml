@@ -8,22 +8,20 @@
     <result column="game_type" property="gameType" jdbcType="INTEGER" />
     <result column="isUsed" property="isUsed" jdbcType="INTEGER" />
     <association property="playMap" column="play_map_id" javaType="Map_Info"
-    		resultMap="MapInfoResult">
+    		select="selectMap">
     </association>
     <association property="currentDialog" column="current_dialog_id" javaType="Dialog_Info"
-    		resultMap="DialogInfoResult">
+    		select="selectDialog">
     </association>
     <association property="battle_Info" column="battle_info_id" javaType="Battle_Info"
-    		resultMap="BattleInfoResult">
+    		select="selectBattle">
     </association>
     <association property="creator" column="creator_id" javaType="User"
-    		resultMap="CreatorResult">
+    		select="selectCreator">
     </association>
-    <collection property="dialogsList" ofType="Dialog_Info" 
-    	resultMap="DialogsListResult">
+    <collection property="dialogsList" ofType="Dialog_Info" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
     </collection>
-    <collection property="usersList" ofType="User" 
-    	resultMap="UserListResult">
+    <collection property="usersList" ofType="User" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
     </collection>
   </resultMap>
   
@@ -31,67 +29,57 @@
   <resultMap id="MapInfoResult" type="com.game.mybatis.model.Map_Info">
   	<id column="map_id" property="mapId"></id>
   </resultMap>
-  <resultMap id="UserListResult" type="com.game.mybatis.model.User">
+  <resultMap id="UserResult" type="com.game.mybatis.model.User">
   	<id column="user_id" property="user_id"></id>
-  	<result column="username" property="username"></result>
   </resultMap>
   <resultMap id="DialogInfoResult" type="com.game.mybatis.model.Dialog_Info">
   	<id column="dialog_id" property="dialog_id"></id>
   </resultMap>
-  <resultMap id="DialogsListResult" type="com.game.mybatis.model.Dialog_Info">
-  	<id column="dialog_id" property="dialog_id"></id>
-  </resultMap>
   <resultMap id="BattleInfoResult" type="com.game.mybatis.model.Battle_Info">
-  	<id column="dialog_id" property="dialog_id"></id>
+  	<id column="battle_id" property="battle_id"></id>
   </resultMap>
-  <resultMap id="CreatorResult" type="com.game.mybatis.model.User">
-  	<id column="user_id" property="user_id"></id>
-  </resultMap>
-  <select id="selectByPrimaryKey" resultMap="GameInfoResult" parameterType="java.lang.Integer" >
-    select t.*, u.* from game_info t , user u where t.game_id = #{id,jdbcType=INTEGER} and t.game_id = u.game_info_id
+  
+  <select id="selectMap" resultMap="MapInfoResult">
+  	select * from map_info where map_id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="selectCreator" resultMap="UserResult">
+  	select * from user where user_id = #{id}
+  </select>
+  <select id="selectUsersList" resultMap="UserResult">
+  	select * from user where game_info_id = #{id}
+  </select>
+  <select id="selectDialog" resultMap="DialogInfoResult">
+  	select * from dialog_info where dialog_id = #{id}
+  </select>
+  <select id="selectDialogList" resultMap="DialogInfoResult">
+  	select * from dialog_info where type = 0 and group_id = #{id}
+  </select>
+  <select id="selectBattle" resultMap="BattleInfoResult">
+  	select * from battle_info where battle_id = #{id}
+  </select>
+  
+  <sql id="DialogResultList" >
+    d.dialog_id, d.user_id, d.type, d.group_id, d.context
+  </sql>
+  <sql id="UserResultList">
+  	u.user_id, u.username, u.create_time, u.login_time, u.logout_time, u.country, u.province, u.location,
+  	u.state, u.ipAddress
+  </sql>
+  <select id="selectById" resultMap="GameInfoResult" parameterType="java.lang.Integer" >
+    select g.*, <include refid="UserResultList" />, <include refid="DialogResultList" /> from game_info g, user u, dialog_info d
+    where g.game_id = u.game_info_id and d.type = 0 and d.group_id = g.game_id and g.game_id = #{id}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from game_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.game.mybatis.model.Game_Info" >
-    insert into game_info (id, UserCount, game_type, 
-      play_map_id)
-    values (#{id,jdbcType=INTEGER}, #{usercount,jdbcType=INTEGER}, #{gameType,jdbcType=INTEGER}, 
-      #{playMapId,jdbcType=INTEGER})
+  <insert id="insertGameInfo" parameterType="com.game.mybatis.model.Game_Info" >
+    insert into game_info (game_id, game_name, UserCount, game_type, play_map_id,
+    	isUsed, creator_id, battle_info_id, current_dialog_id)
+    values (#{gameId}, #{gameName}, #{usercount}, #{gameType}, #{playMap.mapId},
+    	#{isUsed}, #{creator.user_id}, #{battle_Info.battle_id}, #{currentDialog.dialog_id})
   </insert>
-  <insert id="insertSelective" parameterType="com.game.mybatis.model.Game_Info" >
-    insert into game_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="usercount != null" >
-        UserCount,
-      </if>
-      <if test="gameType != null" >
-        game_type,
-      </if>
-      <if test="playMapId != null" >
-        play_map_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="usercount != null" >
-        #{usercount,jdbcType=INTEGER},
-      </if>
-      <if test="gameType != null" >
-        #{gameType,jdbcType=INTEGER},
-      </if>
-      <if test="playMapId != null" >
-        #{playMapId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.game.mybatis.model.Game_Info" >
+  <update id="updateGameInfo" parameterType="com.game.mybatis.model.Game_Info" >
     update game_info
     <set >
       <if test="usercount != null" >
@@ -104,13 +92,6 @@
         play_map_id = #{playMapId,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.game.mybatis.model.Game_Info" >
-    update game_info
-    set UserCount = #{usercount,jdbcType=INTEGER},
-      game_type = #{gameType,jdbcType=INTEGER},
-      play_map_id = #{playMapId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
