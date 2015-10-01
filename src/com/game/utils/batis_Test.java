@@ -10,13 +10,15 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.game.mybatis.dao.Battle_InfoMapper;
 import com.game.mybatis.dao.Dialog_InfoMapper;
-import com.game.mybatis.dao.Game_InfoMapper;
+import com.game.mybatis.dao.Room_InfoMapper;
 import com.game.mybatis.dao.Map_InfoMapper;
+import com.game.mybatis.dao.Role_InfoMapper;
 import com.game.mybatis.dao.UserMapper;
 import com.game.mybatis.model.Battle_Info;
 import com.game.mybatis.model.Dialog_Info;
-import com.game.mybatis.model.Game_Info;
+import com.game.mybatis.model.Room_Info;
 import com.game.mybatis.model.Map_Info;
+import com.game.mybatis.model.Role_Info;
 import com.game.mybatis.model.User;
 
 public class batis_Test {
@@ -54,7 +56,7 @@ public class batis_Test {
 ////        	List<User> userList = game.getUsersList();
 //        	System.out.println( role.getDialog_id() );
         	
-        	selectBattle(session);
+        	testInsertUser(session);
         } finally {
         	session.close();
         }
@@ -88,9 +90,12 @@ public class batis_Test {
     	Map_Info map = battle.getPlayMap();
     	List<Dialog_Info> dialogList = battle.getDialogList();
     	List<User> userList = battle.getUserList();
-    	System.out.println(dialogList.size() +  " " + userList.size() + userList.get(0).getUsername());
-    	System.out.println(map.getMapName());
-    	System.out.println(dialog.getContext());
+    	for(int i=0; i<dialogList.size(); i++){
+    		System.out.println("dialog:          " + dialogList.get(i).getContext());
+    	}
+    	for(int i=0; i<userList.size(); i++){
+    		System.out.println("user:          " + userList.get(i).getUsername());
+    	}
     	session.commit();
 	}
 	
@@ -118,8 +123,8 @@ public class batis_Test {
 		Battle_Info battle = b_mapper.selectById(4);
 		System.out.println(battle.getBattle_name());
 		user.setBattle_Info(battle);
-		Game_InfoMapper g_mapper = session.getMapper(Game_InfoMapper.class);
-		Game_Info game = g_mapper.selectById(6);
+		Room_InfoMapper g_mapper = session.getMapper(Room_InfoMapper.class);
+		Room_Info game = g_mapper.selectById(6);
 		user.setGame_Info(game);
 		mapper.updateUser(user);
 		session.commit();
@@ -136,12 +141,34 @@ public class batis_Test {
 	}
 	
 	public static void updateGameInfo(SqlSession session){
-		Game_InfoMapper g_mapper = session.getMapper(Game_InfoMapper.class);
-		Game_Info game = g_mapper.selectById(3);
+		Room_InfoMapper g_mapper = session.getMapper(Room_InfoMapper.class);
+		Room_Info game = g_mapper.selectById(4);
 		List<Dialog_Info> dialogList = game.getDialogsList();
 		List<User> userList = game.getUsersList();
 		for(int i=0; i<userList.size(); i++){
 			System.out.println(userList.get(i).getUsername());
 		}
+	}
+	
+	public static void updateRoleInfo(SqlSession session){
+		Role_InfoMapper mapper = session.getMapper(Role_InfoMapper.class);
+		Role_Info role = mapper.selectById(2);
+		System.out.println(role.getUser().getUsername());
+		System.out.println(role.getAttact_target().getUsername());
+		System.out.println(role.getCastSkillTarget().getUsername());
+		System.out.println(role.getSkill1().getSkillName());
+		System.out.println(role.getSkill2().getSkillName());
+		System.out.println(role.getSkill3().getSkillName());
+		System.out.println(role.getSkill4().getSkillName());
+		System.out.println(role.getCastSkill().getSkillName());
+	}
+	
+	public static void testInsertUser(SqlSession session){
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		User user = new User();
+		user.setUsername("sssss");
+		int id = mapper.createUser(user);
+		session.commit();
+		System.out.println(user.getUser_id());
 	}
 }

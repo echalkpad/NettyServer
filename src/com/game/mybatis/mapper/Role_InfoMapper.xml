@@ -15,44 +15,31 @@
     <result column="veloc_y" property="velocY" jdbcType="INTEGER" />
     <result column="last_update_pos_time" property="lastUpdatePos_Time" jdbcType="TIMESTAMP" />
     <result column="last_update_attack_time" property="lastUpdateAttackTime" jdbcType="TIMESTAMP" />
-    <association property="user" column="user_id" javaType="User" select="selectUser"></association>
-    <association property="attact_target" column="attack_target" javaType="User" select="selectUser">
+    <association property="user" column="user_id" javaType="User" 
+        select="com.game.mybatis.dao.UserMapper.selectById"></association>
+    <association property="attact_target" column="attack_target" javaType="User" 
+        select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
     <association property="castSkillTarget" column="cast_skill_target" javaType="User" 
-    		select="selectUser">
+    		select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
     <association property="castSkill" column="cast_skill_id" javaType="Skill_Info"
-    		select="selectSkill">
+    		select="com.game.mybatis.dao.Skill_InfoMapper.selectById">
     </association>
     <association property="skill1" column="skill1_id" javaType="Skill_Info"
-    		select="selectSkill">
+    		select="com.game.mybatis.dao.Skill_InfoMapper.selectById">
     </association>
     <association property="skill2" column="skill2_id" javaType="Skill_Info"
-    		select="selectSkill">
+    		select="com.game.mybatis.dao.Skill_InfoMapper.selectById">
     </association>
     <association property="skill3" column="skill3_id" javaType="Skill_Info"
-    		select="selectSkill">
+    		select="com.game.mybatis.dao.Skill_InfoMapper.selectById">
     </association>
     <association property="skill4" column="skill4_id" javaType="Skill_Info"
-    		select="selectSkill">
+    		select="com.game.mybatis.dao.Skill_InfoMapper.selectById">
     </association>
   </resultMap>
   
-  
-  <resultMap id="UserResult" type="com.game.mybatis.model.User">
-  	<id column="user_id" property="user_id"></id>
-  </resultMap>
-  <resultMap id="SkillInfoResult" type="com.game.mybatis.model.Skill_Info">
-  	<id column="skill_id" property="skillId" jdbcType="INTEGER" />
-  </resultMap>
-  
-  <select id="selectUser" resultMap="UserResult">
-  	select * from user where user_id = #{id}
-  </select>
-  <select id="selectSkill" resultMap="SkillInfoResult">
-  	select * from skill_info
-    where skill_id = #{id}
-  </select>
   <select id="selectById" resultMap="RoleResult" parameterType="java.lang.Integer" >
     select * from role_info
     where role_id = #{id,jdbcType=INTEGER}

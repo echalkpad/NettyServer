@@ -2,10 +2,10 @@ package com.game.mybatis.model;
 
 import java.util.List;
 
-public class Game_Info {
-    private Integer gameId;
+public class Room_Info {
+    private Integer roomId;
 
-    private String gameName;
+    private String roomName;
     
     private Integer usercount;
     
@@ -25,12 +25,12 @@ public class Game_Info {
     
     private User creator;
     
-    public Integer getGameId() {
-		return gameId;
+    public Integer getRoomId() {
+		return roomId;
 	}
 
-	public String getGameName() {
-		return gameName;
+	public String getRoomName() {
+		return roomName;
 	}
 
 	public Map_Info getPlayMap() {
@@ -57,12 +57,12 @@ public class Game_Info {
 		return creator;
 	}
 
-	public void setGameId(Integer gameId) {
-		this.gameId = gameId;
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
 	}
 
-	public void setGameName(String gameName) {
-		this.gameName = gameName;
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
 
 	public void setPlayMap(Map_Info playMap) {

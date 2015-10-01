@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Game_InfoMapper" >
+  <resultMap id="RoomInfoResult" type="com.game.mybatis.model.Room_Info" >
+    <id column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="room_name" property="roomName" jdbcType="VARCHAR" />
+    <result column="UserCount" property="usercount" jdbcType="INTEGER" />
+    <result column="game_type" property="gameType" jdbcType="INTEGER" />
+    <result column="isUsed" property="isUsed" jdbcType="INTEGER" />
+    <association property="playMap" column="play_map_id" javaType="Map_Info"
+    		select="com.game.mybatis.dao.Map_InfoMapper.selectById">
+    </association>
+    <association property="currentDialog" column="current_dialog_id" javaType="Dialog_Info"
+    		select="com.game.mybatis.dao.Dialog_InfoMapper.selectById">
+    </association>
+    <association property="battle_Info" column="battle_info_id" javaType="Battle_Info"
+    		select="com.game.mybatis.dao.Battle_InfoMapper.selectById">
+    </association>
+    <association property="creator" column="creator_id" javaType="User"
+    		select="com.game.mybatis.dao.UserMapper.selectById">
+    </association>
+    <collection property="dialogsList" ofType="Dialog_Info" column="game_id"
+        select="selectDialogList">
+    </collection>
+    <collection property="usersList" ofType="User" column="game_id"
+        select="selectUserList">
+    </collection>
+  </resultMap>
+  
+  <select id="selectDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+      select * from dialog_info where type = 0 and group_id = #{id}
+  </select>
+  <select id="selectUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+      select * from user where game_info_id = #{id}
+  </select>
+  
+  <select id="selectById" resultMap="RoomInfoResult" parameterType="java.lang.Integer" >
+    select *  from room_info where room_id = #{id}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from room_info
+    where room_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertRoomInfo" parameterType="com.game.mybatis.model.Game_Info" >
+    insert into room_info (room_id, room_name, UserCount, game_type, play_map_id,
+    	isUsed, creator_id, battle_info_id, current_dialog_id)
+    values (#{roomId}, #{roomName}, #{usercount}, #{gameType}, #{playMap.mapId},
+    	#{isUsed}, #{creator.user_id}, #{battle_Info.battle_id}, #{currentDialog.dialog_id})
+  </insert>
+  <update id="updateRoomInfo" parameterType="com.game.mybatis.model.Game_Info" >
+    update room_info
+    <set >
+      <if test="usercount != null" >
+        UserCount = #{usercount,jdbcType=INTEGER},
+      </if>
+      <if test="gameType != null" >
+        game_type = #{gameType,jdbcType=INTEGER},
+      </if>
+      <if test="playMapId != null" >
+        play_map_id = #{playMapId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where room_id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

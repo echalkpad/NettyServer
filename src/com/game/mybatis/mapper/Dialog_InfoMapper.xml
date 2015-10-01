@@ -6,12 +6,13 @@
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="group_id" property="groupId" jdbcType="INTEGER" />
     <result column="context" property="context" jdbcType="VARCHAR" />
-    <association property="user" column="user_id" javaType="User" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+    <association property="user" column="user_id" javaType="User" 
+        select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
   </resultMap>
   
   <select id="selectById" resultMap="DialogInfoResultMap" parameterType="java.lang.Integer" >
-    select d.*,u.* from dialog_info d, user u where d.user_id = u.user_id and d.dialog_id = #{id,jdbcType=INTEGER}
+    select * from dialog_info where dialog_id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from dialog_info where dialog_id = #{id,jdbcType=INTEGER}

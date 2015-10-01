@@ -7,31 +7,33 @@
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="UserCount" property="userCount" jdbcType="INTEGER" />
     <association property="playMap" column="play_Map_id" javaType="Map_Info"
-    		resultMap="com.game.mybatis.dao.Map_InfoMapper.MapResult">
+    		select="com.game.mybatis.dao.Map_InfoMapper.selectById">
     </association>
     <association property="current_dialog_Info" column="current_dialog_Info_id" javaType="Dialog_Info"
-    		resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+    		select="com.game.mybatis.dao.Dialog_InfoMapper.selectById">
     </association>
-    <collection property="userList" ofType="User" 
-    	resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+    <collection property="userList" ofType="User"  column="battle_id"
+    	select="selectUserList">
     </collection>
-    <collection property="dialogList" ofType="Dialog_Info" 
-    	resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+    <collection property="dialogList" ofType="Dialog_Info" column="battle_id"
+    	select="selectDialogList">
     </collection>
   </resultMap>
   
+  <select id="selectDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+      select * from dialog_info where type = 1 and group_id = #{id}
+  </select>
+  <select id="selectUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+      select * from user where battle_info_id = #{id}
+  </select>
   <select id="selectById" resultMap="BattleResultMap" parameterType="java.lang.Integer" >
-    select b.*,m.*,d.*, u_l.*, d_l.* 
-    from battle_info b left join map_info m on m.map_id = b.play_map_id
-    left join dialog_info d on d.dialog_id = b.current_dialog_Info_id
-    left join dialog_info d_l on d_l.type = 1 and d_l.group_id = b.battle_id
-    left join user u_l on u_l.battle_info_id = b.battle_id
-    where b.battle_id = #{id}
+   select * from battle_info where battle_id = #{id}
   </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from battle_info
     where battle_id = #{id,jdbcType=INTEGER}
   </delete>
+  
   <insert id="insertBattleInfo" parameterType="com.game.mybatis.model.Battle_Info" >
     insert into battle_info (battle_id, battle_name, type, UserCount, play_map_id, current_dialog_Info_id)
     values (#{battle_id}, #{battle_name}, #{type}, #{userCount}, #{playMap.mapId}, #{current_dialog_Info.dialog_id})
@@ -54,7 +56,6 @@
       <if test="current_dialog_Info != null" >
         current_dialog_Info_id = #{current_dialog_Info.dialog_id},
       </if>
-      
     </set>
     where battle_id = #{battle_id}
   </update>

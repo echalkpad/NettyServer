@@ -21,7 +21,7 @@ public class User {
 
     private Integer state;
 
-    private Game_Info game_Info;
+    private Room_Info game_Info;
 
     private Battle_Info battle_Info;
 
@@ -111,7 +111,7 @@ public class User {
 		this.state = state;
 	}
 
-	public Game_Info getGame_Info() {
+	public Room_Info getGame_Info() {
 		return game_Info;
 	}
 
@@ -123,7 +123,7 @@ public class User {
 		return role_Info;
 	}
 
-	public void setGame_Info(Game_Info game_Info) {
+	public void setGame_Info(Room_Info game_Info) {
 		this.game_Info = game_Info;
 	}
 
