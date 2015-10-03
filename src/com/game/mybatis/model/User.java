@@ -31,6 +31,11 @@ public class User {
     
     private Date lastConnectTime;
     
+    
+    public void updateLastConnectTime(){
+    	lastConnectTime = new Date(System.currentTimeMillis());
+    }
+    
     public User(){
     	
     }

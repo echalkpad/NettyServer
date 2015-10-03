@@ -32,7 +32,7 @@ public class GameProtobufHandler extends ChannelInboundHandlerAdapter{
 		}
 		UserEvent event = new UserEvent();
 		event.setChannel(ctx.channel());
-		ctx.writeAndFlush(event.dealWithProtoBuf(req));
+		ctx.writeAndFlush(event.dealWithProtoBuf(req)); 
 	}   
 	
 	//这个触发的条件是发送数据或接受数据的时候发生异常

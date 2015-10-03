@@ -3,6 +3,7 @@ package com.game.mybatis.session;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.game.mybatis.model.Battle_Info;
 import com.game.mybatis.model.Dialog_Info;
 import com.game.mybatis.model.Room_Info;
 import com.game.mybatis.model.User;
@@ -45,18 +46,23 @@ public class UserEvent {
 			getRoomInfo(builder);
 			break;
 		case CMD.USER_LEAVE_WAITROOM:
+			UserLeaveWaitRoom(builder);
 			break;
 		case CMD.CREATOR_LEAVE_WAITROOM:
+			creatorLeaveRoom(builder);
 			break;
-		case CMD.CREATOR£ßSTART_GAME:
+		case CMD.CREATOR_START_GAME:
+			creatorStartGame(builder);
 			break;
 		case CMD.WAITROOM_SPEEK:
+			userWaitRoomSpeek(builder);
 			break;
 		case CMD.EXCLUDE_USER:
+			creatorExcludeUser(builder);
 			break;
 		}
 		resp = builder.build();
-		MySqlAltern.updateUserTableConnectTime(req.getUserId());
+		MySqlAltern.updateUserLastConnectTime(req.getUserId());
 		return resp;
 	}
 	
@@ -81,7 +87,7 @@ public class UserEvent {
 	}
 	
 	public void UserLogin(ProtobufResponse.protobufResponse.Builder builder){
-		boolean result = MySqlAltern.userLogin(req.getUserId(), req.getMainUIRequestInfo().getLoginInfo().getLocation());
+		boolean result = MySqlAltern.userLogin(req.getUserId(), req.getMainUIRequestInfo().getLoginInfo().getLocation(), channel.remoteAddress().toString());
 		builder.setCmd(CMD.USER_LOGIN);
 		builder.setUserId(req.getUserId());
 		builder.setResult(result);
@@ -173,18 +179,74 @@ public class UserEvent {
 		builder.setWaitRoomResponseInfo(wrr);
 	}
 	
+	public void UserLeaveWaitRoom(ProtobufResponse.protobufResponse.Builder builder){
+		builder.setCmd(CMD.USER_LEAVE_WAITROOM);
+		builder.setUserId(req.getUserId());
+		builder.setResult(true);
+		User user = MySqlAltern.getUser(req.getUserId());
+		Room_Info room = user.getRoom_Info();
+		user.setRole_Info(null);
+		room.setUsercount(room.getUsercount()-1);
+		MySqlAltern.updateRoomInfo(room);
+		MySqlAltern.updateUser(user);
+	}
+	
 	public void creatorLeaveRoom(ProtobufResponse.protobufResponse.Builder builder){
 		builder.setCmd(CMD.CREATOR_LEAVE_WAITROOM);
 		builder.setUserId(req.getUserId());
 		builder.setResult(true);
 		Room_Info room = MySqlAltern.getRoom(req.getWaitRoomRequestInfo().getCreateLeaveGameInfo().getRoomId());
 		room.setIsUsed(false);
+		room.setUsercount(0);
 		MySqlAltern.updateRoomInfo(room);
 		List<User> list = room.getUsersList();
 		for(int i=0; i<list.size(); i++){
 			User user = list.get(i);
 			user.setRoom_Info(null);
 			MySqlAltern.updateUser(user);
+		} 
+	}
+	
+	public void creatorStartGame(ProtobufResponse.protobufResponse.Builder builder){
+		builder.setCmd(CMD.CREATOR_START_GAME);
+		builder.setUserId(req.getUserId());
+		int room_id = req.getWaitRoomRequestInfo().getCreatorStartGameInfo().getRoomId();
+		Room_Info room = MySqlAltern.getRoom(room_id);
+		Battle_Info battle = MySqlAltern.createBattle(room, req.getWaitRoomRequestInfo().getCreatorStartGameInfo().getGameName());
+		if(battle != null){
+			builder.setResult(true);
+		}else{
+			builder.setResult(false);
 		}
+	}
+	
+	public void userWaitRoomSpeek(ProtobufResponse.protobufResponse.Builder builder){
+		builder.setCmd(CMD.WAITROOM_SPEEK);
+		builder.setUserId(req.getUserId());
+		Dialog_Info dialog = new Dialog_Info();
+		User user = MySqlAltern.getUser(req.getUserId());
+		dialog.setUser(user);
+		dialog.setType(UserDefine.ROOM_DIALOG_TYPE);
+		dialog.setGroupId(user.getRoom_Info().getRoomId());
+		dialog.setContext(req.getWaitRoomRequestInfo().getUserWaitRoomSpeekInfo().getContext());
+		dialog.setTarget_id(req.getWaitRoomRequestInfo().getUserWaitRoomSpeekInfo().getTarget());
+		if(MySqlAltern.createDialog(dialog) != null){
+			builder.setResult(true);
+		}else{
+			builder.setResult(false);
+		}
+	}
+	
+	public void creatorExcludeUser(ProtobufResponse.protobufResponse.Builder builder){
+		builder.setCmd(CMD.EXCLUDE_USER);
+		builder.setUserId(req.getUserId());
+		int user_id = req.getWaitRoomRequestInfo().getExcludeUserInfo().getUser().getUserId();
+		String username = req.getWaitRoomRequestInfo().getExcludeUserInfo().getUser().getUserName();
+		User creator = MySqlAltern.getUser(req.getUserId());
+		Room_Info room = creator.getRoom_Info();
+		
+		ProtobufResponse.waitRoomResponse.Builder wrr = ProtobufResponse.waitRoomResponse.newBuilder();
+		wrr.setExcludeUserInfo(ProtobufResponseGenerator.getExcludeUserResponse(room, user_id));
+		builder.setWaitRoomResponseInfo(wrr);
 	}
 }

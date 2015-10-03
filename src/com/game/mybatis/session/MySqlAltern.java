@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.game.mybatis.dao.Battle_InfoMapper;
+import com.game.mybatis.dao.Dialog_InfoMapper;
 import com.game.mybatis.dao.Map_InfoMapper;
 import com.game.mybatis.dao.Room_InfoMapper;
 import com.game.mybatis.dao.UserMapper;
+import com.game.mybatis.model.Battle_Info;
+import com.game.mybatis.model.Dialog_Info;
 import com.game.mybatis.model.Map_Info;
 import com.game.mybatis.model.Room_Info;
 import com.game.mybatis.model.User;
@@ -39,7 +43,7 @@ public class MySqlAltern {
 		return false;
 	}
 	
-	public static boolean userLogin(int user_id, String location){
+	public static boolean userLogin(int user_id, String location, String ipAddress){
 		SqlSession session = SessionManager.getSession().openSession();
 		try{
 			UserMapper mapper = session.getMapper(UserMapper.class);
@@ -47,6 +51,7 @@ public class MySqlAltern {
 			user.setLocation(location);
 			user.setLoginTime(new Date(System.currentTimeMillis()));
 			user.setState(UserState.LOGIN);
+			user.setIpAddress(ipAddress);
 			mapper.updateUser(user);
 			session.commit();
 			return true;
@@ -61,6 +66,7 @@ public class MySqlAltern {
 		UserMapper mapper = session.getMapper(UserMapper.class);
 		User user = mapper.selectById(user_id);
 		user.setState(UserState.IDLE);
+		
 		mapper.updateUser(user);
 		session.commit();
 		return true;
@@ -86,16 +92,6 @@ public class MySqlAltern {
 		r_mapper.insertRoomInfo(room);
 		session.commit();
 		return room;
-	}
-	
-	public static boolean updateUserTableConnectTime(int user_id){
-		SqlSession session = SessionManager.getSession().openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = mapper.selectById(user_id);
-		user.setLastConnectTime(new Date(System.currentTimeMillis()));
-		mapper.updateUser(user);
-		session.commit();
-		return true;
 	}
 	
 	public static boolean mainJoinGame(int room_id, int user_id){
@@ -150,6 +146,21 @@ public class MySqlAltern {
 		
 	}
 	
+	public static boolean updateUserLastConnectTime(int user_id){
+		SqlSession session = SessionManager.getSession().openSession();
+		try{
+			UserMapper u_mapper = session.getMapper(UserMapper.class);
+			User user = u_mapper.selectById(user_id);
+			user.setLastConnectTime(new Date(System.currentTimeMillis()));
+			u_mapper.updateUser(user);
+			session.commit();
+			return true;
+		}catch(Exception e){
+			session.rollback();
+			return false;
+		}
+	}
+	
 	public static boolean updateRoomInfo(Room_Info room){
 		SqlSession session = SessionManager.getSession().openSession();
 		try{
@@ -161,6 +172,47 @@ public class MySqlAltern {
 			e.printStackTrace();
 			session.rollback();
 			return false;
+		}
+	}
+	
+	public static Battle_Info createBattle(Room_Info room, String battle_name){
+		SqlSession session = SessionManager.getSession().openSession();
+		Battle_InfoMapper b_mapper = session.getMapper(Battle_InfoMapper.class);
+		UserMapper u_mapper = session.getMapper(UserMapper.class);
+		Battle_Info battle = new Battle_Info();
+		try{
+			battle.setBattle_name(battle_name);
+			battle.setType(room.getGameType());
+			battle.setUserCount(room.getUsercount());
+			battle.setPlayMap(room.getPlayMap());
+			b_mapper.updateBattleInfo(battle);
+			List<User> list_u = room.getUsersList();
+			for(int i=0; i<list_u.size(); i++){
+				User user = list_u.get(i);
+				user.setBattle_Info(battle);
+				u_mapper.updateUser(user);
+			}
+			session.commit();
+			return battle;
+		}catch(Exception e){
+			e.printStackTrace();
+			session.rollback();
+			return null;
+		}
+	}
+	
+	public static Dialog_Info createDialog(Dialog_Info dialog){
+		SqlSession session = SessionManager.getSession().openSession();
+		try{
+			Dialog_InfoMapper d_mapper = session.getMapper(Dialog_InfoMapper.class);
+			dialog.setCreateTime(new Date(System.currentTimeMillis()));
+			d_mapper.insertDialog(dialog);
+			session.commit();
+			return dialog;
+		}catch(Exception e){
+			e.printStackTrace();
+			session.rollback();
+			return null;
 		}
 	}
 }

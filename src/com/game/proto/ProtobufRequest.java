@@ -3015,17 +3015,17 @@ public final class ProtobufRequest {
     com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder getCreatorStartGameInfoOrBuilder();
 
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    boolean hasUserWaitRoomInfo();
+    boolean hasUserWaitRoomSpeekInfo();
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomInfo();
+    com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo();
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomInfoOrBuilder();
+    com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
@@ -3134,12 +3134,12 @@ public final class ProtobufRequest {
             case 34: {
               com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                subBuilder = userWaitRoomInfo_.toBuilder();
+                subBuilder = userWaitRoomSpeekInfo_.toBuilder();
               }
-              userWaitRoomInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userWaitRoomSpeek.PARSER, extensionRegistry);
+              userWaitRoomSpeekInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userWaitRoomSpeek.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(userWaitRoomInfo_);
-                userWaitRoomInfo_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(userWaitRoomSpeekInfo_);
+                userWaitRoomSpeekInfo_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000008;
               break;
@@ -3260,25 +3260,25 @@ public final class ProtobufRequest {
       return creatorStartGameInfo_;
     }
 
-    public static final int USERWAITROOM_INFO_FIELD_NUMBER = 4;
-    private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomInfo_;
+    public static final int USERWAITROOMSPEEK_INFO_FIELD_NUMBER = 4;
+    private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomSpeekInfo_;
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    public boolean hasUserWaitRoomInfo() {
+    public boolean hasUserWaitRoomSpeekInfo() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomInfo() {
-      return userWaitRoomInfo_;
+    public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo() {
+      return userWaitRoomSpeekInfo_;
     }
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
      */
-    public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomInfoOrBuilder() {
-      return userWaitRoomInfo_;
+    public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
+      return userWaitRoomSpeekInfo_;
     }
 
     public static final int EXCLUDEUSER_INFO_FIELD_NUMBER = 5;
@@ -3306,7 +3306,7 @@ public final class ProtobufRequest {
       getRoomListInfo_ = com.game.proto.ProtobufRequest.getRoomInfoListRequest.getDefaultInstance();
       createLeaveGameInfo_ = com.game.proto.ProtobufRequest.creatorLeaveGameRequest.getDefaultInstance();
       creatorStartGameInfo_ = com.game.proto.ProtobufRequest.creatorStartGameRequest.getDefaultInstance();
-      userWaitRoomInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
       excludeUserInfo_ = com.game.proto.ProtobufRequest.excludeUserRequest.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -3344,7 +3344,7 @@ public final class ProtobufRequest {
         output.writeMessage(3, creatorStartGameInfo_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, userWaitRoomInfo_);
+        output.writeMessage(4, userWaitRoomSpeekInfo_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, excludeUserInfo_);
@@ -3372,7 +3372,7 @@ public final class ProtobufRequest {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, userWaitRoomInfo_);
+          .computeMessageSize(4, userWaitRoomSpeekInfo_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3490,7 +3490,7 @@ public final class ProtobufRequest {
           getGetRoomListInfoFieldBuilder();
           getCreateLeaveGameInfoFieldBuilder();
           getCreatorStartGameInfoFieldBuilder();
-          getUserWaitRoomInfoFieldBuilder();
+          getUserWaitRoomSpeekInfoFieldBuilder();
           getExcludeUserInfoFieldBuilder();
         }
       }
@@ -3518,10 +3518,10 @@ public final class ProtobufRequest {
           creatorStartGameInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
-        if (userWaitRoomInfoBuilder_ == null) {
-          userWaitRoomInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
         } else {
-          userWaitRoomInfoBuilder_.clear();
+          userWaitRoomSpeekInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         if (excludeUserInfoBuilder_ == null) {
@@ -3585,10 +3585,10 @@ public final class ProtobufRequest {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        if (userWaitRoomInfoBuilder_ == null) {
-          result.userWaitRoomInfo_ = userWaitRoomInfo_;
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          result.userWaitRoomSpeekInfo_ = userWaitRoomSpeekInfo_;
         } else {
-          result.userWaitRoomInfo_ = userWaitRoomInfoBuilder_.build();
+          result.userWaitRoomSpeekInfo_ = userWaitRoomSpeekInfoBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
@@ -3623,8 +3623,8 @@ public final class ProtobufRequest {
         if (other.hasCreatorStartGameInfo()) {
           mergeCreatorStartGameInfo(other.getCreatorStartGameInfo());
         }
-        if (other.hasUserWaitRoomInfo()) {
-          mergeUserWaitRoomInfo(other.getUserWaitRoomInfo());
+        if (other.hasUserWaitRoomSpeekInfo()) {
+          mergeUserWaitRoomSpeekInfo(other.getUserWaitRoomSpeekInfo());
         }
         if (other.hasExcludeUserInfo()) {
           mergeExcludeUserInfo(other.getExcludeUserInfo());
@@ -4016,120 +4016,120 @@ public final class ProtobufRequest {
         return creatorStartGameInfoBuilder_;
       }
 
-      private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder> userWaitRoomInfoBuilder_;
+          com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder> userWaitRoomSpeekInfoBuilder_;
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public boolean hasUserWaitRoomInfo() {
+      public boolean hasUserWaitRoomSpeekInfo() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomInfo() {
-        if (userWaitRoomInfoBuilder_ == null) {
-          return userWaitRoomInfo_;
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo() {
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          return userWaitRoomSpeekInfo_;
         } else {
-          return userWaitRoomInfoBuilder_.getMessage();
+          return userWaitRoomSpeekInfoBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public Builder setUserWaitRoomInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
-        if (userWaitRoomInfoBuilder_ == null) {
+      public Builder setUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          userWaitRoomInfo_ = value;
+          userWaitRoomSpeekInfo_ = value;
           onChanged();
         } else {
-          userWaitRoomInfoBuilder_.setMessage(value);
+          userWaitRoomSpeekInfoBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public Builder setUserWaitRoomInfo(
+      public Builder setUserWaitRoomSpeekInfo(
           com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder builderForValue) {
-        if (userWaitRoomInfoBuilder_ == null) {
-          userWaitRoomInfo_ = builderForValue.build();
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          userWaitRoomSpeekInfo_ = builderForValue.build();
           onChanged();
         } else {
-          userWaitRoomInfoBuilder_.setMessage(builderForValue.build());
+          userWaitRoomSpeekInfoBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public Builder mergeUserWaitRoomInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
-        if (userWaitRoomInfoBuilder_ == null) {
+      public Builder mergeUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              userWaitRoomInfo_ != com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance()) {
-            userWaitRoomInfo_ =
-              com.game.proto.ProtobufRequest.userWaitRoomSpeek.newBuilder(userWaitRoomInfo_).mergeFrom(value).buildPartial();
+              userWaitRoomSpeekInfo_ != com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance()) {
+            userWaitRoomSpeekInfo_ =
+              com.game.proto.ProtobufRequest.userWaitRoomSpeek.newBuilder(userWaitRoomSpeekInfo_).mergeFrom(value).buildPartial();
           } else {
-            userWaitRoomInfo_ = value;
+            userWaitRoomSpeekInfo_ = value;
           }
           onChanged();
         } else {
-          userWaitRoomInfoBuilder_.mergeFrom(value);
+          userWaitRoomSpeekInfoBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public Builder clearUserWaitRoomInfo() {
-        if (userWaitRoomInfoBuilder_ == null) {
-          userWaitRoomInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      public Builder clearUserWaitRoomSpeekInfo() {
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
           onChanged();
         } else {
-          userWaitRoomInfoBuilder_.clear();
+          userWaitRoomSpeekInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder getUserWaitRoomInfoBuilder() {
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder getUserWaitRoomSpeekInfoBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
-        return getUserWaitRoomInfoFieldBuilder().getBuilder();
+        return getUserWaitRoomSpeekInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomInfoOrBuilder() {
-        if (userWaitRoomInfoBuilder_ != null) {
-          return userWaitRoomInfoBuilder_.getMessageOrBuilder();
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
+        if (userWaitRoomSpeekInfoBuilder_ != null) {
+          return userWaitRoomSpeekInfoBuilder_.getMessageOrBuilder();
         } else {
-          return userWaitRoomInfo_;
+          return userWaitRoomSpeekInfo_;
         }
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoom_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder> 
-          getUserWaitRoomInfoFieldBuilder() {
-        if (userWaitRoomInfoBuilder_ == null) {
-          userWaitRoomInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          getUserWaitRoomSpeekInfoFieldBuilder() {
+        if (userWaitRoomSpeekInfoBuilder_ == null) {
+          userWaitRoomSpeekInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder>(
-                  getUserWaitRoomInfo(),
+                  getUserWaitRoomSpeekInfo(),
                   getParentForChildren(),
                   isClean());
-          userWaitRoomInfo_ = null;
+          userWaitRoomSpeekInfo_ = null;
         }
-        return userWaitRoomInfoBuilder_;
+        return userWaitRoomSpeekInfoBuilder_;
       }
 
       private com.game.proto.ProtobufRequest.excludeUserRequest excludeUserInfo_ = com.game.proto.ProtobufRequest.excludeUserRequest.getDefaultInstance();
@@ -8976,13 +8976,27 @@ public final class ProtobufRequest {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 game_id = 1;</code>
+     * <code>required int32 room_id = 1;</code>
      */
-    boolean hasGameId();
+    boolean hasRoomId();
     /**
-     * <code>required int32 game_id = 1;</code>
+     * <code>required int32 room_id = 1;</code>
      */
-    int getGameId();
+    int getRoomId();
+
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    boolean hasGameName();
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    java.lang.String getGameName();
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getGameNameBytes();
   }
   /**
    * Protobuf type {@code com.game.proto.creatorStartGameRequest}
@@ -9042,7 +9056,13 @@ public final class ProtobufRequest {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              gameId_ = input.readInt32();
+              roomId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              gameName_ = bs;
               break;
             }
           }
@@ -9085,23 +9105,66 @@ public final class ProtobufRequest {
     }
 
     private int bitField0_;
-    public static final int GAME_ID_FIELD_NUMBER = 1;
-    private int gameId_;
+    public static final int ROOM_ID_FIELD_NUMBER = 1;
+    private int roomId_;
     /**
-     * <code>required int32 game_id = 1;</code>
+     * <code>required int32 room_id = 1;</code>
      */
-    public boolean hasGameId() {
+    public boolean hasRoomId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 game_id = 1;</code>
+     * <code>required int32 room_id = 1;</code>
      */
-    public int getGameId() {
-      return gameId_;
+    public int getRoomId() {
+      return roomId_;
+    }
+
+    public static final int GAME_NAME_FIELD_NUMBER = 2;
+    private java.lang.Object gameName_;
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    public boolean hasGameName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    public java.lang.String getGameName() {
+      java.lang.Object ref = gameName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          gameName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string game_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getGameNameBytes() {
+      java.lang.Object ref = gameName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gameName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private void initFields() {
-      gameId_ = 0;
+      roomId_ = 0;
+      gameName_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9109,7 +9172,11 @@ public final class ProtobufRequest {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasGameId()) {
+      if (!hasRoomId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameName()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -9121,7 +9188,10 @@ public final class ProtobufRequest {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, gameId_);
+        output.writeInt32(1, roomId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getGameNameBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -9134,7 +9204,11 @@ public final class ProtobufRequest {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, gameId_);
+          .computeInt32Size(1, roomId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getGameNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9257,8 +9331,10 @@ public final class ProtobufRequest {
 
       public Builder clear() {
         super.clear();
-        gameId_ = 0;
+        roomId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        gameName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -9290,7 +9366,11 @@ public final class ProtobufRequest {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.gameId_ = gameId_;
+        result.roomId_ = roomId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.gameName_ = gameName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9307,15 +9387,24 @@ public final class ProtobufRequest {
 
       public Builder mergeFrom(com.game.proto.ProtobufRequest.creatorStartGameRequest other) {
         if (other == com.game.proto.ProtobufRequest.creatorStartGameRequest.getDefaultInstance()) return this;
-        if (other.hasGameId()) {
-          setGameId(other.getGameId());
+        if (other.hasRoomId()) {
+          setRoomId(other.getRoomId());
+        }
+        if (other.hasGameName()) {
+          bitField0_ |= 0x00000002;
+          gameName_ = other.gameName_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasGameId()) {
+        if (!hasRoomId()) {
+          
+          return false;
+        }
+        if (!hasGameName()) {
           
           return false;
         }
@@ -9341,34 +9430,110 @@ public final class ProtobufRequest {
       }
       private int bitField0_;
 
-      private int gameId_ ;
+      private int roomId_ ;
       /**
-       * <code>required int32 game_id = 1;</code>
+       * <code>required int32 room_id = 1;</code>
        */
-      public boolean hasGameId() {
+      public boolean hasRoomId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 game_id = 1;</code>
+       * <code>required int32 room_id = 1;</code>
        */
-      public int getGameId() {
-        return gameId_;
+      public int getRoomId() {
+        return roomId_;
       }
       /**
-       * <code>required int32 game_id = 1;</code>
+       * <code>required int32 room_id = 1;</code>
        */
-      public Builder setGameId(int value) {
+      public Builder setRoomId(int value) {
         bitField0_ |= 0x00000001;
-        gameId_ = value;
+        roomId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 game_id = 1;</code>
+       * <code>required int32 room_id = 1;</code>
        */
-      public Builder clearGameId() {
+      public Builder clearRoomId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        gameId_ = 0;
+        roomId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object gameName_ = "";
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public boolean hasGameName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public java.lang.String getGameName() {
+        java.lang.Object ref = gameName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            gameName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGameNameBytes() {
+        java.lang.Object ref = gameName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          gameName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public Builder setGameName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        gameName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public Builder clearGameName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameName_ = getDefaultInstance().getGameName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string game_name = 2;</code>
+       */
+      public Builder setGameNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        gameName_ = value;
         onChanged();
         return this;
       }
@@ -10588,33 +10753,33 @@ public final class ProtobufRequest {
       "equest\022>\n\021mainJoinGame_info\030\004 \001(\0132#.com." +
       "game.proto.mainJoinGameRequest\022@\n\022flushG" +
       "ameList_info\030\005 \001(\0132$.com.game.proto.flus" +
-      "hGameListRequest\"\336\002\n\017waitRoomRequest\022@\n\020" +
+      "hGameListRequest\"\343\002\n\017waitRoomRequest\022@\n\020" +
       "getRoomList_info\030\001 \001(\0132&.com.game.proto." +
       "getRoomInfoListRequest\022E\n\024createLeaveGam" +
       "e_info\030\002 \001(\0132\'.com.game.proto.creatorLea" +
       "veGameRequest\022F\n\025creatorStartGame_info\030\003",
       " \001(\0132\'.com.game.proto.creatorStartGameRe" +
-      "quest\022<\n\021userWaitRoom_info\030\004 \001(\0132!.com.g" +
-      "ame.proto.userWaitRoomSpeek\022<\n\020excludeUs" +
-      "er_info\030\005 \001(\0132\".com.game.proto.excludeUs" +
-      "erRequest\"_\n\026registerMessageRequest\022\020\n\010u" +
-      "sername\030\001 \002(\t\022\017\n\007country\030\002 \001(\t\022\020\n\010provin" +
-      "ce\030\003 \001(\t\022\020\n\010location\030\004 \001(\t\"\'\n\023loginMessa" +
-      "geRequest\022\020\n\010location\030\001 \002(\t\"b\n\021createGam" +
-      "eRequest\022\021\n\tgame_name\030\001 \001(\t\022\022\n\nplayMap_i" +
-      "d\030\002 \001(\005\022\024\n\014playMap_name\030\003 \001(\t\022\020\n\010playTyp",
-      "e\030\004 \001(\005\"9\n\023mainJoinGameRequest\022\017\n\007room_i" +
-      "d\030\001 \001(\005\022\021\n\troom_name\030\002 \001(\t\":\n\024flushGameL" +
-      "istRequest\022\021\n\tlistCount\030\001 \001(\005\022\017\n\007room_id" +
-      "\030\002 \003(\005\"l\n\026getRoomInfoListRequest\022\017\n\007room" +
-      "_id\030\001 \001(\005\022\021\n\tuserCount\030\002 \001(\005\022.\n\010userInfo" +
-      "\030\003 \003(\0132\034.com.game.proto.userBaseInfo\"*\n\027" +
-      "creatorLeaveGameRequest\022\017\n\007room_id\030\001 \002(\005" +
-      "\"*\n\027creatorStartGameRequest\022\017\n\007game_id\030\001" +
-      " \002(\005\"4\n\021userWaitRoomSpeek\022\017\n\007context\030\001 \001" +
-      "(\t\022\016\n\006target\030\002 \001(\005\"@\n\022excludeUserRequest",
-      "\022*\n\004user\030\001 \001(\0132\034.com.game.proto.userBase" +
-      "Info"
+      "quest\022A\n\026userWaitRoomSpeek_info\030\004 \001(\0132!." +
+      "com.game.proto.userWaitRoomSpeek\022<\n\020excl" +
+      "udeUser_info\030\005 \001(\0132\".com.game.proto.excl" +
+      "udeUserRequest\"_\n\026registerMessageRequest" +
+      "\022\020\n\010username\030\001 \002(\t\022\017\n\007country\030\002 \001(\t\022\020\n\010p" +
+      "rovince\030\003 \001(\t\022\020\n\010location\030\004 \001(\t\"\'\n\023login" +
+      "MessageRequest\022\020\n\010location\030\001 \002(\t\"b\n\021crea" +
+      "teGameRequest\022\021\n\tgame_name\030\001 \001(\t\022\022\n\nplay" +
+      "Map_id\030\002 \001(\005\022\024\n\014playMap_name\030\003 \001(\t\022\020\n\010pl",
+      "ayType\030\004 \001(\005\"9\n\023mainJoinGameRequest\022\017\n\007r" +
+      "oom_id\030\001 \001(\005\022\021\n\troom_name\030\002 \001(\t\":\n\024flush" +
+      "GameListRequest\022\021\n\tlistCount\030\001 \001(\005\022\017\n\007ro" +
+      "om_id\030\002 \003(\005\"l\n\026getRoomInfoListRequest\022\017\n" +
+      "\007room_id\030\001 \001(\005\022\021\n\tuserCount\030\002 \001(\005\022.\n\010use" +
+      "rInfo\030\003 \003(\0132\034.com.game.proto.userBaseInf" +
+      "o\"*\n\027creatorLeaveGameRequest\022\017\n\007room_id\030" +
+      "\001 \002(\005\"=\n\027creatorStartGameRequest\022\017\n\007room" +
+      "_id\030\001 \002(\005\022\021\n\tgame_name\030\002 \002(\t\"4\n\021userWait" +
+      "RoomSpeek\022\017\n\007context\030\001 \001(\t\022\016\n\006target\030\002 \001",
+      "(\005\"@\n\022excludeUserRequest\022*\n\004user\030\001 \001(\0132\034" +
+      ".com.game.proto.userBaseInfo"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10651,7 +10816,7 @@ public final class ProtobufRequest {
     internal_static_com_game_proto_waitRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_waitRoomRequest_descriptor,
-        new java.lang.String[] { "GetRoomListInfo", "CreateLeaveGameInfo", "CreatorStartGameInfo", "UserWaitRoomInfo", "ExcludeUserInfo", });
+        new java.lang.String[] { "GetRoomListInfo", "CreateLeaveGameInfo", "CreatorStartGameInfo", "UserWaitRoomSpeekInfo", "ExcludeUserInfo", });
     internal_static_com_game_proto_registerMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_game_proto_registerMessageRequest_fieldAccessorTable = new
@@ -10699,7 +10864,7 @@ public final class ProtobufRequest {
     internal_static_com_game_proto_creatorStartGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_creatorStartGameRequest_descriptor,
-        new java.lang.String[] { "GameId", });
+        new java.lang.String[] { "RoomId", "GameName", });
     internal_static_com_game_proto_userWaitRoomSpeek_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_com_game_proto_userWaitRoomSpeek_fieldAccessorTable = new

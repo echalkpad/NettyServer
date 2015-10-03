@@ -154,4 +154,22 @@ public class ProtobufResponseGenerator {
 		griBuilder.setBeExcluding(beExcluding);
 		return griBuilder;
 	}
+	
+	public static ProtobufResponse.excludeUserResponse.Builder getExcludeUserResponse(Room_Info room, int exclude_id){
+		ProtobufResponse.excludeUserResponse.Builder euBuilder = ProtobufResponse.excludeUserResponse.newBuilder();
+		List<User> list = room.getUsersList();
+		for(int i =0; i<list.size(); i++){
+			User user = list.get(i);
+			if(user.getUser_id() == exclude_id){
+				room.setUsercount(room.getUsercount()-1);
+				user.setRoom_Info(null);
+				MySqlAltern.updateUser(user);
+				MySqlAltern.updateRoomInfo(room);
+				euBuilder.setUserListCount(room.getUsercount());
+			}else{
+				euBuilder.addUser(getUserBaseInfo(user));
+			}
+		}
+		return euBuilder;
+	}
 }
