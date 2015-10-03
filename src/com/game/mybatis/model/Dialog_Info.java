@@ -1,5 +1,7 @@
 package com.game.mybatis.model;
 
+import java.sql.Date;
+
 public class Dialog_Info {
     private Integer dialog_id;
 
@@ -10,7 +12,11 @@ public class Dialog_Info {
     private Integer groupId;
 
     private String context;
-
+    
+    private Integer target_id;
+    
+    private	Date createTime;
+    
     public Integer getDialog_id() {
 		return dialog_id;
 	}
@@ -50,4 +56,20 @@ public class Dialog_Info {
     public void setContext(String context) {
         this.context = context == null ? null : context.trim();
     }
+
+	public Integer getTarget_id() {
+		return target_id;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setTarget_id(Integer target_id) {
+		this.target_id = target_id;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 }

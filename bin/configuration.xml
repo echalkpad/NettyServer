@@ -2,6 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	
 	<properties>
 		<property name="driver" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/batissql?characterEncoding=utf8" />
@@ -24,6 +25,11 @@
         <typeAlias alias="Dialog_Info" type="com.game.mybatis.model.Dialog_Info"/>   
     </typeAliases> 
 	
+    <typeHandlers>
+	    <typeHandler handler="com.game.mybatis.handler.BooleanToIntTypeHandler"/>
+	    <typeHandler handler="com.game.mybatis.handler.DateToIntTypeHandler"/>
+	</typeHandlers>
+	
     <environments default="development">
         <environment id="development">
         	<transactionManager type="JDBC"/>
@@ -45,4 +51,5 @@
         <mapper resource="com/game/mybatis/mapper/Room_InfoMapper.xml"/>
         <mapper resource="com/game/mybatis/mapper/Dialog_InfoMapper.xml"/>
     </mappers>
+    
 </configuration>

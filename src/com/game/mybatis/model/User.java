@@ -1,6 +1,6 @@
 package com.game.mybatis.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class User {
     private Integer user_id;
@@ -21,13 +21,15 @@ public class User {
 
     private Integer state;
 
-    private Room_Info game_Info;
+    private Room_Info room_Info;
 
     private Battle_Info battle_Info;
 
     private Role_Info role_Info;
     
     private String ipAddress;
+    
+    private Date lastConnectTime;
     
     public User(){
     	
@@ -111,8 +113,8 @@ public class User {
 		this.state = state;
 	}
 
-	public Room_Info getGame_Info() {
-		return game_Info;
+	public Room_Info getRoom_Info() {
+		return room_Info;
 	}
 
 	public Battle_Info getBattle_Info() {
@@ -121,10 +123,6 @@ public class User {
 
 	public Role_Info getRole_Info() {
 		return role_Info;
-	}
-
-	public void setGame_Info(Room_Info game_Info) {
-		this.game_Info = game_Info;
 	}
 
 	public void setBattle_Info(Battle_Info battle_Info) {
@@ -141,6 +139,18 @@ public class User {
 
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
+	}
+
+	public Date getLastConnectTime() {
+		return lastConnectTime;
+	}
+
+	public void setRoom_Info(Room_Info room_Info) {
+		this.room_Info = room_Info;
+	}
+
+	public void setLastConnectTime(Date lastConnectTime) {
+		this.lastConnectTime = lastConnectTime;
 	}
 	
 }

@@ -9,13 +9,13 @@ public class Map_Info {
 
     private Integer playermaxcount;
 
-    private Integer supportTangledFight;
+    private Boolean supportTangledFight;
 
-    private Integer supportTeamBattle;
+    private Boolean supportTeamBattle;
 
-    private Integer suportFlagBattle;
+    private Boolean suportFlagBattle;
 
-    private Integer supportBossAnnihilateBattle;
+    private Boolean supportBossAnnihilateBattle;
 
     public Integer getMapId() {
 		return mapId;
@@ -49,35 +49,35 @@ public class Map_Info {
         this.playermaxcount = playermaxcount;
     }
 
-	public Integer getSupportTangledFight() {
+	public Boolean getSupportTangledFight() {
 		return supportTangledFight;
 	}
 
-	public Integer getSupportTeamBattle() {
+	public Boolean getSupportTeamBattle() {
 		return supportTeamBattle;
 	}
 
-	public Integer getSuportFlagBattle() {
+	public Boolean getSuportFlagBattle() {
 		return suportFlagBattle;
 	}
 
-	public Integer getSupportBossAnnihilateBattle() {
+	public Boolean getSupportBossAnnihilateBattle() {
 		return supportBossAnnihilateBattle;
 	}
 
-	public void setSupportTangledFight(Integer supportTangledFight) {
+	public void setSupportTangledFight(Boolean supportTangledFight) {
 		this.supportTangledFight = supportTangledFight;
 	}
 
-	public void setSupportTeamBattle(Integer supportTeamBattle) {
+	public void setSupportTeamBattle(Boolean supportTeamBattle) {
 		this.supportTeamBattle = supportTeamBattle;
 	}
 
-	public void setSuportFlagBattle(Integer suportFlagBattle) {
+	public void setSuportFlagBattle(Boolean suportFlagBattle) {
 		this.suportFlagBattle = suportFlagBattle;
 	}
 
-	public void setSupportBossAnnihilateBattle(Integer supportBossAnnihilateBattle) {
+	public void setSupportBossAnnihilateBattle(Boolean supportBossAnnihilateBattle) {
 		this.supportBossAnnihilateBattle = supportBossAnnihilateBattle;
 	}
 }

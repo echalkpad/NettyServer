@@ -3,7 +3,7 @@ package com.game.server;
 
 import java.util.concurrent.TimeUnit;
 
-import com.game.msg.SubscribeReqProto;
+import com.game.proto.ProtobufResponse;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -18,10 +18,11 @@ public class ProtoBufServerInitializer  extends ChannelInitializer<SocketChannel
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast("idleState", new IdleStateHandler(0, 0, 30, TimeUnit.SECONDS))
         	//.addLast("frameDecoder", new ProtobufVarint32FrameDecoder())	
-        	.addLast("decoder", new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()))
+        	//.addLast("decoder", new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()))
         	//.addLast(new ProtobufVarint32LengthFieldPrepender())
+        	.addLast("decoder", new ProtobufDecoder(ProtobufResponse.protobufResponse.getDefaultInstance()))
 			.addLast("encoder", new ProtobufEncoder())
 			.addLast("heart_handler", new HeartBeatHandler())
-			.addLast("protobuf_handler", new ProtoBufServerHandler());
+			.addLast("game_protobuf_handler", new GameProtobufHandler());
 	}
 }

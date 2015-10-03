@@ -12,6 +12,7 @@
     <result column="location" property="location" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
     <result column="ipAddress" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="last_connect_time" property="lastConnectTime" jdbcType="INTEGER"></result>
     <association property="room_Info" column="room_info_id" javaType="Room_Info" 
         select="com.game.mybatis.dao.Room_InfoMapper.selectById">
     </association>
@@ -26,21 +27,26 @@
  <select id="selectById" resultMap="UserResult" parameterType="java.lang.Integer" >
    select * from user where user_id = #{id}
   </select>
+  
+  <select id="selectByUserName" resultMap="UserResult" parameterType="Ljava.lang.String" >
+   select * from user where username = #{username}
+  </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from user
     where user_id = #{user_id,jdbcType=INTEGER}
   </delete>
-  <insert id="createUser" parameterType="com.game.mybatis.model.User" >
+  <insert id="createUser" parameterType="com.game.mybatis.model.User" useGeneratedKeys="true"
+      keyProperty="user_id">
     insert into user (user_id, username, create_time, 
       login_time, logout_time, country, 
       province, location, state, 
-      room_info_id, battle_info_id, role_info_id, ipAddress
+      room_info_id, battle_info_id, role_info_id, ipAddress, last_connect_time
       )
     values (#{user_id}, #{username}, #{createTime}, 
       #{loginTime}, #{logoutTime}, #{country}, 
       #{province}, #{location}, #{state}, 
-      #{room_Info.roomId}, #{battle_Info.battle_id}, #{role_Info.roleId}, #{ipAddress}
-      )
+      #{room_Info.roomId}, #{battle_Info.battle_id}, #{role_Info.roleId}, #{ipAddress},
+      #{lastConnectTime})
   </insert>
   <update id="updateUser" parameterType="com.game.mybatis.model.User" >
     update user
@@ -72,7 +78,10 @@
       <if test="ipAddress != null" >
         ipAddress = #{ipAddress,jdbcType=VARCHAR},
       </if>
-      <if test="game_Info != null" >
+      <if test="lastConnectTime != null" >
+        last_connect_time = #{lastConnectTime,jdbcType=INTEGER},
+      </if>
+      <if test="room_Info != null" >
         room_info_id = #{room_Info.roomId,jdbcType=INTEGER},
       </if>
       <if test="battle_Info != null" >

@@ -20,7 +20,8 @@
     delete from map_info
     where map_id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insertMapInfo" parameterType="com.game.mybatis.model.Map_Info" >
+  <insert id="insertMapInfo" parameterType="com.game.mybatis.model.Map_Info" useGeneratedKeys="true"
+      keyProperty="mapId">
     insert into map_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="mapId != null" >

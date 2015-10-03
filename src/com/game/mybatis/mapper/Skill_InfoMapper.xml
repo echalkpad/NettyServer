@@ -29,7 +29,8 @@
     delete from skill_info
     where skill_id = #{skillId,jdbcType=INTEGER}
   </delete>
-  <insert id="insertSkill" parameterType="com.game.mybatis.model.Skill_Info" >
+  <insert id="insertSkill" parameterType="com.game.mybatis.model.Skill_Info" useGeneratedKeys="true"
+      keyProperty="skillId">
     insert into skill_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="skillId != null" >

@@ -1,6 +1,7 @@
 package com.game.utils;
 
 import java.io.Reader;
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -10,15 +11,17 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.game.mybatis.dao.Battle_InfoMapper;
 import com.game.mybatis.dao.Dialog_InfoMapper;
-import com.game.mybatis.dao.Room_InfoMapper;
 import com.game.mybatis.dao.Map_InfoMapper;
 import com.game.mybatis.dao.Role_InfoMapper;
+import com.game.mybatis.dao.Room_InfoMapper;
+import com.game.mybatis.dao.Skill_InfoMapper;
 import com.game.mybatis.dao.UserMapper;
 import com.game.mybatis.model.Battle_Info;
 import com.game.mybatis.model.Dialog_Info;
-import com.game.mybatis.model.Room_Info;
 import com.game.mybatis.model.Map_Info;
 import com.game.mybatis.model.Role_Info;
+import com.game.mybatis.model.Room_Info;
+import com.game.mybatis.model.Skill_Info;
 import com.game.mybatis.model.User;
 
 public class batis_Test {
@@ -56,7 +59,7 @@ public class batis_Test {
 ////        	List<User> userList = game.getUsersList();
 //        	System.out.println( role.getDialog_id() );
         	
-        	testInsertUser(session);
+        	lookUser(session);
         } finally {
         	session.close();
         }
@@ -125,7 +128,7 @@ public class batis_Test {
 		user.setBattle_Info(battle);
 		Room_InfoMapper g_mapper = session.getMapper(Room_InfoMapper.class);
 		Room_Info game = g_mapper.selectById(6);
-		user.setGame_Info(game);
+		user.setRoom_Info(game);
 		mapper.updateUser(user);
 		session.commit();
 	}
@@ -167,8 +170,66 @@ public class batis_Test {
 		UserMapper mapper = session.getMapper(UserMapper.class);
 		User user = new User();
 		user.setUsername("sssss");
-		int id = mapper.createUser(user);
-		session.commit();
+		user.setCreateTime(new Date(0));
+		user.setLoginTime(new Date(0));
+		 mapper.createUser(user);
 		System.out.println(user.getUser_id());
+		session.commit();
+	}
+	
+	public static void createRoom(SqlSession session){
+		try{
+			Room_InfoMapper mapper = session.getMapper(Room_InfoMapper.class);
+			Room_Info room = new Room_Info();
+			room.setRoomName("ssssss");
+			room.setUsercount(100);
+			room.setGameType(1);
+			mapper.insertRoomInfo(room);
+			System.out.println(room.getRoomId());
+			session.commit();
+		}catch(Exception e){
+			session.rollback();
+		}
+	}
+	
+	public static void createSkill(SqlSession session){
+		try{
+			Skill_InfoMapper mapper = session.getMapper(Skill_InfoMapper.class);
+			Skill_Info info = new Skill_Info();
+			info.setSkillName("4515151");
+			info.setCanVertigo(false);
+			mapper.insertSkill(info);
+			session.commit();
+		}catch(Exception e){
+			session.rollback();
+		}
+	}
+	
+	public static void resetUser(SqlSession session){
+		try{
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User user = mapper.selectById(11);
+			user.setCreateTime(new Date(System.currentTimeMillis()));
+			mapper.updateUser(user);
+			session.commit();
+			System.out.println(new Date(System.currentTimeMillis()));
+		}catch(Exception e){
+			System.out.println(e);
+			session.rollback();
+		}
+	}
+	
+	public static void lookUser(SqlSession session){
+		try{
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User user = mapper.selectById(11);
+			java.util.Date time_ = user.getCreateTime();
+			System.out.println(time_);
+			System.out.println(time_.getTime());
+			session.commit();
+		}catch(Exception e){
+			System.out.println(e);
+			session.rollback();
+		}
 	}
 }

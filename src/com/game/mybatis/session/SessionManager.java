@@ -26,22 +26,4 @@ public class SessionManager {
 	public static SqlSessionFactory getSession(){
         return sqlSessionFactory;
     }
-	
-	public static void main(String[] args) {
-        SqlSession session = sqlSessionFactory.openSession();
-        try {
-        	
-        	UserMapper userMapper = session.getMapper(UserMapper.class);
-        	User user = userMapper.selectById(5);
-        	System.out.println(user.getUsername());
-//        	Game_InfoMapper mapper = session.getMapper(Game_InfoMapper.class);
-//        	Game_Info team = mapper.selectByPrimaryKey(3);
-//        	List<User> lists = team.getUsersList();
-//        	for(User user : lists){
-//        		System.out.println(user.getUsername());
-//        	}
-        } finally {
-        	session.close();
-        }
-    }
 }

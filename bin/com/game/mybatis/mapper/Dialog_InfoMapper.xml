@@ -6,6 +6,8 @@
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="group_id" property="groupId" jdbcType="INTEGER" />
     <result column="context" property="context" jdbcType="VARCHAR" />
+    <result column="target_id" property="target_id" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
     <association property="user" column="user_id" javaType="User" 
         select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
@@ -17,10 +19,11 @@
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from dialog_info where dialog_id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insertDialog" parameterType="com.game.mybatis.model.Dialog_Info" >
-    insert into dialog_info (dialog_id, user_id, type, group_id, context)
+  <insert id="insertDialog" parameterType="com.game.mybatis.model.Dialog_Info" useGeneratedKeys="true"
+      keyProperty="dialog_id">
+    insert into dialog_info (dialog_id, user_id, type, group_id, context, target_id, create_time)
     values (#{dialog_id,jdbcType=INTEGER}, #{user.user_id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
-      #{groupId,jdbcType=INTEGER}, #{context,jdbcType=VARCHAR})
+      #{groupId,jdbcType=INTEGER}, #{context,jdbcType=VARCHAR}, #{target_id}, #{createTime})
   </insert>
   <update id="updateDialog" parameterType="com.game.mybatis.model.Dialog_Info" >
     update dialog_info
@@ -36,6 +39,12 @@
       </if>
       <if test="context != null" >
         context = #{context}
+      </if>
+      <if test="target_id != null" >
+        target_id = #{target_id}
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime}
       </if>
     </set>
     where dialog_id = #{dialog_id,jdbcType=INTEGER}

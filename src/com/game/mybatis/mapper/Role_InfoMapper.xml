@@ -13,8 +13,8 @@
     <result column="pos_y" property="posY" jdbcType="INTEGER" />
     <result column="veloc_x" property="velocX" jdbcType="INTEGER" />
     <result column="veloc_y" property="velocY" jdbcType="INTEGER" />
-    <result column="last_update_pos_time" property="lastUpdatePos_Time" jdbcType="TIMESTAMP" />
-    <result column="last_update_attack_time" property="lastUpdateAttackTime" jdbcType="TIMESTAMP" />
+    <result column="last_update_pos_time" property="lastUpdatePos_Time" jdbcType="INTEGER" />
+    <result column="last_update_attack_time" property="lastUpdateAttackTime" jdbcType="INTEGER" />
     <association property="user" column="user_id" javaType="User" 
         select="com.game.mybatis.dao.UserMapper.selectById"></association>
     <association property="attact_target" column="attack_target" javaType="User" 
@@ -48,7 +48,8 @@
     delete from role_info
     where role_id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insertRoleInfo" parameterType="com.game.mybatis.model.Role_Info" >
+  <insert id="insertRoleInfo" parameterType="com.game.mybatis.model.Role_Info" useGeneratedKeys="true"
+      keyProperty="roleId">
     insert into role_info (user_id, order_id, type, level, hp, attack, speed, pos_x, pos_y,
     veloc_x, veloc_y, last_update_pos_time, attack_target, cast_skill_id, cast_skill_target,
     last_update_attack_time, skill1_id, skill2_id, skill3_id, skill4_id)

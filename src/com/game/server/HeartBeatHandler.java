@@ -22,16 +22,13 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter{
 			IdleStateEvent event = (IdleStateEvent)evt;
 			if(event.state().equals(IdleState.READER_IDLE)){
 				System.out.println("READER_IDLE");
-				//超时关闭
-				//ctx.close();
-				
+				NettyChannelMap.remove(ctx.channel());
 				ctx.writeAndFlush(HEARTBEAT_SEQUENCE.duplicate()).addListener(ChannelFutureListener.CLOSE);
 			}else if(event.state().equals(IdleState.WRITER_IDLE)){
 				System.out.println("WRITER_IDLE");
 			}else if(event.state().equals(IdleState.ALL_IDLE)){
 				System.out.println("ALL_IDLE");
-				//超时关闭
-				//ctx.close();
+				NettyChannelMap.remove(ctx.channel());
 				ctx.writeAndFlush(HEARTBEAT_SEQUENCE.duplicate()).addListener(ChannelFutureListener.CLOSE);
 			}
 		}else{

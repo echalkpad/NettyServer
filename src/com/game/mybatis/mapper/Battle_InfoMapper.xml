@@ -34,7 +34,8 @@
     where battle_id = #{id,jdbcType=INTEGER}
   </delete>
   
-  <insert id="insertBattleInfo" parameterType="com.game.mybatis.model.Battle_Info" >
+  <insert id="insertBattleInfo" parameterType="com.game.mybatis.model.Battle_Info" useGeneratedKeys="true"
+      keyProperty="battle_id">
     insert into battle_info (battle_id, battle_name, type, UserCount, play_map_id, current_dialog_Info_id)
     values (#{battle_id}, #{battle_name}, #{type}, #{userCount}, #{playMap.mapId}, #{current_dialog_Info.dialog_id})
   </insert>

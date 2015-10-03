@@ -9,13 +9,13 @@ public class Skill_Info {
 
     private Float duration;
 
-    private Integer isGroup;
+    private Boolean isGroup;
 
     private Integer skillBaseHurt;
 
-    private Integer canVertigo;
+    private Boolean canVertigo;
 
-    private Integer canDeceleration;
+    private Boolean canDeceleration;
 
     private Float skillHurtFactor;
     
@@ -59,11 +59,11 @@ public class Skill_Info {
         this.duration = duration;
     }
 
-    public Integer getIsGroup() {
+    public Boolean getIsGroup() {
 		return isGroup;
 	}
 
-	public void setIsGroup(Integer isGroup) {
+	public void setIsGroup(Boolean isGroup) {
 		this.isGroup = isGroup;
 	}
 
@@ -135,11 +135,11 @@ public class Skill_Info {
 		return skillType;
 	}
 
-	public Integer getCanVertigo() {
+	public Boolean getCanVertigo() {
 		return canVertigo;
 	}
 
-	public Integer getCanDeceleration() {
+	public Boolean getCanDeceleration() {
 		return canDeceleration;
 	}
 
@@ -155,11 +155,11 @@ public class Skill_Info {
 		this.skillType = skillType;
 	}
 
-	public void setCanVertigo(Integer canVertigo) {
+	public void setCanVertigo(Boolean canVertigo) {
 		this.canVertigo = canVertigo;
 	}
 
-	public void setCanDeceleration(Integer canDeceleration) {
+	public void setCanDeceleration(Boolean canDeceleration) {
 		this.canDeceleration = canDeceleration;
 	}
 

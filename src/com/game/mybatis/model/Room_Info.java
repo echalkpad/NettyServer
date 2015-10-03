@@ -21,7 +21,7 @@ public class Room_Info {
     
     private Battle_Info battle_Info;
     
-    private Integer isUsed;
+    private Boolean isUsed;
     
     private User creator;
     
@@ -49,7 +49,7 @@ public class Room_Info {
 		return battle_Info;
 	}
 
-	public Integer getIsUsed() {
+	public Boolean getIsUsed() {
 		return isUsed;
 	}
 
@@ -81,7 +81,7 @@ public class Room_Info {
 		this.battle_Info = battle_Info;
 	}
 
-	public void setIsUsed(Integer isUsed) {
+	public void setIsUsed(Boolean isUsed) {
 		this.isUsed = isUsed;
 	}
 

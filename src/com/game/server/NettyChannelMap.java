@@ -4,21 +4,24 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import io.netty.channel.Channel;
-import io.netty.channel.socket.SocketChannel;
 
 public class NettyChannelMap {
-	private static Map<String, SocketChannel> map = new ConcurrentHashMap<String, SocketChannel>();
-	public static void add(String clientid, SocketChannel socketChannel){
+	private static Map<String, Channel> map = new ConcurrentHashMap<String, Channel>();
+	public static void add(String clientid, Channel socketChannel){
 		map.put(clientid, socketChannel);
 	}
 	public static Channel get(String clientId){
 		return map.get(clientId);
 	}
-	public static void remove(SocketChannel socketChannel){
+	public static void remove(Channel channel){
 		for(Map.Entry entry : map.entrySet()){
-			if(entry.getValue() == socketChannel){
+			if(entry.getValue() == channel){
 				map.remove(entry.getKey());
 			}
 		}
+	}
+	
+	public static void clear(){
+		map.clear();
 	}
 }
