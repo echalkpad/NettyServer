@@ -5,6 +5,7 @@
     <id column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="order_id" property="order_id" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="isIdle" property="isIdle" jdbcType="INTEGER" />
     <result column="level" property="level" jdbcType="INTEGER" />
     <result column="hp" property="hp" jdbcType="INTEGER" />
     <result column="attack" property="attack" jdbcType="INTEGER" />
@@ -13,10 +14,22 @@
     <result column="pos_y" property="posY" jdbcType="INTEGER" />
     <result column="veloc_x" property="velocX" jdbcType="INTEGER" />
     <result column="veloc_y" property="velocY" jdbcType="INTEGER" />
-    <result column="last_update_pos_time" property="lastUpdatePos_Time" jdbcType="INTEGER" />
-    <result column="last_update_attack_time" property="lastUpdateAttackTime" jdbcType="INTEGER" />
+    <result column="last_update_pos_time" property="lastUpdatePos_Time" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler" />
+    <result column="last_update_attack_time" property="lastUpdateAttackTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="selectSkill1Time" property="selectSkill1Time" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="selectSkill2Time" property="selectSkill2Time" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="selectSkill3Time" property="selectSkill3Time" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="selectSkill4Time" property="selectSkill4Time" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
     <association property="user" column="user_id" javaType="User" 
         select="com.game.mybatis.dao.UserMapper.selectById"></association>
+    <association property="baseRole" column="baseRole_id" javaType="Base_Role" 
+        select="com.game.mybatis.dao.Base_RoleMapper.selectById"></association>
     <association property="attact_target" column="attack_target" javaType="User" 
         select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
@@ -48,15 +61,25 @@
     delete from role_info
     where role_id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE role_info
+  </delete>
   <insert id="insertRoleInfo" parameterType="com.game.mybatis.model.Role_Info" useGeneratedKeys="true"
       keyProperty="roleId">
-    insert into role_info (user_id, order_id, type, level, hp, attack, speed, pos_x, pos_y,
+    insert into role_info (user_id, order_id, baseRole_id, type, isIdle, level, hp, attack, speed, pos_x, pos_y,
     veloc_x, veloc_y, last_update_pos_time, attack_target, cast_skill_id, cast_skill_target,
-    last_update_attack_time, skill1_id, skill2_id, skill3_id, skill4_id)
-    values (#{user.user_id}, #{order_id}, #{type}, #{level}, #{hp}, #{attack}, #{speed},
-    #{posX}, #{posY}, #{velocX}, #{velocY}, #{lastUpdatePos_Time}, #{attact_target.user_id},
-    #{castSkill.skillId}, #{castSkillTarget.user_id}, #{lastUpdateAttackTime}, #{skill1.skillId},
-    #{skill2.skillId}, #{skill3.skillId}, #{skill4.skillId})
+    last_update_attack_time, skill1_id, selectSkill1Time, skill2_id, selectSkill2Time, 
+    skill3_id, selectSkill3Time, skill4_id, selectSkill4Time)
+    values (#{user.user_id}, #{order_id}, #{baseRole.baseroleId}, #{type}, #{isIdle}, #{level}, #{hp}, #{attack}, #{speed},
+    #{posX}, #{posY}, #{velocX}, #{velocY}, 
+    #{lastUpdatePos_Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+     #{attact_target.user_id},
+    #{castSkill.skillId}, #{castSkillTarget.user_id}, 
+    #{lastUpdateAttackTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+    #{skill1.skillId}, #{selectSkill1Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+     #{skill2.skillId}, #{selectSkill2Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, 
+     #{skill3.skillId}, #{selectSkill3Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, 
+     #{skill4.skillId}, #{selectSkill4Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler})
   </insert>
   <update id="updateRoleInfo" parameterType="com.game.mybatis.model.Role_Info" >
     update role_info
@@ -67,8 +90,14 @@
       <if test="order_id != null" >
         order_id = #{order_id,jdbcType=INTEGER},
       </if>
+      <if test="baseRole != null" >
+        baseRole_id = #{baseRole.baseroleId},
+      </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="isIdle != null" >
+        isIdle = #{isIdle},
       </if>
       <if test="level != null" >
         level = #{level,jdbcType=INTEGER},
@@ -95,7 +124,7 @@
         veloc_y = #{velocY,jdbcType=INTEGER},
       </if>
       <if test="lastUpdatePos_Time != null" >
-        last_update_pos_time = #{lastUpdatePos_Time,jdbcType=INTEGER},
+        last_update_pos_time = #{lastUpdatePos_Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="attact_target != null" >
         attack_target = #{attact_target.user_id,jdbcType=INTEGER},
@@ -107,19 +136,31 @@
         cast_skill_target = #{castSkillTarget.user_id,jdbcType=INTEGER},
       </if>
       <if test="lastUpdateAttackTime != null" >
-        last_update_attack_time = #{lastUpdateAttackTime,jdbcType=INTEGER},
+        last_update_attack_time = #{lastUpdateAttackTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="skill1 != null" >
         skill1_id = #{skill1.skillId,jdbcType=INTEGER},
       </if>
+      <if test="selectSkill1Time != null" >
+        selectSkill1Time = #{selectSkill1Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      </if>
       <if test="skill2 != null" >
         skill2_id = #{skill2.skillId,jdbcType=INTEGER},
+      </if>
+      <if test="selectSkill2Time != null" >
+        selectSkill2Time = #{selectSkill2Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="skill3 != null" >
         skill3_id = #{skill3.skillId,jdbcType=INTEGER},
       </if>
+      <if test="selectSkill3Time != null" >
+        selectSkill3Time = #{selectSkill3Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      </if>
       <if test="skill4 != null" >
         skill4_id = #{skill4.skillId,jdbcType=INTEGER},
+      </if>
+      <if test="selectSkill4Time != null" >
+        selectSkill4Time = #{selectSkill4Time, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
     </set>
     where role_id = #{roleId,jdbcType=INTEGER}

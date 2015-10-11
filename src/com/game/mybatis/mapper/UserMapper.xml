@@ -4,15 +4,25 @@
   <resultMap id="UserResult" type="com.game.mybatis.model.User" >
     <id column="user_id" property="user_id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
-    <result column="logout_time" property="logoutTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="login_time" property="loginTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <result column="logout_time" property="logoutTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
     <result column="country" property="country" jdbcType="VARCHAR" />
     <result column="province" property="province" jdbcType="VARCHAR" />
     <result column="location" property="location" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
     <result column="ipAddress" property="ipAddress" jdbcType="VARCHAR" />
-    <result column="last_connect_time" property="lastConnectTime" jdbcType="INTEGER"></result>
+    <result column="joinRoomTime" property="joinRoomTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"></result>
+    <result column="joinBattleTime" property="joinBattleTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"></result>
+    <result column="selectRoleTime" property="selectRoleTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"></result>
+    <result column="last_connect_time" property="lastConnectTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"></result>
     <association property="room_Info" column="room_info_id" javaType="Room_Info" 
         select="com.game.mybatis.dao.Room_InfoMapper.selectById">
     </association>
@@ -28,25 +38,33 @@
    select * from user where user_id = #{id}
   </select>
   
-  <select id="selectByUserName" resultMap="UserResult" parameterType="Ljava.lang.String" >
+  <select id="selectByUserName" resultMap="UserResult" parameterType="java.lang.String" >
    select * from user where username = #{username}
   </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from user
     where user_id = #{user_id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE user
+  </delete>
   <insert id="createUser" parameterType="com.game.mybatis.model.User" useGeneratedKeys="true"
       keyProperty="user_id">
-    insert into user (user_id, username, create_time, 
-      login_time, logout_time, country, 
-      province, location, state, 
-      room_info_id, battle_info_id, role_info_id, ipAddress, last_connect_time
+    insert into user (user_id, username, create_time, login_time, logout_time, country, 
+      province, location, state, room_info_id, joinRoomTime, battle_info_id, joinBattleTime, 
+      role_info_id, selectRoleTime, ipAddress, last_connect_time
       )
-    values (#{user_id}, #{username}, #{createTime}, 
-      #{loginTime}, #{logoutTime}, #{country}, 
+    values (#{user_id}, #{username}, 
+     #{createTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, 
+      #{loginTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      #{logoutTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+       #{country},  
       #{province}, #{location}, #{state}, 
-      #{room_Info.roomId}, #{battle_Info.battle_id}, #{role_Info.roleId}, #{ipAddress},
-      #{lastConnectTime})
+      #{room_Info.roomId}, #{joinRoomTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+       #{battle_Info.battle_id}, #{joinBattleTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, 
+      #{role_Info.roleId}, 
+      #{selectRoleTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, #{ipAddress}, 
+      #{lastConnectTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler})
   </insert>
   <update id="updateUser" parameterType="com.game.mybatis.model.User" >
     update user
@@ -55,13 +73,13 @@
         username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="loginTime != null" >
-        login_time = #{loginTime,jdbcType=TIMESTAMP},
+        login_time = #{loginTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="logoutTime != null" >
-        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+        logout_time = #{logoutTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="country != null" >
         country = #{country,jdbcType=VARCHAR},
@@ -79,16 +97,25 @@
         ipAddress = #{ipAddress,jdbcType=VARCHAR},
       </if>
       <if test="lastConnectTime != null" >
-        last_connect_time = #{lastConnectTime,jdbcType=INTEGER},
+        last_connect_time = #{lastConnectTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
       <if test="room_Info != null" >
         room_info_id = #{room_Info.roomId,jdbcType=INTEGER},
       </if>
+      <if test="joinRoomTime != null" >
+        joinRoomTime = #{joinRoomTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      </if>
       <if test="battle_Info != null" >
         battle_info_id = #{battle_Info.battle_id,jdbcType=INTEGER},
       </if>
+      <if test="joinBattleTime != null" >
+        joinBattleTime = #{joinBattleTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      </if>
       <if test="role_Info != null" >
         role_info_id = #{role_Info.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="selectRoleTime != null" >
+        selectRoleTime = #{selectRoleTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
       </if>
     </set>
     where user_id = #{user_id,jdbcType=INTEGER}

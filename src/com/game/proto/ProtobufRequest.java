@@ -48,10 +48,20 @@ public final class ProtobufRequest {
 
     /**
      * <code>optional bool hasTime = 3;</code>
+     *
+     * <pre>
+     *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+     *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+     * </pre>
      */
     boolean hasHasTime();
     /**
      * <code>optional bool hasTime = 3;</code>
+     *
+     * <pre>
+     *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+     *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+     * </pre>
      */
     boolean getHasTime();
 
@@ -66,29 +76,78 @@ public final class ProtobufRequest {
 
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     boolean hasMainUIRequestInfo();
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     com.game.proto.ProtobufRequest.mainUIRequest getMainUIRequestInfo();
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     com.game.proto.ProtobufRequest.mainUIRequestOrBuilder getMainUIRequestInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     boolean hasWaitRoomRequestInfo();
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     com.game.proto.ProtobufRequest.waitRoomRequest getWaitRoomRequestInfo();
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     com.game.proto.ProtobufRequest.waitRoomRequestOrBuilder getWaitRoomRequestInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    boolean hasBattleSceneRequestInfo();
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.battleSceneRequest getBattleSceneRequestInfo();
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder getBattleSceneRequestInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.game.proto.protobufRequest}
@@ -192,6 +251,19 @@ public final class ProtobufRequest {
               bitField0_ |= 0x00000020;
               break;
             }
+            case 58: {
+              com.game.proto.ProtobufRequest.battleSceneRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = battleSceneRequestInfo_.toBuilder();
+              }
+              battleSceneRequestInfo_ = input.readMessage(com.game.proto.ProtobufRequest.battleSceneRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(battleSceneRequestInfo_);
+                battleSceneRequestInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -282,12 +354,22 @@ public final class ProtobufRequest {
     private boolean hasTime_;
     /**
      * <code>optional bool hasTime = 3;</code>
+     *
+     * <pre>
+     *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+     *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+     * </pre>
      */
     public boolean hasHasTime() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional bool hasTime = 3;</code>
+     *
+     * <pre>
+     *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+     *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+     * </pre>
      */
     public boolean getHasTime() {
       return hasTime_;
@@ -312,18 +394,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.mainUIRequest mainUIRequestInfo_;
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     public boolean hasMainUIRequestInfo() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.mainUIRequest getMainUIRequestInfo() {
       return mainUIRequestInfo_;
     }
     /**
      * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在主场景的时候发送的数据
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.mainUIRequestOrBuilder getMainUIRequestInfoOrBuilder() {
       return mainUIRequestInfo_;
@@ -333,21 +427,66 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.waitRoomRequest waitRoomRequestInfo_;
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     public boolean hasWaitRoomRequestInfo() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.waitRoomRequest getWaitRoomRequestInfo() {
       return waitRoomRequestInfo_;
     }
     /**
      * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+     *
+     * <pre>
+     *这个数据是当玩家在等待室中发送的数据
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.waitRoomRequestOrBuilder getWaitRoomRequestInfoOrBuilder() {
       return waitRoomRequestInfo_;
+    }
+
+    public static final int BATTLESCENEREQUEST_INFO_FIELD_NUMBER = 7;
+    private com.game.proto.ProtobufRequest.battleSceneRequest battleSceneRequestInfo_;
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    public boolean hasBattleSceneRequestInfo() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.battleSceneRequest getBattleSceneRequestInfo() {
+      return battleSceneRequestInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+     *
+     * <pre>
+     *这个数据是玩家在战斗中发送的数据
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder getBattleSceneRequestInfoOrBuilder() {
+      return battleSceneRequestInfo_;
     }
 
     private void initFields() {
@@ -357,6 +496,7 @@ public final class ProtobufRequest {
       time_ = 0L;
       mainUIRequestInfo_ = com.game.proto.ProtobufRequest.mainUIRequest.getDefaultInstance();
       waitRoomRequestInfo_ = com.game.proto.ProtobufRequest.waitRoomRequest.getDefaultInstance();
+      battleSceneRequestInfo_ = com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -409,6 +549,9 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(6, waitRoomRequestInfo_);
       }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(7, battleSceneRequestInfo_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -441,6 +584,10 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, waitRoomRequestInfo_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, battleSceneRequestInfo_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -557,6 +704,7 @@ public final class ProtobufRequest {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getMainUIRequestInfoFieldBuilder();
           getWaitRoomRequestInfoFieldBuilder();
+          getBattleSceneRequestInfoFieldBuilder();
         }
       }
       private static Builder create() {
@@ -585,6 +733,12 @@ public final class ProtobufRequest {
           waitRoomRequestInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000020);
+        if (battleSceneRequestInfoBuilder_ == null) {
+          battleSceneRequestInfo_ = com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance();
+        } else {
+          battleSceneRequestInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -645,6 +799,14 @@ public final class ProtobufRequest {
         } else {
           result.waitRoomRequestInfo_ = waitRoomRequestInfoBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        if (battleSceneRequestInfoBuilder_ == null) {
+          result.battleSceneRequestInfo_ = battleSceneRequestInfo_;
+        } else {
+          result.battleSceneRequestInfo_ = battleSceneRequestInfoBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -678,6 +840,9 @@ public final class ProtobufRequest {
         }
         if (other.hasWaitRoomRequestInfo()) {
           mergeWaitRoomRequestInfo(other.getWaitRoomRequestInfo());
+        }
+        if (other.hasBattleSceneRequestInfo()) {
+          mergeBattleSceneRequestInfo(other.getBattleSceneRequestInfo());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -825,18 +990,33 @@ public final class ProtobufRequest {
       private boolean hasTime_ ;
       /**
        * <code>optional bool hasTime = 3;</code>
+       *
+       * <pre>
+       *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+       *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+       * </pre>
        */
       public boolean hasHasTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional bool hasTime = 3;</code>
+       *
+       * <pre>
+       *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+       *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+       * </pre>
        */
       public boolean getHasTime() {
         return hasTime_;
       }
       /**
        * <code>optional bool hasTime = 3;</code>
+       *
+       * <pre>
+       *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+       *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+       * </pre>
        */
       public Builder setHasTime(boolean value) {
         bitField0_ |= 0x00000004;
@@ -846,6 +1026,11 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional bool hasTime = 3;</code>
+       *
+       * <pre>
+       *对时数据由客户端发起，客户端在进入主场景的时候就准备进行系统的对时
+       *然后每隔一分钟就对时 对时的时候要进行5次的数据矫正
+       * </pre>
        */
       public Builder clearHasTime() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -891,12 +1076,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.mainUIRequest, com.game.proto.ProtobufRequest.mainUIRequest.Builder, com.game.proto.ProtobufRequest.mainUIRequestOrBuilder> mainUIRequestInfoBuilder_;
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public boolean hasMainUIRequestInfo() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainUIRequest getMainUIRequestInfo() {
         if (mainUIRequestInfoBuilder_ == null) {
@@ -907,6 +1100,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public Builder setMainUIRequestInfo(com.game.proto.ProtobufRequest.mainUIRequest value) {
         if (mainUIRequestInfoBuilder_ == null) {
@@ -923,6 +1120,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public Builder setMainUIRequestInfo(
           com.game.proto.ProtobufRequest.mainUIRequest.Builder builderForValue) {
@@ -937,6 +1138,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public Builder mergeMainUIRequestInfo(com.game.proto.ProtobufRequest.mainUIRequest value) {
         if (mainUIRequestInfoBuilder_ == null) {
@@ -956,6 +1161,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public Builder clearMainUIRequestInfo() {
         if (mainUIRequestInfoBuilder_ == null) {
@@ -969,6 +1178,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainUIRequest.Builder getMainUIRequestInfoBuilder() {
         bitField0_ |= 0x00000010;
@@ -977,6 +1190,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainUIRequestOrBuilder getMainUIRequestInfoOrBuilder() {
         if (mainUIRequestInfoBuilder_ != null) {
@@ -987,6 +1204,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainUIRequest mainUIRequest_info = 5;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在主场景的时候发送的数据
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.mainUIRequest, com.game.proto.ProtobufRequest.mainUIRequest.Builder, com.game.proto.ProtobufRequest.mainUIRequestOrBuilder> 
@@ -1007,12 +1228,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.waitRoomRequest, com.game.proto.ProtobufRequest.waitRoomRequest.Builder, com.game.proto.ProtobufRequest.waitRoomRequestOrBuilder> waitRoomRequestInfoBuilder_;
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public boolean hasWaitRoomRequestInfo() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.waitRoomRequest getWaitRoomRequestInfo() {
         if (waitRoomRequestInfoBuilder_ == null) {
@@ -1023,6 +1252,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public Builder setWaitRoomRequestInfo(com.game.proto.ProtobufRequest.waitRoomRequest value) {
         if (waitRoomRequestInfoBuilder_ == null) {
@@ -1039,6 +1272,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public Builder setWaitRoomRequestInfo(
           com.game.proto.ProtobufRequest.waitRoomRequest.Builder builderForValue) {
@@ -1053,6 +1290,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public Builder mergeWaitRoomRequestInfo(com.game.proto.ProtobufRequest.waitRoomRequest value) {
         if (waitRoomRequestInfoBuilder_ == null) {
@@ -1072,6 +1313,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public Builder clearWaitRoomRequestInfo() {
         if (waitRoomRequestInfoBuilder_ == null) {
@@ -1085,6 +1330,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.waitRoomRequest.Builder getWaitRoomRequestInfoBuilder() {
         bitField0_ |= 0x00000020;
@@ -1093,6 +1342,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.waitRoomRequestOrBuilder getWaitRoomRequestInfoOrBuilder() {
         if (waitRoomRequestInfoBuilder_ != null) {
@@ -1103,6 +1356,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.waitRoomRequest waitRoomRequest_info = 6;</code>
+       *
+       * <pre>
+       *这个数据是当玩家在等待室中发送的数据
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.waitRoomRequest, com.game.proto.ProtobufRequest.waitRoomRequest.Builder, com.game.proto.ProtobufRequest.waitRoomRequestOrBuilder> 
@@ -1116,6 +1373,158 @@ public final class ProtobufRequest {
           waitRoomRequestInfo_ = null;
         }
         return waitRoomRequestInfoBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.battleSceneRequest battleSceneRequestInfo_ = com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.battleSceneRequest, com.game.proto.ProtobufRequest.battleSceneRequest.Builder, com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder> battleSceneRequestInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public boolean hasBattleSceneRequestInfo() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneRequest getBattleSceneRequestInfo() {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          return battleSceneRequestInfo_;
+        } else {
+          return battleSceneRequestInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public Builder setBattleSceneRequestInfo(com.game.proto.ProtobufRequest.battleSceneRequest value) {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          battleSceneRequestInfo_ = value;
+          onChanged();
+        } else {
+          battleSceneRequestInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public Builder setBattleSceneRequestInfo(
+          com.game.proto.ProtobufRequest.battleSceneRequest.Builder builderForValue) {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          battleSceneRequestInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          battleSceneRequestInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public Builder mergeBattleSceneRequestInfo(com.game.proto.ProtobufRequest.battleSceneRequest value) {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              battleSceneRequestInfo_ != com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance()) {
+            battleSceneRequestInfo_ =
+              com.game.proto.ProtobufRequest.battleSceneRequest.newBuilder(battleSceneRequestInfo_).mergeFrom(value).buildPartial();
+          } else {
+            battleSceneRequestInfo_ = value;
+          }
+          onChanged();
+        } else {
+          battleSceneRequestInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public Builder clearBattleSceneRequestInfo() {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          battleSceneRequestInfo_ = com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          battleSceneRequestInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneRequest.Builder getBattleSceneRequestInfoBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getBattleSceneRequestInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder getBattleSceneRequestInfoOrBuilder() {
+        if (battleSceneRequestInfoBuilder_ != null) {
+          return battleSceneRequestInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return battleSceneRequestInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneRequest battleSceneRequest_info = 7;</code>
+       *
+       * <pre>
+       *这个数据是玩家在战斗中发送的数据
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.battleSceneRequest, com.game.proto.ProtobufRequest.battleSceneRequest.Builder, com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder> 
+          getBattleSceneRequestInfoFieldBuilder() {
+        if (battleSceneRequestInfoBuilder_ == null) {
+          battleSceneRequestInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.battleSceneRequest, com.game.proto.ProtobufRequest.battleSceneRequest.Builder, com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder>(
+                  getBattleSceneRequestInfo(),
+                  getParentForChildren(),
+                  isClean());
+          battleSceneRequestInfo_ = null;
+        }
+        return battleSceneRequestInfoBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.proto.protobufRequest)
@@ -1158,6 +1567,10 @@ public final class ProtobufRequest {
   }
   /**
    * Protobuf type {@code com.game.proto.userBaseInfo}
+   *
+   * <pre>
+   *当多个用户的时候需要使用
+   * </pre>
    */
   public static final class userBaseInfo extends
       com.google.protobuf.GeneratedMessage implements
@@ -1436,6 +1849,10 @@ public final class ProtobufRequest {
     }
     /**
      * Protobuf type {@code com.game.proto.userBaseInfo}
+     *
+     * <pre>
+     *当多个用户的时候需要使用
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
@@ -1689,66 +2106,126 @@ public final class ProtobufRequest {
 
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     boolean hasRegisterInfo();
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     com.game.proto.ProtobufRequest.registerMessageRequest getRegisterInfo();
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     com.game.proto.ProtobufRequest.registerMessageRequestOrBuilder getRegisterInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     boolean hasLoginInfo();
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     com.game.proto.ProtobufRequest.loginMessageRequest getLoginInfo();
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     com.game.proto.ProtobufRequest.loginMessageRequestOrBuilder getLoginInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     boolean hasCreateGameInfo();
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     com.game.proto.ProtobufRequest.createGameRequest getCreateGameInfo();
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     com.game.proto.ProtobufRequest.createGameRequestOrBuilder getCreateGameInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     boolean hasMainJoinGameInfo();
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     com.game.proto.ProtobufRequest.mainJoinGameRequest getMainJoinGameInfo();
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     com.game.proto.ProtobufRequest.mainJoinGameRequestOrBuilder getMainJoinGameInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     boolean hasFlushGameListInfo();
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     com.game.proto.ProtobufRequest.flushGameListRequest getFlushGameListInfo();
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     com.game.proto.ProtobufRequest.flushGameListRequestOrBuilder getFlushGameListInfoOrBuilder();
   }
@@ -1913,18 +2390,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.registerMessageRequest registerInfo_;
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     public boolean hasRegisterInfo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.registerMessageRequest getRegisterInfo() {
       return registerInfo_;
     }
     /**
      * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+     *
+     * <pre>
+     *注册信息
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.registerMessageRequestOrBuilder getRegisterInfoOrBuilder() {
       return registerInfo_;
@@ -1934,18 +2423,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.loginMessageRequest loginInfo_;
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     public boolean hasLoginInfo() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.loginMessageRequest getLoginInfo() {
       return loginInfo_;
     }
     /**
      * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+     *
+     * <pre>
+     *登陆信息
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.loginMessageRequestOrBuilder getLoginInfoOrBuilder() {
       return loginInfo_;
@@ -1955,18 +2456,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.createGameRequest createGameInfo_;
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     public boolean hasCreateGameInfo() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.createGameRequest getCreateGameInfo() {
       return createGameInfo_;
     }
     /**
      * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+     *
+     * <pre>
+     *创建一个等待室
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.createGameRequestOrBuilder getCreateGameInfoOrBuilder() {
       return createGameInfo_;
@@ -1976,18 +2489,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.mainJoinGameRequest mainJoinGameInfo_;
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     public boolean hasMainJoinGameInfo() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.mainJoinGameRequest getMainJoinGameInfo() {
       return mainJoinGameInfo_;
     }
     /**
      * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+     *
+     * <pre>
+     *加入到一个等待室
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.mainJoinGameRequestOrBuilder getMainJoinGameInfoOrBuilder() {
       return mainJoinGameInfo_;
@@ -1997,18 +2522,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.flushGameListRequest flushGameListInfo_;
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     public boolean hasFlushGameListInfo() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.flushGameListRequest getFlushGameListInfo() {
       return flushGameListInfo_;
     }
     /**
      * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+     *
+     * <pre>
+     *刷新当前等待室列表
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.flushGameListRequestOrBuilder getFlushGameListInfoOrBuilder() {
       return flushGameListInfo_;
@@ -2385,12 +2922,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.registerMessageRequest, com.game.proto.ProtobufRequest.registerMessageRequest.Builder, com.game.proto.ProtobufRequest.registerMessageRequestOrBuilder> registerInfoBuilder_;
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public boolean hasRegisterInfo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.registerMessageRequest getRegisterInfo() {
         if (registerInfoBuilder_ == null) {
@@ -2401,6 +2946,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public Builder setRegisterInfo(com.game.proto.ProtobufRequest.registerMessageRequest value) {
         if (registerInfoBuilder_ == null) {
@@ -2417,6 +2966,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public Builder setRegisterInfo(
           com.game.proto.ProtobufRequest.registerMessageRequest.Builder builderForValue) {
@@ -2431,6 +2984,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public Builder mergeRegisterInfo(com.game.proto.ProtobufRequest.registerMessageRequest value) {
         if (registerInfoBuilder_ == null) {
@@ -2450,6 +3007,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public Builder clearRegisterInfo() {
         if (registerInfoBuilder_ == null) {
@@ -2463,6 +3024,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.registerMessageRequest.Builder getRegisterInfoBuilder() {
         bitField0_ |= 0x00000001;
@@ -2471,6 +3036,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.registerMessageRequestOrBuilder getRegisterInfoOrBuilder() {
         if (registerInfoBuilder_ != null) {
@@ -2481,6 +3050,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.registerMessageRequest register_info = 1;</code>
+       *
+       * <pre>
+       *注册信息
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.registerMessageRequest, com.game.proto.ProtobufRequest.registerMessageRequest.Builder, com.game.proto.ProtobufRequest.registerMessageRequestOrBuilder> 
@@ -2501,12 +3074,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.loginMessageRequest, com.game.proto.ProtobufRequest.loginMessageRequest.Builder, com.game.proto.ProtobufRequest.loginMessageRequestOrBuilder> loginInfoBuilder_;
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public boolean hasLoginInfo() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.loginMessageRequest getLoginInfo() {
         if (loginInfoBuilder_ == null) {
@@ -2517,6 +3098,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public Builder setLoginInfo(com.game.proto.ProtobufRequest.loginMessageRequest value) {
         if (loginInfoBuilder_ == null) {
@@ -2533,6 +3118,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public Builder setLoginInfo(
           com.game.proto.ProtobufRequest.loginMessageRequest.Builder builderForValue) {
@@ -2547,6 +3136,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public Builder mergeLoginInfo(com.game.proto.ProtobufRequest.loginMessageRequest value) {
         if (loginInfoBuilder_ == null) {
@@ -2566,6 +3159,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public Builder clearLoginInfo() {
         if (loginInfoBuilder_ == null) {
@@ -2579,6 +3176,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.loginMessageRequest.Builder getLoginInfoBuilder() {
         bitField0_ |= 0x00000002;
@@ -2587,6 +3188,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.loginMessageRequestOrBuilder getLoginInfoOrBuilder() {
         if (loginInfoBuilder_ != null) {
@@ -2597,6 +3202,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.loginMessageRequest login_info = 2;</code>
+       *
+       * <pre>
+       *登陆信息
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.loginMessageRequest, com.game.proto.ProtobufRequest.loginMessageRequest.Builder, com.game.proto.ProtobufRequest.loginMessageRequestOrBuilder> 
@@ -2617,12 +3226,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.createGameRequest, com.game.proto.ProtobufRequest.createGameRequest.Builder, com.game.proto.ProtobufRequest.createGameRequestOrBuilder> createGameInfoBuilder_;
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public boolean hasCreateGameInfo() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.createGameRequest getCreateGameInfo() {
         if (createGameInfoBuilder_ == null) {
@@ -2633,6 +3250,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public Builder setCreateGameInfo(com.game.proto.ProtobufRequest.createGameRequest value) {
         if (createGameInfoBuilder_ == null) {
@@ -2649,6 +3270,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public Builder setCreateGameInfo(
           com.game.proto.ProtobufRequest.createGameRequest.Builder builderForValue) {
@@ -2663,6 +3288,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public Builder mergeCreateGameInfo(com.game.proto.ProtobufRequest.createGameRequest value) {
         if (createGameInfoBuilder_ == null) {
@@ -2682,6 +3311,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public Builder clearCreateGameInfo() {
         if (createGameInfoBuilder_ == null) {
@@ -2695,6 +3328,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.createGameRequest.Builder getCreateGameInfoBuilder() {
         bitField0_ |= 0x00000004;
@@ -2703,6 +3340,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.createGameRequestOrBuilder getCreateGameInfoOrBuilder() {
         if (createGameInfoBuilder_ != null) {
@@ -2713,6 +3354,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.createGameRequest createGame_info = 3;</code>
+       *
+       * <pre>
+       *创建一个等待室
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.createGameRequest, com.game.proto.ProtobufRequest.createGameRequest.Builder, com.game.proto.ProtobufRequest.createGameRequestOrBuilder> 
@@ -2733,12 +3378,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.mainJoinGameRequest, com.game.proto.ProtobufRequest.mainJoinGameRequest.Builder, com.game.proto.ProtobufRequest.mainJoinGameRequestOrBuilder> mainJoinGameInfoBuilder_;
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public boolean hasMainJoinGameInfo() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainJoinGameRequest getMainJoinGameInfo() {
         if (mainJoinGameInfoBuilder_ == null) {
@@ -2749,6 +3402,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public Builder setMainJoinGameInfo(com.game.proto.ProtobufRequest.mainJoinGameRequest value) {
         if (mainJoinGameInfoBuilder_ == null) {
@@ -2765,6 +3422,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public Builder setMainJoinGameInfo(
           com.game.proto.ProtobufRequest.mainJoinGameRequest.Builder builderForValue) {
@@ -2779,6 +3440,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public Builder mergeMainJoinGameInfo(com.game.proto.ProtobufRequest.mainJoinGameRequest value) {
         if (mainJoinGameInfoBuilder_ == null) {
@@ -2798,6 +3463,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public Builder clearMainJoinGameInfo() {
         if (mainJoinGameInfoBuilder_ == null) {
@@ -2811,6 +3480,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainJoinGameRequest.Builder getMainJoinGameInfoBuilder() {
         bitField0_ |= 0x00000008;
@@ -2819,6 +3492,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.mainJoinGameRequestOrBuilder getMainJoinGameInfoOrBuilder() {
         if (mainJoinGameInfoBuilder_ != null) {
@@ -2829,6 +3506,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.mainJoinGameRequest mainJoinGame_info = 4;</code>
+       *
+       * <pre>
+       *加入到一个等待室
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.mainJoinGameRequest, com.game.proto.ProtobufRequest.mainJoinGameRequest.Builder, com.game.proto.ProtobufRequest.mainJoinGameRequestOrBuilder> 
@@ -2849,12 +3530,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.flushGameListRequest, com.game.proto.ProtobufRequest.flushGameListRequest.Builder, com.game.proto.ProtobufRequest.flushGameListRequestOrBuilder> flushGameListInfoBuilder_;
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public boolean hasFlushGameListInfo() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.flushGameListRequest getFlushGameListInfo() {
         if (flushGameListInfoBuilder_ == null) {
@@ -2865,6 +3554,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public Builder setFlushGameListInfo(com.game.proto.ProtobufRequest.flushGameListRequest value) {
         if (flushGameListInfoBuilder_ == null) {
@@ -2881,6 +3574,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public Builder setFlushGameListInfo(
           com.game.proto.ProtobufRequest.flushGameListRequest.Builder builderForValue) {
@@ -2895,6 +3592,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public Builder mergeFlushGameListInfo(com.game.proto.ProtobufRequest.flushGameListRequest value) {
         if (flushGameListInfoBuilder_ == null) {
@@ -2914,6 +3615,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public Builder clearFlushGameListInfo() {
         if (flushGameListInfoBuilder_ == null) {
@@ -2927,6 +3632,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.flushGameListRequest.Builder getFlushGameListInfoBuilder() {
         bitField0_ |= 0x00000010;
@@ -2935,6 +3644,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.flushGameListRequestOrBuilder getFlushGameListInfoOrBuilder() {
         if (flushGameListInfoBuilder_ != null) {
@@ -2945,6 +3658,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.flushGameListRequest flushGameList_info = 5;</code>
+       *
+       * <pre>
+       *刷新当前等待室列表
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.flushGameListRequest, com.game.proto.ProtobufRequest.flushGameListRequest.Builder, com.game.proto.ProtobufRequest.flushGameListRequestOrBuilder> 
@@ -2977,71 +3694,210 @@ public final class ProtobufRequest {
 
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     boolean hasGetRoomListInfo();
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     com.game.proto.ProtobufRequest.getRoomInfoListRequest getGetRoomListInfo();
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     com.game.proto.ProtobufRequest.getRoomInfoListRequestOrBuilder getGetRoomListInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     boolean hasCreateLeaveGameInfo();
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     com.game.proto.ProtobufRequest.creatorLeaveGameRequest getCreateLeaveGameInfo();
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     com.game.proto.ProtobufRequest.creatorLeaveGameRequestOrBuilder getCreateLeaveGameInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     boolean hasCreatorStartGameInfo();
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     com.game.proto.ProtobufRequest.creatorStartGameRequest getCreatorStartGameInfo();
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder getCreatorStartGameInfoOrBuilder();
 
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
     boolean hasUserWaitRoomSpeekInfo();
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
-    com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo();
+    com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest getUserWaitRoomSpeekInfo();
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
-    com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder();
+    com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder getUserWaitRoomSpeekInfoOrBuilder();
 
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     boolean hasExcludeUserInfo();
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     com.game.proto.ProtobufRequest.excludeUserRequest getExcludeUserInfo();
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     com.game.proto.ProtobufRequest.excludeUserRequestOrBuilder getExcludeUserInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    boolean hasFlushRoomInfoList();
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.flushRoomInfoListRequest getFlushRoomInfoList();
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder getFlushRoomInfoListOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    boolean hasUserSelectBaseRoleInfo();
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.userSelectBaseRoleRequest getUserSelectBaseRoleInfo();
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder getUserSelectBaseRoleInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    boolean hasUserSelectSkillInfo();
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.userSelectRoleSkillRequest getUserSelectSkillInfo();
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder getUserSelectSkillInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.game.proto.waitRoomRequest}
+   *
+   * <pre>
+   *表示当玩家在等待室中
+   * </pre>
    */
   public static final class waitRoomRequest extends
       com.google.protobuf.GeneratedMessage implements
@@ -3132,11 +3988,11 @@ public final class ProtobufRequest {
               break;
             }
             case 34: {
-              com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder subBuilder = null;
+              com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = userWaitRoomSpeekInfo_.toBuilder();
               }
-              userWaitRoomSpeekInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userWaitRoomSpeek.PARSER, extensionRegistry);
+              userWaitRoomSpeekInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(userWaitRoomSpeekInfo_);
                 userWaitRoomSpeekInfo_ = subBuilder.buildPartial();
@@ -3155,6 +4011,45 @@ public final class ProtobufRequest {
                 excludeUserInfo_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = flushRoomInfoList_.toBuilder();
+              }
+              flushRoomInfoList_ = input.readMessage(com.game.proto.ProtobufRequest.flushRoomInfoListRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flushRoomInfoList_);
+                flushRoomInfoList_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 58: {
+              com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = userSelectBaseRoleInfo_.toBuilder();
+              }
+              userSelectBaseRoleInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userSelectBaseRoleInfo_);
+                userSelectBaseRoleInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 66: {
+              com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                subBuilder = userSelectSkillInfo_.toBuilder();
+              }
+              userSelectSkillInfo_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userSelectSkillInfo_);
+                userSelectSkillInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
               break;
             }
           }
@@ -3201,18 +4096,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.getRoomInfoListRequest getRoomListInfo_;
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     public boolean hasGetRoomListInfo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.getRoomInfoListRequest getGetRoomListInfo() {
       return getRoomListInfo_;
     }
     /**
      * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+     *
+     * <pre>
+     *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.getRoomInfoListRequestOrBuilder getGetRoomListInfoOrBuilder() {
       return getRoomListInfo_;
@@ -3222,18 +4129,30 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.creatorLeaveGameRequest createLeaveGameInfo_;
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     public boolean hasCreateLeaveGameInfo() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.creatorLeaveGameRequest getCreateLeaveGameInfo() {
       return createLeaveGameInfo_;
     }
     /**
      * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+     *
+     * <pre>
+     *创建者离开游戏
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.creatorLeaveGameRequestOrBuilder getCreateLeaveGameInfoOrBuilder() {
       return createLeaveGameInfo_;
@@ -3243,41 +4162,65 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.creatorStartGameRequest creatorStartGameInfo_;
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     public boolean hasCreatorStartGameInfo() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.creatorStartGameRequest getCreatorStartGameInfo() {
       return creatorStartGameInfo_;
     }
     /**
      * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+     *
+     * <pre>
+     *创建者开始了游戏
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder getCreatorStartGameInfoOrBuilder() {
       return creatorStartGameInfo_;
     }
 
     public static final int USERWAITROOMSPEEK_INFO_FIELD_NUMBER = 4;
-    private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomSpeekInfo_;
+    private com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest userWaitRoomSpeekInfo_;
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
     public boolean hasUserWaitRoomSpeekInfo() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
-    public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo() {
+    public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest getUserWaitRoomSpeekInfo() {
       return userWaitRoomSpeekInfo_;
     }
     /**
-     * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+     * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+     *
+     * <pre>
+     *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+     * </pre>
      */
-    public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
+    public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
       return userWaitRoomSpeekInfo_;
     }
 
@@ -3285,29 +4228,143 @@ public final class ProtobufRequest {
     private com.game.proto.ProtobufRequest.excludeUserRequest excludeUserInfo_;
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     public boolean hasExcludeUserInfo() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.excludeUserRequest getExcludeUserInfo() {
       return excludeUserInfo_;
     }
     /**
      * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+     *
+     * <pre>
+     *当创建者踢出某人的操作
+     * </pre>
      */
     public com.game.proto.ProtobufRequest.excludeUserRequestOrBuilder getExcludeUserInfoOrBuilder() {
       return excludeUserInfo_;
+    }
+
+    public static final int FLUSHROOMINFOLIST_FIELD_NUMBER = 6;
+    private com.game.proto.ProtobufRequest.flushRoomInfoListRequest flushRoomInfoList_;
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    public boolean hasFlushRoomInfoList() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.flushRoomInfoListRequest getFlushRoomInfoList() {
+      return flushRoomInfoList_;
+    }
+    /**
+     * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+     *
+     * <pre>
+     *自动刷新当前数据
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder getFlushRoomInfoListOrBuilder() {
+      return flushRoomInfoList_;
+    }
+
+    public static final int USERSELECTBASEROLE_INFO_FIELD_NUMBER = 7;
+    private com.game.proto.ProtobufRequest.userSelectBaseRoleRequest userSelectBaseRoleInfo_;
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    public boolean hasUserSelectBaseRoleInfo() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest getUserSelectBaseRoleInfo() {
+      return userSelectBaseRoleInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+     *
+     * <pre>
+     *玩家选择一个角色
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder getUserSelectBaseRoleInfoOrBuilder() {
+      return userSelectBaseRoleInfo_;
+    }
+
+    public static final int USERSELECTSKILL_INFO_FIELD_NUMBER = 8;
+    private com.game.proto.ProtobufRequest.userSelectRoleSkillRequest userSelectSkillInfo_;
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    public boolean hasUserSelectSkillInfo() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest getUserSelectSkillInfo() {
+      return userSelectSkillInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+     *
+     * <pre>
+     *玩家选择一个技能
+     * </pre>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder getUserSelectSkillInfoOrBuilder() {
+      return userSelectSkillInfo_;
     }
 
     private void initFields() {
       getRoomListInfo_ = com.game.proto.ProtobufRequest.getRoomInfoListRequest.getDefaultInstance();
       createLeaveGameInfo_ = com.game.proto.ProtobufRequest.creatorLeaveGameRequest.getDefaultInstance();
       creatorStartGameInfo_ = com.game.proto.ProtobufRequest.creatorStartGameRequest.getDefaultInstance();
-      userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance();
       excludeUserInfo_ = com.game.proto.ProtobufRequest.excludeUserRequest.getDefaultInstance();
+      flushRoomInfoList_ = com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance();
+      userSelectBaseRoleInfo_ = com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance();
+      userSelectSkillInfo_ = com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3349,6 +4406,15 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, excludeUserInfo_);
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(6, flushRoomInfoList_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(7, userSelectBaseRoleInfo_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeMessage(8, userSelectSkillInfo_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3377,6 +4443,18 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, excludeUserInfo_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, flushRoomInfoList_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, userSelectBaseRoleInfo_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, userSelectSkillInfo_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3458,6 +4536,10 @@ public final class ProtobufRequest {
     }
     /**
      * Protobuf type {@code com.game.proto.waitRoomRequest}
+     *
+     * <pre>
+     *表示当玩家在等待室中
+     * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
@@ -3492,6 +4574,9 @@ public final class ProtobufRequest {
           getCreatorStartGameInfoFieldBuilder();
           getUserWaitRoomSpeekInfoFieldBuilder();
           getExcludeUserInfoFieldBuilder();
+          getFlushRoomInfoListFieldBuilder();
+          getUserSelectBaseRoleInfoFieldBuilder();
+          getUserSelectSkillInfoFieldBuilder();
         }
       }
       private static Builder create() {
@@ -3519,7 +4604,7 @@ public final class ProtobufRequest {
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (userWaitRoomSpeekInfoBuilder_ == null) {
-          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance();
         } else {
           userWaitRoomSpeekInfoBuilder_.clear();
         }
@@ -3530,6 +4615,24 @@ public final class ProtobufRequest {
           excludeUserInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (flushRoomInfoListBuilder_ == null) {
+          flushRoomInfoList_ = com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance();
+        } else {
+          flushRoomInfoListBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          userSelectBaseRoleInfo_ = com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance();
+        } else {
+          userSelectBaseRoleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        if (userSelectSkillInfoBuilder_ == null) {
+          userSelectSkillInfo_ = com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance();
+        } else {
+          userSelectSkillInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -3598,6 +4701,30 @@ public final class ProtobufRequest {
         } else {
           result.excludeUserInfo_ = excludeUserInfoBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (flushRoomInfoListBuilder_ == null) {
+          result.flushRoomInfoList_ = flushRoomInfoList_;
+        } else {
+          result.flushRoomInfoList_ = flushRoomInfoListBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          result.userSelectBaseRoleInfo_ = userSelectBaseRoleInfo_;
+        } else {
+          result.userSelectBaseRoleInfo_ = userSelectBaseRoleInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        if (userSelectSkillInfoBuilder_ == null) {
+          result.userSelectSkillInfo_ = userSelectSkillInfo_;
+        } else {
+          result.userSelectSkillInfo_ = userSelectSkillInfoBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3628,6 +4755,15 @@ public final class ProtobufRequest {
         }
         if (other.hasExcludeUserInfo()) {
           mergeExcludeUserInfo(other.getExcludeUserInfo());
+        }
+        if (other.hasFlushRoomInfoList()) {
+          mergeFlushRoomInfoList(other.getFlushRoomInfoList());
+        }
+        if (other.hasUserSelectBaseRoleInfo()) {
+          mergeUserSelectBaseRoleInfo(other.getUserSelectBaseRoleInfo());
+        }
+        if (other.hasUserSelectSkillInfo()) {
+          mergeUserSelectSkillInfo(other.getUserSelectSkillInfo());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3673,12 +4809,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.getRoomInfoListRequest, com.game.proto.ProtobufRequest.getRoomInfoListRequest.Builder, com.game.proto.ProtobufRequest.getRoomInfoListRequestOrBuilder> getRoomListInfoBuilder_;
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public boolean hasGetRoomListInfo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.getRoomInfoListRequest getGetRoomListInfo() {
         if (getRoomListInfoBuilder_ == null) {
@@ -3689,6 +4833,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public Builder setGetRoomListInfo(com.game.proto.ProtobufRequest.getRoomInfoListRequest value) {
         if (getRoomListInfoBuilder_ == null) {
@@ -3705,6 +4853,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public Builder setGetRoomListInfo(
           com.game.proto.ProtobufRequest.getRoomInfoListRequest.Builder builderForValue) {
@@ -3719,6 +4871,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public Builder mergeGetRoomListInfo(com.game.proto.ProtobufRequest.getRoomInfoListRequest value) {
         if (getRoomListInfoBuilder_ == null) {
@@ -3738,6 +4894,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public Builder clearGetRoomListInfo() {
         if (getRoomListInfoBuilder_ == null) {
@@ -3751,6 +4911,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.getRoomInfoListRequest.Builder getGetRoomListInfoBuilder() {
         bitField0_ |= 0x00000001;
@@ -3759,6 +4923,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.getRoomInfoListRequestOrBuilder getGetRoomListInfoOrBuilder() {
         if (getRoomListInfoBuilder_ != null) {
@@ -3769,6 +4937,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.getRoomInfoListRequest getRoomList_info = 1;</code>
+       *
+       * <pre>
+       *第一次进入等待室的时候玩家需要先获取到等待室当前的信息包括每个玩家的各种blabla
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.getRoomInfoListRequest, com.game.proto.ProtobufRequest.getRoomInfoListRequest.Builder, com.game.proto.ProtobufRequest.getRoomInfoListRequestOrBuilder> 
@@ -3789,12 +4961,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.creatorLeaveGameRequest, com.game.proto.ProtobufRequest.creatorLeaveGameRequest.Builder, com.game.proto.ProtobufRequest.creatorLeaveGameRequestOrBuilder> createLeaveGameInfoBuilder_;
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public boolean hasCreateLeaveGameInfo() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorLeaveGameRequest getCreateLeaveGameInfo() {
         if (createLeaveGameInfoBuilder_ == null) {
@@ -3805,6 +4985,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public Builder setCreateLeaveGameInfo(com.game.proto.ProtobufRequest.creatorLeaveGameRequest value) {
         if (createLeaveGameInfoBuilder_ == null) {
@@ -3821,6 +5005,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public Builder setCreateLeaveGameInfo(
           com.game.proto.ProtobufRequest.creatorLeaveGameRequest.Builder builderForValue) {
@@ -3835,6 +5023,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public Builder mergeCreateLeaveGameInfo(com.game.proto.ProtobufRequest.creatorLeaveGameRequest value) {
         if (createLeaveGameInfoBuilder_ == null) {
@@ -3854,6 +5046,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public Builder clearCreateLeaveGameInfo() {
         if (createLeaveGameInfoBuilder_ == null) {
@@ -3867,6 +5063,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorLeaveGameRequest.Builder getCreateLeaveGameInfoBuilder() {
         bitField0_ |= 0x00000002;
@@ -3875,6 +5075,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorLeaveGameRequestOrBuilder getCreateLeaveGameInfoOrBuilder() {
         if (createLeaveGameInfoBuilder_ != null) {
@@ -3885,6 +5089,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorLeaveGameRequest createLeaveGame_info = 2;</code>
+       *
+       * <pre>
+       *创建者离开游戏
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.creatorLeaveGameRequest, com.game.proto.ProtobufRequest.creatorLeaveGameRequest.Builder, com.game.proto.ProtobufRequest.creatorLeaveGameRequestOrBuilder> 
@@ -3905,12 +5113,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.creatorStartGameRequest, com.game.proto.ProtobufRequest.creatorStartGameRequest.Builder, com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder> creatorStartGameInfoBuilder_;
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public boolean hasCreatorStartGameInfo() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorStartGameRequest getCreatorStartGameInfo() {
         if (creatorStartGameInfoBuilder_ == null) {
@@ -3921,6 +5137,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public Builder setCreatorStartGameInfo(com.game.proto.ProtobufRequest.creatorStartGameRequest value) {
         if (creatorStartGameInfoBuilder_ == null) {
@@ -3937,6 +5157,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public Builder setCreatorStartGameInfo(
           com.game.proto.ProtobufRequest.creatorStartGameRequest.Builder builderForValue) {
@@ -3951,6 +5175,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public Builder mergeCreatorStartGameInfo(com.game.proto.ProtobufRequest.creatorStartGameRequest value) {
         if (creatorStartGameInfoBuilder_ == null) {
@@ -3970,6 +5198,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public Builder clearCreatorStartGameInfo() {
         if (creatorStartGameInfoBuilder_ == null) {
@@ -3983,6 +5215,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorStartGameRequest.Builder getCreatorStartGameInfoBuilder() {
         bitField0_ |= 0x00000004;
@@ -3991,6 +5227,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder getCreatorStartGameInfoOrBuilder() {
         if (creatorStartGameInfoBuilder_ != null) {
@@ -4001,6 +5241,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.creatorStartGameRequest creatorStartGame_info = 3;</code>
+       *
+       * <pre>
+       *创建者开始了游戏
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.creatorStartGameRequest, com.game.proto.ProtobufRequest.creatorStartGameRequest.Builder, com.game.proto.ProtobufRequest.creatorStartGameRequestOrBuilder> 
@@ -4016,19 +5260,27 @@ public final class ProtobufRequest {
         return creatorStartGameInfoBuilder_;
       }
 
-      private com.game.proto.ProtobufRequest.userWaitRoomSpeek userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      private com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder> userWaitRoomSpeekInfoBuilder_;
+          com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder> userWaitRoomSpeekInfoBuilder_;
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
       public boolean hasUserWaitRoomSpeekInfo() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek getUserWaitRoomSpeekInfo() {
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest getUserWaitRoomSpeekInfo() {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
           return userWaitRoomSpeekInfo_;
         } else {
@@ -4036,9 +5288,13 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
-      public Builder setUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
+      public Builder setUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest value) {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4052,10 +5308,14 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
       public Builder setUserWaitRoomSpeekInfo(
-          com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder builderForValue) {
+          com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder builderForValue) {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
           userWaitRoomSpeekInfo_ = builderForValue.build();
           onChanged();
@@ -4066,14 +5326,18 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
-      public Builder mergeUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeek value) {
+      public Builder mergeUserWaitRoomSpeekInfo(com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest value) {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              userWaitRoomSpeekInfo_ != com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance()) {
+              userWaitRoomSpeekInfo_ != com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance()) {
             userWaitRoomSpeekInfo_ =
-              com.game.proto.ProtobufRequest.userWaitRoomSpeek.newBuilder(userWaitRoomSpeekInfo_).mergeFrom(value).buildPartial();
+              com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.newBuilder(userWaitRoomSpeekInfo_).mergeFrom(value).buildPartial();
           } else {
             userWaitRoomSpeekInfo_ = value;
           }
@@ -4085,11 +5349,15 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
       public Builder clearUserWaitRoomSpeekInfo() {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
-          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+          userWaitRoomSpeekInfo_ = com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance();
           onChanged();
         } else {
           userWaitRoomSpeekInfoBuilder_.clear();
@@ -4098,17 +5366,25 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder getUserWaitRoomSpeekInfoBuilder() {
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder getUserWaitRoomSpeekInfoBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getUserWaitRoomSpeekInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder getUserWaitRoomSpeekInfoOrBuilder() {
         if (userWaitRoomSpeekInfoBuilder_ != null) {
           return userWaitRoomSpeekInfoBuilder_.getMessageOrBuilder();
         } else {
@@ -4116,14 +5392,18 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>optional .com.game.proto.userWaitRoomSpeek userWaitRoomSpeek_info = 4;</code>
+       * <code>optional .com.game.proto.userWaitRoomSpeekRequest userWaitRoomSpeek_info = 4;</code>
+       *
+       * <pre>
+       *玩家在等待室中等待这个时候会返回当前等待室中玩家的操作信息
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder> 
+          com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder> 
           getUserWaitRoomSpeekInfoFieldBuilder() {
         if (userWaitRoomSpeekInfoBuilder_ == null) {
           userWaitRoomSpeekInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.game.proto.ProtobufRequest.userWaitRoomSpeek, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder>(
+              com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder>(
                   getUserWaitRoomSpeekInfo(),
                   getParentForChildren(),
                   isClean());
@@ -4137,12 +5417,20 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.excludeUserRequest, com.game.proto.ProtobufRequest.excludeUserRequest.Builder, com.game.proto.ProtobufRequest.excludeUserRequestOrBuilder> excludeUserInfoBuilder_;
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public boolean hasExcludeUserInfo() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.excludeUserRequest getExcludeUserInfo() {
         if (excludeUserInfoBuilder_ == null) {
@@ -4153,6 +5441,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public Builder setExcludeUserInfo(com.game.proto.ProtobufRequest.excludeUserRequest value) {
         if (excludeUserInfoBuilder_ == null) {
@@ -4169,6 +5461,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public Builder setExcludeUserInfo(
           com.game.proto.ProtobufRequest.excludeUserRequest.Builder builderForValue) {
@@ -4183,6 +5479,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public Builder mergeExcludeUserInfo(com.game.proto.ProtobufRequest.excludeUserRequest value) {
         if (excludeUserInfoBuilder_ == null) {
@@ -4202,6 +5502,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public Builder clearExcludeUserInfo() {
         if (excludeUserInfoBuilder_ == null) {
@@ -4215,6 +5519,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.excludeUserRequest.Builder getExcludeUserInfoBuilder() {
         bitField0_ |= 0x00000010;
@@ -4223,6 +5531,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       public com.game.proto.ProtobufRequest.excludeUserRequestOrBuilder getExcludeUserInfoOrBuilder() {
         if (excludeUserInfoBuilder_ != null) {
@@ -4233,6 +5545,10 @@ public final class ProtobufRequest {
       }
       /**
        * <code>optional .com.game.proto.excludeUserRequest excludeUser_info = 5;</code>
+       *
+       * <pre>
+       *当创建者踢出某人的操作
+       * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.game.proto.ProtobufRequest.excludeUserRequest, com.game.proto.ProtobufRequest.excludeUserRequest.Builder, com.game.proto.ProtobufRequest.excludeUserRequestOrBuilder> 
@@ -4248,6 +5564,462 @@ public final class ProtobufRequest {
         return excludeUserInfoBuilder_;
       }
 
+      private com.game.proto.ProtobufRequest.flushRoomInfoListRequest flushRoomInfoList_ = com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.flushRoomInfoListRequest, com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder, com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder> flushRoomInfoListBuilder_;
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public boolean hasFlushRoomInfoList() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequest getFlushRoomInfoList() {
+        if (flushRoomInfoListBuilder_ == null) {
+          return flushRoomInfoList_;
+        } else {
+          return flushRoomInfoListBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public Builder setFlushRoomInfoList(com.game.proto.ProtobufRequest.flushRoomInfoListRequest value) {
+        if (flushRoomInfoListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flushRoomInfoList_ = value;
+          onChanged();
+        } else {
+          flushRoomInfoListBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public Builder setFlushRoomInfoList(
+          com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder builderForValue) {
+        if (flushRoomInfoListBuilder_ == null) {
+          flushRoomInfoList_ = builderForValue.build();
+          onChanged();
+        } else {
+          flushRoomInfoListBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public Builder mergeFlushRoomInfoList(com.game.proto.ProtobufRequest.flushRoomInfoListRequest value) {
+        if (flushRoomInfoListBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              flushRoomInfoList_ != com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance()) {
+            flushRoomInfoList_ =
+              com.game.proto.ProtobufRequest.flushRoomInfoListRequest.newBuilder(flushRoomInfoList_).mergeFrom(value).buildPartial();
+          } else {
+            flushRoomInfoList_ = value;
+          }
+          onChanged();
+        } else {
+          flushRoomInfoListBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public Builder clearFlushRoomInfoList() {
+        if (flushRoomInfoListBuilder_ == null) {
+          flushRoomInfoList_ = com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          flushRoomInfoListBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder getFlushRoomInfoListBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getFlushRoomInfoListFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder getFlushRoomInfoListOrBuilder() {
+        if (flushRoomInfoListBuilder_ != null) {
+          return flushRoomInfoListBuilder_.getMessageOrBuilder();
+        } else {
+          return flushRoomInfoList_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.flushRoomInfoListRequest flushRoomInfoList = 6;</code>
+       *
+       * <pre>
+       *自动刷新当前数据
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.flushRoomInfoListRequest, com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder, com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder> 
+          getFlushRoomInfoListFieldBuilder() {
+        if (flushRoomInfoListBuilder_ == null) {
+          flushRoomInfoListBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.flushRoomInfoListRequest, com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder, com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder>(
+                  getFlushRoomInfoList(),
+                  getParentForChildren(),
+                  isClean());
+          flushRoomInfoList_ = null;
+        }
+        return flushRoomInfoListBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.userSelectBaseRoleRequest userSelectBaseRoleInfo_ = com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectBaseRoleRequest, com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder, com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder> userSelectBaseRoleInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public boolean hasUserSelectBaseRoleInfo() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest getUserSelectBaseRoleInfo() {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          return userSelectBaseRoleInfo_;
+        } else {
+          return userSelectBaseRoleInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public Builder setUserSelectBaseRoleInfo(com.game.proto.ProtobufRequest.userSelectBaseRoleRequest value) {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userSelectBaseRoleInfo_ = value;
+          onChanged();
+        } else {
+          userSelectBaseRoleInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public Builder setUserSelectBaseRoleInfo(
+          com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder builderForValue) {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          userSelectBaseRoleInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          userSelectBaseRoleInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public Builder mergeUserSelectBaseRoleInfo(com.game.proto.ProtobufRequest.userSelectBaseRoleRequest value) {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              userSelectBaseRoleInfo_ != com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance()) {
+            userSelectBaseRoleInfo_ =
+              com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.newBuilder(userSelectBaseRoleInfo_).mergeFrom(value).buildPartial();
+          } else {
+            userSelectBaseRoleInfo_ = value;
+          }
+          onChanged();
+        } else {
+          userSelectBaseRoleInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public Builder clearUserSelectBaseRoleInfo() {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          userSelectBaseRoleInfo_ = com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          userSelectBaseRoleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder getUserSelectBaseRoleInfoBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getUserSelectBaseRoleInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder getUserSelectBaseRoleInfoOrBuilder() {
+        if (userSelectBaseRoleInfoBuilder_ != null) {
+          return userSelectBaseRoleInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return userSelectBaseRoleInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectBaseRoleRequest userSelectBaseRole_info = 7;</code>
+       *
+       * <pre>
+       *玩家选择一个角色
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectBaseRoleRequest, com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder, com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder> 
+          getUserSelectBaseRoleInfoFieldBuilder() {
+        if (userSelectBaseRoleInfoBuilder_ == null) {
+          userSelectBaseRoleInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectBaseRoleRequest, com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder, com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder>(
+                  getUserSelectBaseRoleInfo(),
+                  getParentForChildren(),
+                  isClean());
+          userSelectBaseRoleInfo_ = null;
+        }
+        return userSelectBaseRoleInfoBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.userSelectRoleSkillRequest userSelectSkillInfo_ = com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRoleSkillRequest, com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder, com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder> userSelectSkillInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public boolean hasUserSelectSkillInfo() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest getUserSelectSkillInfo() {
+        if (userSelectSkillInfoBuilder_ == null) {
+          return userSelectSkillInfo_;
+        } else {
+          return userSelectSkillInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public Builder setUserSelectSkillInfo(com.game.proto.ProtobufRequest.userSelectRoleSkillRequest value) {
+        if (userSelectSkillInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userSelectSkillInfo_ = value;
+          onChanged();
+        } else {
+          userSelectSkillInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public Builder setUserSelectSkillInfo(
+          com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder builderForValue) {
+        if (userSelectSkillInfoBuilder_ == null) {
+          userSelectSkillInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          userSelectSkillInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public Builder mergeUserSelectSkillInfo(com.game.proto.ProtobufRequest.userSelectRoleSkillRequest value) {
+        if (userSelectSkillInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) == 0x00000080) &&
+              userSelectSkillInfo_ != com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance()) {
+            userSelectSkillInfo_ =
+              com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.newBuilder(userSelectSkillInfo_).mergeFrom(value).buildPartial();
+          } else {
+            userSelectSkillInfo_ = value;
+          }
+          onChanged();
+        } else {
+          userSelectSkillInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public Builder clearUserSelectSkillInfo() {
+        if (userSelectSkillInfoBuilder_ == null) {
+          userSelectSkillInfo_ = com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          userSelectSkillInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder getUserSelectSkillInfoBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getUserSelectSkillInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder getUserSelectSkillInfoOrBuilder() {
+        if (userSelectSkillInfoBuilder_ != null) {
+          return userSelectSkillInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return userSelectSkillInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRoleSkillRequest userSelectSkill_info = 8;</code>
+       *
+       * <pre>
+       *玩家选择一个技能
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRoleSkillRequest, com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder, com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder> 
+          getUserSelectSkillInfoFieldBuilder() {
+        if (userSelectSkillInfoBuilder_ == null) {
+          userSelectSkillInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectRoleSkillRequest, com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder, com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder>(
+                  getUserSelectSkillInfo(),
+                  getParentForChildren(),
+                  isClean());
+          userSelectSkillInfo_ = null;
+        }
+        return userSelectSkillInfoBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.proto.waitRoomRequest)
     }
 
@@ -4257,6 +6029,1167 @@ public final class ProtobufRequest {
     }
 
     // @@protoc_insertion_point(class_scope:com.game.proto.waitRoomRequest)
+  }
+
+  public interface battleSceneRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.battleSceneRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    boolean hasRoleId();
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    int getRoleId();
+
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    boolean hasRoleBattleDialogInfo();
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.roleBattleDialogRequest getRoleBattleDialogInfo();
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder getRoleBattleDialogInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    boolean hasRoleBattleIdleInfo();
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    com.game.proto.ProtobufRequest.roleBattleIdleRequest getRoleBattleIdleInfo();
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder getRoleBattleIdleInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    boolean hasReflushRoleBattleIdleInfo();
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest getReflushRoleBattleIdleInfo();
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder getReflushRoleBattleIdleInfoOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    boolean hasBattleSceneUpdateInfo();
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    com.game.proto.ProtobufRequest.battleSceneUpdateRequest getBattleSceneUpdateInfo();
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder getBattleSceneUpdateInfoOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.battleSceneRequest}
+   *
+   * <pre>
+   *其他数据通过cmd就可以表示就不需要再这里重复了
+   * </pre>
+   */
+  public static final class battleSceneRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.battleSceneRequest)
+      battleSceneRequestOrBuilder {
+    // Use battleSceneRequest.newBuilder() to construct.
+    private battleSceneRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private battleSceneRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final battleSceneRequest defaultInstance;
+    public static battleSceneRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public battleSceneRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private battleSceneRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              roleId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = roleBattleDialogInfo_.toBuilder();
+              }
+              roleBattleDialogInfo_ = input.readMessage(com.game.proto.ProtobufRequest.roleBattleDialogRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(roleBattleDialogInfo_);
+                roleBattleDialogInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = roleBattleIdleInfo_.toBuilder();
+              }
+              roleBattleIdleInfo_ = input.readMessage(com.game.proto.ProtobufRequest.roleBattleIdleRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(roleBattleIdleInfo_);
+                roleBattleIdleInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = reflushRoleBattleIdleInfo_.toBuilder();
+              }
+              reflushRoleBattleIdleInfo_ = input.readMessage(com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(reflushRoleBattleIdleInfo_);
+                reflushRoleBattleIdleInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = battleSceneUpdateInfo_.toBuilder();
+              }
+              battleSceneUpdateInfo_ = input.readMessage(com.game.proto.ProtobufRequest.battleSceneUpdateRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(battleSceneUpdateInfo_);
+                battleSceneUpdateInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.battleSceneRequest.class, com.game.proto.ProtobufRequest.battleSceneRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<battleSceneRequest> PARSER =
+        new com.google.protobuf.AbstractParser<battleSceneRequest>() {
+      public battleSceneRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new battleSceneRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<battleSceneRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ROLE_ID_FIELD_NUMBER = 1;
+    private int roleId_;
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public boolean hasRoleId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public int getRoleId() {
+      return roleId_;
+    }
+
+    public static final int ROLEBATTLEDIALOG_INFO_FIELD_NUMBER = 2;
+    private com.game.proto.ProtobufRequest.roleBattleDialogRequest roleBattleDialogInfo_;
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    public boolean hasRoleBattleDialogInfo() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.roleBattleDialogRequest getRoleBattleDialogInfo() {
+      return roleBattleDialogInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder getRoleBattleDialogInfoOrBuilder() {
+      return roleBattleDialogInfo_;
+    }
+
+    public static final int ROLEBATTLEIDLE_INFO_FIELD_NUMBER = 3;
+    private com.game.proto.ProtobufRequest.roleBattleIdleRequest roleBattleIdleInfo_;
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    public boolean hasRoleBattleIdleInfo() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    public com.game.proto.ProtobufRequest.roleBattleIdleRequest getRoleBattleIdleInfo() {
+      return roleBattleIdleInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+     */
+    public com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder getRoleBattleIdleInfoOrBuilder() {
+      return roleBattleIdleInfo_;
+    }
+
+    public static final int REFLUSHROLEBATTLEIDLE_INFO_FIELD_NUMBER = 4;
+    private com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest reflushRoleBattleIdleInfo_;
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    public boolean hasReflushRoleBattleIdleInfo() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest getReflushRoleBattleIdleInfo() {
+      return reflushRoleBattleIdleInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+     */
+    public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder getReflushRoleBattleIdleInfoOrBuilder() {
+      return reflushRoleBattleIdleInfo_;
+    }
+
+    public static final int BATTLESCENEUPDATE_INFO_FIELD_NUMBER = 5;
+    private com.game.proto.ProtobufRequest.battleSceneUpdateRequest battleSceneUpdateInfo_;
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    public boolean hasBattleSceneUpdateInfo() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    public com.game.proto.ProtobufRequest.battleSceneUpdateRequest getBattleSceneUpdateInfo() {
+      return battleSceneUpdateInfo_;
+    }
+    /**
+     * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+     */
+    public com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder getBattleSceneUpdateInfoOrBuilder() {
+      return battleSceneUpdateInfo_;
+    }
+
+    private void initFields() {
+      roleId_ = 0;
+      roleBattleDialogInfo_ = com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance();
+      roleBattleIdleInfo_ = com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance();
+      reflushRoleBattleIdleInfo_ = com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance();
+      battleSceneUpdateInfo_ = com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, roleBattleDialogInfo_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, roleBattleIdleInfo_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, reflushRoleBattleIdleInfo_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, battleSceneUpdateInfo_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, roleBattleDialogInfo_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, roleBattleIdleInfo_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, reflushRoleBattleIdleInfo_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, battleSceneUpdateInfo_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.battleSceneRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.battleSceneRequest}
+     *
+     * <pre>
+     *其他数据通过cmd就可以表示就不需要再这里重复了
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.battleSceneRequest)
+        com.game.proto.ProtobufRequest.battleSceneRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.battleSceneRequest.class, com.game.proto.ProtobufRequest.battleSceneRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.battleSceneRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getRoleBattleDialogInfoFieldBuilder();
+          getRoleBattleIdleInfoFieldBuilder();
+          getReflushRoleBattleIdleInfoFieldBuilder();
+          getBattleSceneUpdateInfoFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        roleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (roleBattleDialogInfoBuilder_ == null) {
+          roleBattleDialogInfo_ = com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance();
+        } else {
+          roleBattleDialogInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (roleBattleIdleInfoBuilder_ == null) {
+          roleBattleIdleInfo_ = com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance();
+        } else {
+          roleBattleIdleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          reflushRoleBattleIdleInfo_ = com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance();
+        } else {
+          reflushRoleBattleIdleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          battleSceneUpdateInfo_ = com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance();
+        } else {
+          battleSceneUpdateInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneRequest build() {
+        com.game.proto.ProtobufRequest.battleSceneRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneRequest buildPartial() {
+        com.game.proto.ProtobufRequest.battleSceneRequest result = new com.game.proto.ProtobufRequest.battleSceneRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.roleId_ = roleId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (roleBattleDialogInfoBuilder_ == null) {
+          result.roleBattleDialogInfo_ = roleBattleDialogInfo_;
+        } else {
+          result.roleBattleDialogInfo_ = roleBattleDialogInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (roleBattleIdleInfoBuilder_ == null) {
+          result.roleBattleIdleInfo_ = roleBattleIdleInfo_;
+        } else {
+          result.roleBattleIdleInfo_ = roleBattleIdleInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          result.reflushRoleBattleIdleInfo_ = reflushRoleBattleIdleInfo_;
+        } else {
+          result.reflushRoleBattleIdleInfo_ = reflushRoleBattleIdleInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          result.battleSceneUpdateInfo_ = battleSceneUpdateInfo_;
+        } else {
+          result.battleSceneUpdateInfo_ = battleSceneUpdateInfoBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.battleSceneRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.battleSceneRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.battleSceneRequest other) {
+        if (other == com.game.proto.ProtobufRequest.battleSceneRequest.getDefaultInstance()) return this;
+        if (other.hasRoleId()) {
+          setRoleId(other.getRoleId());
+        }
+        if (other.hasRoleBattleDialogInfo()) {
+          mergeRoleBattleDialogInfo(other.getRoleBattleDialogInfo());
+        }
+        if (other.hasRoleBattleIdleInfo()) {
+          mergeRoleBattleIdleInfo(other.getRoleBattleIdleInfo());
+        }
+        if (other.hasReflushRoleBattleIdleInfo()) {
+          mergeReflushRoleBattleIdleInfo(other.getReflushRoleBattleIdleInfo());
+        }
+        if (other.hasBattleSceneUpdateInfo()) {
+          mergeBattleSceneUpdateInfo(other.getBattleSceneUpdateInfo());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.battleSceneRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.battleSceneRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int roleId_ ;
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public boolean hasRoleId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public int getRoleId() {
+        return roleId_;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder setRoleId(int value) {
+        bitField0_ |= 0x00000001;
+        roleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder clearRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        roleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.game.proto.ProtobufRequest.roleBattleDialogRequest roleBattleDialogInfo_ = com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.roleBattleDialogRequest, com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder, com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder> roleBattleDialogInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public boolean hasRoleBattleDialogInfo() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequest getRoleBattleDialogInfo() {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          return roleBattleDialogInfo_;
+        } else {
+          return roleBattleDialogInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public Builder setRoleBattleDialogInfo(com.game.proto.ProtobufRequest.roleBattleDialogRequest value) {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          roleBattleDialogInfo_ = value;
+          onChanged();
+        } else {
+          roleBattleDialogInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public Builder setRoleBattleDialogInfo(
+          com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder builderForValue) {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          roleBattleDialogInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          roleBattleDialogInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public Builder mergeRoleBattleDialogInfo(com.game.proto.ProtobufRequest.roleBattleDialogRequest value) {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              roleBattleDialogInfo_ != com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance()) {
+            roleBattleDialogInfo_ =
+              com.game.proto.ProtobufRequest.roleBattleDialogRequest.newBuilder(roleBattleDialogInfo_).mergeFrom(value).buildPartial();
+          } else {
+            roleBattleDialogInfo_ = value;
+          }
+          onChanged();
+        } else {
+          roleBattleDialogInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public Builder clearRoleBattleDialogInfo() {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          roleBattleDialogInfo_ = com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          roleBattleDialogInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder getRoleBattleDialogInfoBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getRoleBattleDialogInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder getRoleBattleDialogInfoOrBuilder() {
+        if (roleBattleDialogInfoBuilder_ != null) {
+          return roleBattleDialogInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return roleBattleDialogInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleDialogRequest roleBattleDialog_info = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.roleBattleDialogRequest, com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder, com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder> 
+          getRoleBattleDialogInfoFieldBuilder() {
+        if (roleBattleDialogInfoBuilder_ == null) {
+          roleBattleDialogInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.roleBattleDialogRequest, com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder, com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder>(
+                  getRoleBattleDialogInfo(),
+                  getParentForChildren(),
+                  isClean());
+          roleBattleDialogInfo_ = null;
+        }
+        return roleBattleDialogInfoBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.roleBattleIdleRequest roleBattleIdleInfo_ = com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.roleBattleIdleRequest, com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder> roleBattleIdleInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public boolean hasRoleBattleIdleInfo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequest getRoleBattleIdleInfo() {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          return roleBattleIdleInfo_;
+        } else {
+          return roleBattleIdleInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public Builder setRoleBattleIdleInfo(com.game.proto.ProtobufRequest.roleBattleIdleRequest value) {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          roleBattleIdleInfo_ = value;
+          onChanged();
+        } else {
+          roleBattleIdleInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public Builder setRoleBattleIdleInfo(
+          com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder builderForValue) {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          roleBattleIdleInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          roleBattleIdleInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public Builder mergeRoleBattleIdleInfo(com.game.proto.ProtobufRequest.roleBattleIdleRequest value) {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              roleBattleIdleInfo_ != com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance()) {
+            roleBattleIdleInfo_ =
+              com.game.proto.ProtobufRequest.roleBattleIdleRequest.newBuilder(roleBattleIdleInfo_).mergeFrom(value).buildPartial();
+          } else {
+            roleBattleIdleInfo_ = value;
+          }
+          onChanged();
+        } else {
+          roleBattleIdleInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public Builder clearRoleBattleIdleInfo() {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          roleBattleIdleInfo_ = com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          roleBattleIdleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder getRoleBattleIdleInfoBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getRoleBattleIdleInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder getRoleBattleIdleInfoOrBuilder() {
+        if (roleBattleIdleInfoBuilder_ != null) {
+          return roleBattleIdleInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return roleBattleIdleInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.roleBattleIdleRequest roleBattleIdle_info = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.roleBattleIdleRequest, com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder> 
+          getRoleBattleIdleInfoFieldBuilder() {
+        if (roleBattleIdleInfoBuilder_ == null) {
+          roleBattleIdleInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.roleBattleIdleRequest, com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder>(
+                  getRoleBattleIdleInfo(),
+                  getParentForChildren(),
+                  isClean());
+          roleBattleIdleInfo_ = null;
+        }
+        return roleBattleIdleInfoBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest reflushRoleBattleIdleInfo_ = com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder> reflushRoleBattleIdleInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public boolean hasReflushRoleBattleIdleInfo() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest getReflushRoleBattleIdleInfo() {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          return reflushRoleBattleIdleInfo_;
+        } else {
+          return reflushRoleBattleIdleInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public Builder setReflushRoleBattleIdleInfo(com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest value) {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          reflushRoleBattleIdleInfo_ = value;
+          onChanged();
+        } else {
+          reflushRoleBattleIdleInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public Builder setReflushRoleBattleIdleInfo(
+          com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder builderForValue) {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          reflushRoleBattleIdleInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          reflushRoleBattleIdleInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public Builder mergeReflushRoleBattleIdleInfo(com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest value) {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              reflushRoleBattleIdleInfo_ != com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance()) {
+            reflushRoleBattleIdleInfo_ =
+              com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.newBuilder(reflushRoleBattleIdleInfo_).mergeFrom(value).buildPartial();
+          } else {
+            reflushRoleBattleIdleInfo_ = value;
+          }
+          onChanged();
+        } else {
+          reflushRoleBattleIdleInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public Builder clearReflushRoleBattleIdleInfo() {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          reflushRoleBattleIdleInfo_ = com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          reflushRoleBattleIdleInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder getReflushRoleBattleIdleInfoBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getReflushRoleBattleIdleInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder getReflushRoleBattleIdleInfoOrBuilder() {
+        if (reflushRoleBattleIdleInfoBuilder_ != null) {
+          return reflushRoleBattleIdleInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return reflushRoleBattleIdleInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.reflushRoleBattleIdleRequest reflushRoleBattleIdle_info = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder> 
+          getReflushRoleBattleIdleInfoFieldBuilder() {
+        if (reflushRoleBattleIdleInfoBuilder_ == null) {
+          reflushRoleBattleIdleInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder>(
+                  getReflushRoleBattleIdleInfo(),
+                  getParentForChildren(),
+                  isClean());
+          reflushRoleBattleIdleInfo_ = null;
+        }
+        return reflushRoleBattleIdleInfoBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.battleSceneUpdateRequest battleSceneUpdateInfo_ = com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.battleSceneUpdateRequest, com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder, com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder> battleSceneUpdateInfoBuilder_;
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public boolean hasBattleSceneUpdateInfo() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequest getBattleSceneUpdateInfo() {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          return battleSceneUpdateInfo_;
+        } else {
+          return battleSceneUpdateInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public Builder setBattleSceneUpdateInfo(com.game.proto.ProtobufRequest.battleSceneUpdateRequest value) {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          battleSceneUpdateInfo_ = value;
+          onChanged();
+        } else {
+          battleSceneUpdateInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public Builder setBattleSceneUpdateInfo(
+          com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder builderForValue) {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          battleSceneUpdateInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          battleSceneUpdateInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public Builder mergeBattleSceneUpdateInfo(com.game.proto.ProtobufRequest.battleSceneUpdateRequest value) {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              battleSceneUpdateInfo_ != com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance()) {
+            battleSceneUpdateInfo_ =
+              com.game.proto.ProtobufRequest.battleSceneUpdateRequest.newBuilder(battleSceneUpdateInfo_).mergeFrom(value).buildPartial();
+          } else {
+            battleSceneUpdateInfo_ = value;
+          }
+          onChanged();
+        } else {
+          battleSceneUpdateInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public Builder clearBattleSceneUpdateInfo() {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          battleSceneUpdateInfo_ = com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          battleSceneUpdateInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder getBattleSceneUpdateInfoBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getBattleSceneUpdateInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder getBattleSceneUpdateInfoOrBuilder() {
+        if (battleSceneUpdateInfoBuilder_ != null) {
+          return battleSceneUpdateInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return battleSceneUpdateInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.battleSceneUpdateRequest battleSceneUpdate_info = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.battleSceneUpdateRequest, com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder, com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder> 
+          getBattleSceneUpdateInfoFieldBuilder() {
+        if (battleSceneUpdateInfoBuilder_ == null) {
+          battleSceneUpdateInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.battleSceneUpdateRequest, com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder, com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder>(
+                  getBattleSceneUpdateInfo(),
+                  getParentForChildren(),
+                  isClean());
+          battleSceneUpdateInfo_ = null;
+        }
+        return battleSceneUpdateInfoBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.battleSceneRequest)
+    }
+
+    static {
+      defaultInstance = new battleSceneRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.battleSceneRequest)
   }
 
   public interface registerMessageRequestOrBuilder extends
@@ -7158,24 +10091,15 @@ public final class ProtobufRequest {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 listCount = 1;</code>
-     */
-    boolean hasListCount();
-    /**
-     * <code>optional int32 listCount = 1;</code>
-     */
-    int getListCount();
-
-    /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     java.util.List<java.lang.Integer> getRoomIdList();
     /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     int getRoomIdCount();
     /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     int getRoomId(int index);
   }
@@ -7184,6 +10108,7 @@ public final class ProtobufRequest {
    *
    * <pre>
    *玩家在主界面自动刷新游戏列表：cmd = 7 (MAIN_FLUSH_GAME_LIST)
+   *设定刷新间隔为1秒一次
    * </pre>
    */
   public static final class flushGameListRequest extends
@@ -7236,24 +10161,19 @@ public final class ProtobufRequest {
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
-              listCount_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 roomId_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               roomId_.add(input.readInt32());
               break;
             }
-            case 18: {
+            case 10: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
                 roomId_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
                 roomId_.add(input.readInt32());
@@ -7269,7 +10189,7 @@ public final class ProtobufRequest {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           roomId_ = java.util.Collections.unmodifiableList(roomId_);
         }
         this.unknownFields = unknownFields.build();
@@ -7303,46 +10223,29 @@ public final class ProtobufRequest {
       return PARSER;
     }
 
-    private int bitField0_;
-    public static final int LISTCOUNT_FIELD_NUMBER = 1;
-    private int listCount_;
-    /**
-     * <code>optional int32 listCount = 1;</code>
-     */
-    public boolean hasListCount() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional int32 listCount = 1;</code>
-     */
-    public int getListCount() {
-      return listCount_;
-    }
-
-    public static final int ROOM_ID_FIELD_NUMBER = 2;
+    public static final int ROOM_ID_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Integer> roomId_;
     /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     public java.util.List<java.lang.Integer>
         getRoomIdList() {
       return roomId_;
     }
     /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     public int getRoomIdCount() {
       return roomId_.size();
     }
     /**
-     * <code>repeated int32 room_id = 2;</code>
+     * <code>repeated int32 room_id = 1;</code>
      */
     public int getRoomId(int index) {
       return roomId_.get(index);
     }
 
     private void initFields() {
-      listCount_ = 0;
       roomId_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
@@ -7358,11 +10261,8 @@ public final class ProtobufRequest {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, listCount_);
-      }
       for (int i = 0; i < roomId_.size(); i++) {
-        output.writeInt32(2, roomId_.get(i));
+        output.writeInt32(1, roomId_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -7373,10 +10273,6 @@ public final class ProtobufRequest {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, listCount_);
-      }
       {
         int dataSize = 0;
         for (int i = 0; i < roomId_.size(); i++) {
@@ -7469,6 +10365,7 @@ public final class ProtobufRequest {
      *
      * <pre>
      *玩家在主界面自动刷新游戏列表：cmd = 7 (MAIN_FLUSH_GAME_LIST)
+     *设定刷新间隔为1秒一次
      * </pre>
      */
     public static final class Builder extends
@@ -7507,10 +10404,8 @@ public final class ProtobufRequest {
 
       public Builder clear() {
         super.clear();
-        listCount_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         roomId_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -7538,17 +10433,11 @@ public final class ProtobufRequest {
       public com.game.proto.ProtobufRequest.flushGameListRequest buildPartial() {
         com.game.proto.ProtobufRequest.flushGameListRequest result = new com.game.proto.ProtobufRequest.flushGameListRequest(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.listCount_ = listCount_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           roomId_ = java.util.Collections.unmodifiableList(roomId_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.roomId_ = roomId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -7564,13 +10453,10 @@ public final class ProtobufRequest {
 
       public Builder mergeFrom(com.game.proto.ProtobufRequest.flushGameListRequest other) {
         if (other == com.game.proto.ProtobufRequest.flushGameListRequest.getDefaultInstance()) return this;
-        if (other.hasListCount()) {
-          setListCount(other.getListCount());
-        }
         if (!other.roomId_.isEmpty()) {
           if (roomId_.isEmpty()) {
             roomId_ = other.roomId_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureRoomIdIsMutable();
             roomId_.addAll(other.roomId_);
@@ -7604,66 +10490,34 @@ public final class ProtobufRequest {
       }
       private int bitField0_;
 
-      private int listCount_ ;
-      /**
-       * <code>optional int32 listCount = 1;</code>
-       */
-      public boolean hasListCount() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 listCount = 1;</code>
-       */
-      public int getListCount() {
-        return listCount_;
-      }
-      /**
-       * <code>optional int32 listCount = 1;</code>
-       */
-      public Builder setListCount(int value) {
-        bitField0_ |= 0x00000001;
-        listCount_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 listCount = 1;</code>
-       */
-      public Builder clearListCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        listCount_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<java.lang.Integer> roomId_ = java.util.Collections.emptyList();
       private void ensureRoomIdIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           roomId_ = new java.util.ArrayList<java.lang.Integer>(roomId_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public java.util.List<java.lang.Integer>
           getRoomIdList() {
         return java.util.Collections.unmodifiableList(roomId_);
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public int getRoomIdCount() {
         return roomId_.size();
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public int getRoomId(int index) {
         return roomId_.get(index);
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public Builder setRoomId(
           int index, int value) {
@@ -7673,7 +10527,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public Builder addRoomId(int value) {
         ensureRoomIdIsMutable();
@@ -7682,7 +10536,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public Builder addAllRoomId(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -7693,11 +10547,11 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated int32 room_id = 2;</code>
+       * <code>repeated int32 room_id = 1;</code>
        */
       public Builder clearRoomId() {
         roomId_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7725,46 +10579,12 @@ public final class ProtobufRequest {
      * <code>optional int32 room_id = 1;</code>
      */
     int getRoomId();
-
-    /**
-     * <code>optional int32 userCount = 2;</code>
-     */
-    boolean hasUserCount();
-    /**
-     * <code>optional int32 userCount = 2;</code>
-     */
-    int getUserCount();
-
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> 
-        getUserInfoList();
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    com.game.proto.ProtobufRequest.userBaseInfo getUserInfo(int index);
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    int getUserInfoCount();
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    java.util.List<? extends com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> 
-        getUserInfoOrBuilderList();
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    com.game.proto.ProtobufRequest.userBaseInfoOrBuilder getUserInfoOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code com.game.proto.getRoomInfoListRequest}
    *
    * <pre>
-   *当玩家进入游戏等待界面中
-   *玩家在游戏等待界面中等待：cmd = 8 (WAITROOM_WAITTING)
+   *玩家第一次将纳入游戏等待界面获取游戏中的数据：cmd = 8 (WAITROOM_GETLIST)
    * </pre>
    */
   public static final class getRoomInfoListRequest extends
@@ -7821,19 +10641,6 @@ public final class ProtobufRequest {
               roomId_ = input.readInt32();
               break;
             }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              userCount_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                userInfo_ = new java.util.ArrayList<com.game.proto.ProtobufRequest.userBaseInfo>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              userInfo_.add(input.readMessage(com.game.proto.ProtobufRequest.userBaseInfo.PARSER, extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7842,9 +10649,6 @@ public final class ProtobufRequest {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          userInfo_ = java.util.Collections.unmodifiableList(userInfo_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -7892,60 +10696,8 @@ public final class ProtobufRequest {
       return roomId_;
     }
 
-    public static final int USERCOUNT_FIELD_NUMBER = 2;
-    private int userCount_;
-    /**
-     * <code>optional int32 userCount = 2;</code>
-     */
-    public boolean hasUserCount() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional int32 userCount = 2;</code>
-     */
-    public int getUserCount() {
-      return userCount_;
-    }
-
-    public static final int USERINFO_FIELD_NUMBER = 3;
-    private java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> userInfo_;
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    public java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> getUserInfoList() {
-      return userInfo_;
-    }
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    public java.util.List<? extends com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> 
-        getUserInfoOrBuilderList() {
-      return userInfo_;
-    }
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    public int getUserInfoCount() {
-      return userInfo_.size();
-    }
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    public com.game.proto.ProtobufRequest.userBaseInfo getUserInfo(int index) {
-      return userInfo_.get(index);
-    }
-    /**
-     * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
-     */
-    public com.game.proto.ProtobufRequest.userBaseInfoOrBuilder getUserInfoOrBuilder(
-        int index) {
-      return userInfo_.get(index);
-    }
-
     private void initFields() {
       roomId_ = 0;
-      userCount_ = 0;
-      userInfo_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7963,12 +10715,6 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, roomId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, userCount_);
-      }
-      for (int i = 0; i < userInfo_.size(); i++) {
-        output.writeMessage(3, userInfo_.get(i));
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -7981,14 +10727,6 @@ public final class ProtobufRequest {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, roomId_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, userCount_);
-      }
-      for (int i = 0; i < userInfo_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, userInfo_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8072,8 +10810,7 @@ public final class ProtobufRequest {
      * Protobuf type {@code com.game.proto.getRoomInfoListRequest}
      *
      * <pre>
-     *当玩家进入游戏等待界面中
-     *玩家在游戏等待界面中等待：cmd = 8 (WAITROOM_WAITTING)
+     *玩家第一次将纳入游戏等待界面获取游戏中的数据：cmd = 8 (WAITROOM_GETLIST)
      * </pre>
      */
     public static final class Builder extends
@@ -8104,7 +10841,6 @@ public final class ProtobufRequest {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getUserInfoFieldBuilder();
         }
       }
       private static Builder create() {
@@ -8115,14 +10851,6 @@ public final class ProtobufRequest {
         super.clear();
         roomId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userCount_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (userInfoBuilder_ == null) {
-          userInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        } else {
-          userInfoBuilder_.clear();
-        }
         return this;
       }
 
@@ -8155,19 +10883,6 @@ public final class ProtobufRequest {
           to_bitField0_ |= 0x00000001;
         }
         result.roomId_ = roomId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.userCount_ = userCount_;
-        if (userInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            userInfo_ = java.util.Collections.unmodifiableList(userInfo_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.userInfo_ = userInfo_;
-        } else {
-          result.userInfo_ = userInfoBuilder_.build();
-        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8186,35 +10901,6 @@ public final class ProtobufRequest {
         if (other == com.game.proto.ProtobufRequest.getRoomInfoListRequest.getDefaultInstance()) return this;
         if (other.hasRoomId()) {
           setRoomId(other.getRoomId());
-        }
-        if (other.hasUserCount()) {
-          setUserCount(other.getUserCount());
-        }
-        if (userInfoBuilder_ == null) {
-          if (!other.userInfo_.isEmpty()) {
-            if (userInfo_.isEmpty()) {
-              userInfo_ = other.userInfo_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-            } else {
-              ensureUserInfoIsMutable();
-              userInfo_.addAll(other.userInfo_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.userInfo_.isEmpty()) {
-            if (userInfoBuilder_.isEmpty()) {
-              userInfoBuilder_.dispose();
-              userInfoBuilder_ = null;
-              userInfo_ = other.userInfo_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              userInfoBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getUserInfoFieldBuilder() : null;
-            } else {
-              userInfoBuilder_.addAllMessages(other.userInfo_);
-            }
-          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -8275,34 +10961,527 @@ public final class ProtobufRequest {
         return this;
       }
 
-      private int userCount_ ;
+      // @@protoc_insertion_point(builder_scope:com.game.proto.getRoomInfoListRequest)
+    }
+
+    static {
+      defaultInstance = new getRoomInfoListRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.getRoomInfoListRequest)
+  }
+
+  public interface flushRoomInfoListRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.flushRoomInfoListRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 room_id = 1;</code>
+     */
+    boolean hasRoomId();
+    /**
+     * <code>optional int32 room_id = 1;</code>
+     */
+    int getRoomId();
+
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> 
+        getUserInfoList();
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userBaseInfo getUserInfo(int index);
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    int getUserInfoCount();
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    java.util.List<? extends com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> 
+        getUserInfoOrBuilderList();
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userBaseInfoOrBuilder getUserInfoOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.game.proto.flushRoomInfoListRequest}
+   *
+   * <pre>
+   *玩家在游戏等待室中自动更新 cmd = 23 (WAITROOM_FLUSH)
+   * </pre>
+   */
+  public static final class flushRoomInfoListRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.flushRoomInfoListRequest)
+      flushRoomInfoListRequestOrBuilder {
+    // Use flushRoomInfoListRequest.newBuilder() to construct.
+    private flushRoomInfoListRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private flushRoomInfoListRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final flushRoomInfoListRequest defaultInstance;
+    public static flushRoomInfoListRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public flushRoomInfoListRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private flushRoomInfoListRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              roomId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                userInfo_ = new java.util.ArrayList<com.game.proto.ProtobufRequest.userBaseInfo>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              userInfo_.add(input.readMessage(com.game.proto.ProtobufRequest.userBaseInfo.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          userInfo_ = java.util.Collections.unmodifiableList(userInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_flushRoomInfoListRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_flushRoomInfoListRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.flushRoomInfoListRequest.class, com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<flushRoomInfoListRequest> PARSER =
+        new com.google.protobuf.AbstractParser<flushRoomInfoListRequest>() {
+      public flushRoomInfoListRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new flushRoomInfoListRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<flushRoomInfoListRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ROOM_ID_FIELD_NUMBER = 1;
+    private int roomId_;
+    /**
+     * <code>optional int32 room_id = 1;</code>
+     */
+    public boolean hasRoomId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 room_id = 1;</code>
+     */
+    public int getRoomId() {
+      return roomId_;
+    }
+
+    public static final int USERINFO_FIELD_NUMBER = 2;
+    private java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> userInfo_;
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    public java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> getUserInfoList() {
+      return userInfo_;
+    }
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    public java.util.List<? extends com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> 
+        getUserInfoOrBuilderList() {
+      return userInfo_;
+    }
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    public int getUserInfoCount() {
+      return userInfo_.size();
+    }
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userBaseInfo getUserInfo(int index) {
+      return userInfo_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userBaseInfoOrBuilder getUserInfoOrBuilder(
+        int index) {
+      return userInfo_.get(index);
+    }
+
+    private void initFields() {
+      roomId_ = 0;
+      userInfo_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, roomId_);
+      }
+      for (int i = 0; i < userInfo_.size(); i++) {
+        output.writeMessage(2, userInfo_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, roomId_);
+      }
+      for (int i = 0; i < userInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, userInfo_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.flushRoomInfoListRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.flushRoomInfoListRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.flushRoomInfoListRequest}
+     *
+     * <pre>
+     *玩家在游戏等待室中自动更新 cmd = 23 (WAITROOM_FLUSH)
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.flushRoomInfoListRequest)
+        com.game.proto.ProtobufRequest.flushRoomInfoListRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_flushRoomInfoListRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_flushRoomInfoListRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.flushRoomInfoListRequest.class, com.game.proto.ProtobufRequest.flushRoomInfoListRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.flushRoomInfoListRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getUserInfoFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        roomId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (userInfoBuilder_ == null) {
+          userInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          userInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_flushRoomInfoListRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequest build() {
+        com.game.proto.ProtobufRequest.flushRoomInfoListRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.flushRoomInfoListRequest buildPartial() {
+        com.game.proto.ProtobufRequest.flushRoomInfoListRequest result = new com.game.proto.ProtobufRequest.flushRoomInfoListRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.roomId_ = roomId_;
+        if (userInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            userInfo_ = java.util.Collections.unmodifiableList(userInfo_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.userInfo_ = userInfo_;
+        } else {
+          result.userInfo_ = userInfoBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.flushRoomInfoListRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.flushRoomInfoListRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.flushRoomInfoListRequest other) {
+        if (other == com.game.proto.ProtobufRequest.flushRoomInfoListRequest.getDefaultInstance()) return this;
+        if (other.hasRoomId()) {
+          setRoomId(other.getRoomId());
+        }
+        if (userInfoBuilder_ == null) {
+          if (!other.userInfo_.isEmpty()) {
+            if (userInfo_.isEmpty()) {
+              userInfo_ = other.userInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureUserInfoIsMutable();
+              userInfo_.addAll(other.userInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.userInfo_.isEmpty()) {
+            if (userInfoBuilder_.isEmpty()) {
+              userInfoBuilder_.dispose();
+              userInfoBuilder_ = null;
+              userInfo_ = other.userInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              userInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getUserInfoFieldBuilder() : null;
+            } else {
+              userInfoBuilder_.addAllMessages(other.userInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.flushRoomInfoListRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.flushRoomInfoListRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int roomId_ ;
       /**
-       * <code>optional int32 userCount = 2;</code>
+       * <code>optional int32 room_id = 1;</code>
        */
-      public boolean hasUserCount() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+      public boolean hasRoomId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 userCount = 2;</code>
+       * <code>optional int32 room_id = 1;</code>
        */
-      public int getUserCount() {
-        return userCount_;
+      public int getRoomId() {
+        return roomId_;
       }
       /**
-       * <code>optional int32 userCount = 2;</code>
+       * <code>optional int32 room_id = 1;</code>
        */
-      public Builder setUserCount(int value) {
-        bitField0_ |= 0x00000002;
-        userCount_ = value;
+      public Builder setRoomId(int value) {
+        bitField0_ |= 0x00000001;
+        roomId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 userCount = 2;</code>
+       * <code>optional int32 room_id = 1;</code>
        */
-      public Builder clearUserCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userCount_ = 0;
+      public Builder clearRoomId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        roomId_ = 0;
         onChanged();
         return this;
       }
@@ -8310,9 +11489,9 @@ public final class ProtobufRequest {
       private java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> userInfo_ =
         java.util.Collections.emptyList();
       private void ensureUserInfoIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           userInfo_ = new java.util.ArrayList<com.game.proto.ProtobufRequest.userBaseInfo>(userInfo_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -8320,7 +11499,7 @@ public final class ProtobufRequest {
           com.game.proto.ProtobufRequest.userBaseInfo, com.game.proto.ProtobufRequest.userBaseInfo.Builder, com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> userInfoBuilder_;
 
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public java.util.List<com.game.proto.ProtobufRequest.userBaseInfo> getUserInfoList() {
         if (userInfoBuilder_ == null) {
@@ -8330,7 +11509,7 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public int getUserInfoCount() {
         if (userInfoBuilder_ == null) {
@@ -8340,7 +11519,7 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public com.game.proto.ProtobufRequest.userBaseInfo getUserInfo(int index) {
         if (userInfoBuilder_ == null) {
@@ -8350,7 +11529,7 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder setUserInfo(
           int index, com.game.proto.ProtobufRequest.userBaseInfo value) {
@@ -8367,7 +11546,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder setUserInfo(
           int index, com.game.proto.ProtobufRequest.userBaseInfo.Builder builderForValue) {
@@ -8381,7 +11560,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder addUserInfo(com.game.proto.ProtobufRequest.userBaseInfo value) {
         if (userInfoBuilder_ == null) {
@@ -8397,7 +11576,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder addUserInfo(
           int index, com.game.proto.ProtobufRequest.userBaseInfo value) {
@@ -8414,7 +11593,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder addUserInfo(
           com.game.proto.ProtobufRequest.userBaseInfo.Builder builderForValue) {
@@ -8428,7 +11607,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder addUserInfo(
           int index, com.game.proto.ProtobufRequest.userBaseInfo.Builder builderForValue) {
@@ -8442,7 +11621,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder addAllUserInfo(
           java.lang.Iterable<? extends com.game.proto.ProtobufRequest.userBaseInfo> values) {
@@ -8457,12 +11636,12 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder clearUserInfo() {
         if (userInfoBuilder_ == null) {
           userInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           userInfoBuilder_.clear();
@@ -8470,7 +11649,7 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public Builder removeUserInfo(int index) {
         if (userInfoBuilder_ == null) {
@@ -8483,14 +11662,14 @@ public final class ProtobufRequest {
         return this;
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public com.game.proto.ProtobufRequest.userBaseInfo.Builder getUserInfoBuilder(
           int index) {
         return getUserInfoFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public com.game.proto.ProtobufRequest.userBaseInfoOrBuilder getUserInfoOrBuilder(
           int index) {
@@ -8500,7 +11679,7 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public java.util.List<? extends com.game.proto.ProtobufRequest.userBaseInfoOrBuilder> 
            getUserInfoOrBuilderList() {
@@ -8511,14 +11690,14 @@ public final class ProtobufRequest {
         }
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public com.game.proto.ProtobufRequest.userBaseInfo.Builder addUserInfoBuilder() {
         return getUserInfoFieldBuilder().addBuilder(
             com.game.proto.ProtobufRequest.userBaseInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public com.game.proto.ProtobufRequest.userBaseInfo.Builder addUserInfoBuilder(
           int index) {
@@ -8526,7 +11705,7 @@ public final class ProtobufRequest {
             index, com.game.proto.ProtobufRequest.userBaseInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.proto.userBaseInfo userInfo = 3;</code>
+       * <code>repeated .com.game.proto.userBaseInfo userInfo = 2;</code>
        */
       public java.util.List<com.game.proto.ProtobufRequest.userBaseInfo.Builder> 
            getUserInfoBuilderList() {
@@ -8539,7 +11718,7 @@ public final class ProtobufRequest {
           userInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.game.proto.ProtobufRequest.userBaseInfo, com.game.proto.ProtobufRequest.userBaseInfo.Builder, com.game.proto.ProtobufRequest.userBaseInfoOrBuilder>(
                   userInfo_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           userInfo_ = null;
@@ -8547,15 +11726,1425 @@ public final class ProtobufRequest {
         return userInfoBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.proto.getRoomInfoListRequest)
+      // @@protoc_insertion_point(builder_scope:com.game.proto.flushRoomInfoListRequest)
     }
 
     static {
-      defaultInstance = new getRoomInfoListRequest(true);
+      defaultInstance = new flushRoomInfoListRequest(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.proto.getRoomInfoListRequest)
+    // @@protoc_insertion_point(class_scope:com.game.proto.flushRoomInfoListRequest)
+  }
+
+  public interface userSelectBaseRoleRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.userSelectBaseRoleRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    boolean hasOldRole();
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectRole getOldRole();
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getOldRoleOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    boolean hasNewRole();
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectRole getNewRole();
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getNewRoleOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.userSelectBaseRoleRequest}
+   *
+   * <pre>
+   *玩家在等待室选择一个角色 cmd = 24 (USER_SELECT_BASRROLE)
+   * </pre>
+   */
+  public static final class userSelectBaseRoleRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.userSelectBaseRoleRequest)
+      userSelectBaseRoleRequestOrBuilder {
+    // Use userSelectBaseRoleRequest.newBuilder() to construct.
+    private userSelectBaseRoleRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private userSelectBaseRoleRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final userSelectBaseRoleRequest defaultInstance;
+    public static userSelectBaseRoleRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public userSelectBaseRoleRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private userSelectBaseRoleRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.game.proto.ProtobufRequest.userSelectRole.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = oldRole_.toBuilder();
+              }
+              oldRole_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectRole.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(oldRole_);
+                oldRole_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              com.game.proto.ProtobufRequest.userSelectRole.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = newRole_.toBuilder();
+              }
+              newRole_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectRole.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(newRole_);
+                newRole_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectBaseRoleRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.class, com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<userSelectBaseRoleRequest> PARSER =
+        new com.google.protobuf.AbstractParser<userSelectBaseRoleRequest>() {
+      public userSelectBaseRoleRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new userSelectBaseRoleRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<userSelectBaseRoleRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int OLDROLE_FIELD_NUMBER = 1;
+    private com.game.proto.ProtobufRequest.userSelectRole oldRole_;
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    public boolean hasOldRole() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRole getOldRole() {
+      return oldRole_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getOldRoleOrBuilder() {
+      return oldRole_;
+    }
+
+    public static final int NEWROLE_FIELD_NUMBER = 2;
+    private com.game.proto.ProtobufRequest.userSelectRole newRole_;
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    public boolean hasNewRole() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRole getNewRole() {
+      return newRole_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getNewRoleOrBuilder() {
+      return newRole_;
+    }
+
+    private void initFields() {
+      oldRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+      newRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, oldRole_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, newRole_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, oldRole_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, newRole_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.userSelectBaseRoleRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.userSelectBaseRoleRequest}
+     *
+     * <pre>
+     *玩家在等待室选择一个角色 cmd = 24 (USER_SELECT_BASRROLE)
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.userSelectBaseRoleRequest)
+        com.game.proto.ProtobufRequest.userSelectBaseRoleRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectBaseRoleRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.class, com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getOldRoleFieldBuilder();
+          getNewRoleFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (oldRoleBuilder_ == null) {
+          oldRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+        } else {
+          oldRoleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (newRoleBuilder_ == null) {
+          newRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+        } else {
+          newRoleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest build() {
+        com.game.proto.ProtobufRequest.userSelectBaseRoleRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectBaseRoleRequest buildPartial() {
+        com.game.proto.ProtobufRequest.userSelectBaseRoleRequest result = new com.game.proto.ProtobufRequest.userSelectBaseRoleRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (oldRoleBuilder_ == null) {
+          result.oldRole_ = oldRole_;
+        } else {
+          result.oldRole_ = oldRoleBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (newRoleBuilder_ == null) {
+          result.newRole_ = newRole_;
+        } else {
+          result.newRole_ = newRoleBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.userSelectBaseRoleRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.userSelectBaseRoleRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.userSelectBaseRoleRequest other) {
+        if (other == com.game.proto.ProtobufRequest.userSelectBaseRoleRequest.getDefaultInstance()) return this;
+        if (other.hasOldRole()) {
+          mergeOldRole(other.getOldRole());
+        }
+        if (other.hasNewRole()) {
+          mergeNewRole(other.getNewRole());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.userSelectBaseRoleRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.userSelectBaseRoleRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.game.proto.ProtobufRequest.userSelectRole oldRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder> oldRoleBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public boolean hasOldRole() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRole getOldRole() {
+        if (oldRoleBuilder_ == null) {
+          return oldRole_;
+        } else {
+          return oldRoleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public Builder setOldRole(com.game.proto.ProtobufRequest.userSelectRole value) {
+        if (oldRoleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          oldRole_ = value;
+          onChanged();
+        } else {
+          oldRoleBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public Builder setOldRole(
+          com.game.proto.ProtobufRequest.userSelectRole.Builder builderForValue) {
+        if (oldRoleBuilder_ == null) {
+          oldRole_ = builderForValue.build();
+          onChanged();
+        } else {
+          oldRoleBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public Builder mergeOldRole(com.game.proto.ProtobufRequest.userSelectRole value) {
+        if (oldRoleBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              oldRole_ != com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance()) {
+            oldRole_ =
+              com.game.proto.ProtobufRequest.userSelectRole.newBuilder(oldRole_).mergeFrom(value).buildPartial();
+          } else {
+            oldRole_ = value;
+          }
+          onChanged();
+        } else {
+          oldRoleBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public Builder clearOldRole() {
+        if (oldRoleBuilder_ == null) {
+          oldRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+          onChanged();
+        } else {
+          oldRoleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRole.Builder getOldRoleBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getOldRoleFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getOldRoleOrBuilder() {
+        if (oldRoleBuilder_ != null) {
+          return oldRoleBuilder_.getMessageOrBuilder();
+        } else {
+          return oldRole_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole oldRole = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder> 
+          getOldRoleFieldBuilder() {
+        if (oldRoleBuilder_ == null) {
+          oldRoleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder>(
+                  getOldRole(),
+                  getParentForChildren(),
+                  isClean());
+          oldRole_ = null;
+        }
+        return oldRoleBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.userSelectRole newRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder> newRoleBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public boolean hasNewRole() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRole getNewRole() {
+        if (newRoleBuilder_ == null) {
+          return newRole_;
+        } else {
+          return newRoleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public Builder setNewRole(com.game.proto.ProtobufRequest.userSelectRole value) {
+        if (newRoleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          newRole_ = value;
+          onChanged();
+        } else {
+          newRoleBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public Builder setNewRole(
+          com.game.proto.ProtobufRequest.userSelectRole.Builder builderForValue) {
+        if (newRoleBuilder_ == null) {
+          newRole_ = builderForValue.build();
+          onChanged();
+        } else {
+          newRoleBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public Builder mergeNewRole(com.game.proto.ProtobufRequest.userSelectRole value) {
+        if (newRoleBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              newRole_ != com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance()) {
+            newRole_ =
+              com.game.proto.ProtobufRequest.userSelectRole.newBuilder(newRole_).mergeFrom(value).buildPartial();
+          } else {
+            newRole_ = value;
+          }
+          onChanged();
+        } else {
+          newRoleBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public Builder clearNewRole() {
+        if (newRoleBuilder_ == null) {
+          newRole_ = com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+          onChanged();
+        } else {
+          newRoleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRole.Builder getNewRoleBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getNewRoleFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectRoleOrBuilder getNewRoleOrBuilder() {
+        if (newRoleBuilder_ != null) {
+          return newRoleBuilder_.getMessageOrBuilder();
+        } else {
+          return newRole_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectRole newRole = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder> 
+          getNewRoleFieldBuilder() {
+        if (newRoleBuilder_ == null) {
+          newRoleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectRole, com.game.proto.ProtobufRequest.userSelectRole.Builder, com.game.proto.ProtobufRequest.userSelectRoleOrBuilder>(
+                  getNewRole(),
+                  getParentForChildren(),
+                  isClean());
+          newRole_ = null;
+        }
+        return newRoleBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.userSelectBaseRoleRequest)
+    }
+
+    static {
+      defaultInstance = new userSelectBaseRoleRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.userSelectBaseRoleRequest)
+  }
+
+  public interface userSelectRoleSkillRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.userSelectRoleSkillRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    boolean hasOldSkill();
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectSkill getOldSkill();
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getOldSkillOrBuilder();
+
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    boolean hasNewSkill();
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectSkill getNewSkill();
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getNewSkillOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.userSelectRoleSkillRequest}
+   *
+   * <pre>
+   *玩家为角色选择技能 cmd = 25 (USER_SELECT_ROLE_SKILL)
+   * </pre>
+   */
+  public static final class userSelectRoleSkillRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.userSelectRoleSkillRequest)
+      userSelectRoleSkillRequestOrBuilder {
+    // Use userSelectRoleSkillRequest.newBuilder() to construct.
+    private userSelectRoleSkillRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private userSelectRoleSkillRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final userSelectRoleSkillRequest defaultInstance;
+    public static userSelectRoleSkillRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public userSelectRoleSkillRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private userSelectRoleSkillRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.game.proto.ProtobufRequest.userSelectSkill.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = oldSkill_.toBuilder();
+              }
+              oldSkill_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectSkill.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(oldSkill_);
+                oldSkill_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              com.game.proto.ProtobufRequest.userSelectSkill.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = newSkill_.toBuilder();
+              }
+              newSkill_ = input.readMessage(com.game.proto.ProtobufRequest.userSelectSkill.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(newSkill_);
+                newSkill_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRoleSkillRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.class, com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<userSelectRoleSkillRequest> PARSER =
+        new com.google.protobuf.AbstractParser<userSelectRoleSkillRequest>() {
+      public userSelectRoleSkillRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new userSelectRoleSkillRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<userSelectRoleSkillRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int OLDSKILL_FIELD_NUMBER = 1;
+    private com.game.proto.ProtobufRequest.userSelectSkill oldSkill_;
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    public boolean hasOldSkill() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectSkill getOldSkill() {
+      return oldSkill_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getOldSkillOrBuilder() {
+      return oldSkill_;
+    }
+
+    public static final int NEWSKILL_FIELD_NUMBER = 2;
+    private com.game.proto.ProtobufRequest.userSelectSkill newSkill_;
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    public boolean hasNewSkill() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectSkill getNewSkill() {
+      return newSkill_;
+    }
+    /**
+     * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+     */
+    public com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getNewSkillOrBuilder() {
+      return newSkill_;
+    }
+
+    private void initFields() {
+      oldSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+      newSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, oldSkill_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, newSkill_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, oldSkill_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, newSkill_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.userSelectRoleSkillRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.userSelectRoleSkillRequest}
+     *
+     * <pre>
+     *玩家为角色选择技能 cmd = 25 (USER_SELECT_ROLE_SKILL)
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.userSelectRoleSkillRequest)
+        com.game.proto.ProtobufRequest.userSelectRoleSkillRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRoleSkillRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.class, com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getOldSkillFieldBuilder();
+          getNewSkillFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (oldSkillBuilder_ == null) {
+          oldSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+        } else {
+          oldSkillBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (newSkillBuilder_ == null) {
+          newSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+        } else {
+          newSkillBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest build() {
+        com.game.proto.ProtobufRequest.userSelectRoleSkillRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRoleSkillRequest buildPartial() {
+        com.game.proto.ProtobufRequest.userSelectRoleSkillRequest result = new com.game.proto.ProtobufRequest.userSelectRoleSkillRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (oldSkillBuilder_ == null) {
+          result.oldSkill_ = oldSkill_;
+        } else {
+          result.oldSkill_ = oldSkillBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (newSkillBuilder_ == null) {
+          result.newSkill_ = newSkill_;
+        } else {
+          result.newSkill_ = newSkillBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.userSelectRoleSkillRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.userSelectRoleSkillRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.userSelectRoleSkillRequest other) {
+        if (other == com.game.proto.ProtobufRequest.userSelectRoleSkillRequest.getDefaultInstance()) return this;
+        if (other.hasOldSkill()) {
+          mergeOldSkill(other.getOldSkill());
+        }
+        if (other.hasNewSkill()) {
+          mergeNewSkill(other.getNewSkill());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.userSelectRoleSkillRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.userSelectRoleSkillRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.game.proto.ProtobufRequest.userSelectSkill oldSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder> oldSkillBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public boolean hasOldSkill() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkill getOldSkill() {
+        if (oldSkillBuilder_ == null) {
+          return oldSkill_;
+        } else {
+          return oldSkillBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public Builder setOldSkill(com.game.proto.ProtobufRequest.userSelectSkill value) {
+        if (oldSkillBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          oldSkill_ = value;
+          onChanged();
+        } else {
+          oldSkillBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public Builder setOldSkill(
+          com.game.proto.ProtobufRequest.userSelectSkill.Builder builderForValue) {
+        if (oldSkillBuilder_ == null) {
+          oldSkill_ = builderForValue.build();
+          onChanged();
+        } else {
+          oldSkillBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public Builder mergeOldSkill(com.game.proto.ProtobufRequest.userSelectSkill value) {
+        if (oldSkillBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              oldSkill_ != com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance()) {
+            oldSkill_ =
+              com.game.proto.ProtobufRequest.userSelectSkill.newBuilder(oldSkill_).mergeFrom(value).buildPartial();
+          } else {
+            oldSkill_ = value;
+          }
+          onChanged();
+        } else {
+          oldSkillBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public Builder clearOldSkill() {
+        if (oldSkillBuilder_ == null) {
+          oldSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+          onChanged();
+        } else {
+          oldSkillBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkill.Builder getOldSkillBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getOldSkillFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getOldSkillOrBuilder() {
+        if (oldSkillBuilder_ != null) {
+          return oldSkillBuilder_.getMessageOrBuilder();
+        } else {
+          return oldSkill_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill oldSkill = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder> 
+          getOldSkillFieldBuilder() {
+        if (oldSkillBuilder_ == null) {
+          oldSkillBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder>(
+                  getOldSkill(),
+                  getParentForChildren(),
+                  isClean());
+          oldSkill_ = null;
+        }
+        return oldSkillBuilder_;
+      }
+
+      private com.game.proto.ProtobufRequest.userSelectSkill newSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder> newSkillBuilder_;
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public boolean hasNewSkill() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkill getNewSkill() {
+        if (newSkillBuilder_ == null) {
+          return newSkill_;
+        } else {
+          return newSkillBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public Builder setNewSkill(com.game.proto.ProtobufRequest.userSelectSkill value) {
+        if (newSkillBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          newSkill_ = value;
+          onChanged();
+        } else {
+          newSkillBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public Builder setNewSkill(
+          com.game.proto.ProtobufRequest.userSelectSkill.Builder builderForValue) {
+        if (newSkillBuilder_ == null) {
+          newSkill_ = builderForValue.build();
+          onChanged();
+        } else {
+          newSkillBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public Builder mergeNewSkill(com.game.proto.ProtobufRequest.userSelectSkill value) {
+        if (newSkillBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              newSkill_ != com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance()) {
+            newSkill_ =
+              com.game.proto.ProtobufRequest.userSelectSkill.newBuilder(newSkill_).mergeFrom(value).buildPartial();
+          } else {
+            newSkill_ = value;
+          }
+          onChanged();
+        } else {
+          newSkillBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public Builder clearNewSkill() {
+        if (newSkillBuilder_ == null) {
+          newSkill_ = com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+          onChanged();
+        } else {
+          newSkillBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkill.Builder getNewSkillBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getNewSkillFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      public com.game.proto.ProtobufRequest.userSelectSkillOrBuilder getNewSkillOrBuilder() {
+        if (newSkillBuilder_ != null) {
+          return newSkillBuilder_.getMessageOrBuilder();
+        } else {
+          return newSkill_;
+        }
+      }
+      /**
+       * <code>optional .com.game.proto.userSelectSkill newSkill = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder> 
+          getNewSkillFieldBuilder() {
+        if (newSkillBuilder_ == null) {
+          newSkillBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.proto.ProtobufRequest.userSelectSkill, com.game.proto.ProtobufRequest.userSelectSkill.Builder, com.game.proto.ProtobufRequest.userSelectSkillOrBuilder>(
+                  getNewSkill(),
+                  getParentForChildren(),
+                  isClean());
+          newSkill_ = null;
+        }
+        return newSkillBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.userSelectRoleSkillRequest)
+    }
+
+    static {
+      defaultInstance = new userSelectRoleSkillRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.userSelectRoleSkillRequest)
   }
 
   public interface creatorLeaveGameRequestOrBuilder extends
@@ -9549,8 +14138,8 @@ public final class ProtobufRequest {
     // @@protoc_insertion_point(class_scope:com.game.proto.creatorStartGameRequest)
   }
 
-  public interface userWaitRoomSpeekOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.game.proto.userWaitRoomSpeek)
+  public interface userWaitRoomSpeekRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.userWaitRoomSpeekRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -9585,29 +14174,29 @@ public final class ProtobufRequest {
     int getTarget();
   }
   /**
-   * Protobuf type {@code com.game.proto.userWaitRoomSpeek}
+   * Protobuf type {@code com.game.proto.userWaitRoomSpeekRequest}
    *
    * <pre>
    *玩家在游戏等待界面中发言: cmd = 12(WAITROOM_SPEEK)
    * </pre>
    */
-  public static final class userWaitRoomSpeek extends
+  public static final class userWaitRoomSpeekRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:com.game.proto.userWaitRoomSpeek)
-      userWaitRoomSpeekOrBuilder {
-    // Use userWaitRoomSpeek.newBuilder() to construct.
-    private userWaitRoomSpeek(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:com.game.proto.userWaitRoomSpeekRequest)
+      userWaitRoomSpeekRequestOrBuilder {
+    // Use userWaitRoomSpeekRequest.newBuilder() to construct.
+    private userWaitRoomSpeekRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private userWaitRoomSpeek(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private userWaitRoomSpeekRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final userWaitRoomSpeek defaultInstance;
-    public static userWaitRoomSpeek getDefaultInstance() {
+    private static final userWaitRoomSpeekRequest defaultInstance;
+    public static userWaitRoomSpeekRequest getDefaultInstance() {
       return defaultInstance;
     }
 
-    public userWaitRoomSpeek getDefaultInstanceForType() {
+    public userWaitRoomSpeekRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -9617,7 +14206,7 @@ public final class ProtobufRequest {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private userWaitRoomSpeek(
+    private userWaitRoomSpeekRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9665,28 +14254,28 @@ public final class ProtobufRequest {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeek_descriptor;
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeek_fieldAccessorTable
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeekRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.proto.ProtobufRequest.userWaitRoomSpeek.class, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder.class);
+              com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.class, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<userWaitRoomSpeek> PARSER =
-        new com.google.protobuf.AbstractParser<userWaitRoomSpeek>() {
-      public userWaitRoomSpeek parsePartialFrom(
+    public static com.google.protobuf.Parser<userWaitRoomSpeekRequest> PARSER =
+        new com.google.protobuf.AbstractParser<userWaitRoomSpeekRequest>() {
+      public userWaitRoomSpeekRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new userWaitRoomSpeek(input, extensionRegistry);
+        return new userWaitRoomSpeekRequest(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<userWaitRoomSpeek> getParserForType() {
+    public com.google.protobuf.Parser<userWaitRoomSpeekRequest> getParserForType() {
       return PARSER;
     }
 
@@ -9808,53 +14397,53 @@ public final class ProtobufRequest {
       return super.writeReplace();
     }
 
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(byte[] data)
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(java.io.InputStream input)
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseDelimitedFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.proto.ProtobufRequest.userWaitRoomSpeek parseFrom(
+    public static com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9863,7 +14452,7 @@ public final class ProtobufRequest {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.proto.ProtobufRequest.userWaitRoomSpeek prototype) {
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -9875,7 +14464,7 @@ public final class ProtobufRequest {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.proto.userWaitRoomSpeek}
+     * Protobuf type {@code com.game.proto.userWaitRoomSpeekRequest}
      *
      * <pre>
      *玩家在游戏等待界面中发言: cmd = 12(WAITROOM_SPEEK)
@@ -9883,21 +14472,21 @@ public final class ProtobufRequest {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.game.proto.userWaitRoomSpeek)
-        com.game.proto.ProtobufRequest.userWaitRoomSpeekOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.game.proto.userWaitRoomSpeekRequest)
+        com.game.proto.ProtobufRequest.userWaitRoomSpeekRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeek_descriptor;
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeek_fieldAccessorTable
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeekRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.proto.ProtobufRequest.userWaitRoomSpeek.class, com.game.proto.ProtobufRequest.userWaitRoomSpeek.Builder.class);
+                com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.class, com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.Builder.class);
       }
 
-      // Construct using com.game.proto.ProtobufRequest.userWaitRoomSpeek.newBuilder()
+      // Construct using com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9930,23 +14519,23 @@ public final class ProtobufRequest {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeek_descriptor;
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor;
       }
 
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek getDefaultInstanceForType() {
-        return com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance();
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance();
       }
 
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek build() {
-        com.game.proto.ProtobufRequest.userWaitRoomSpeek result = buildPartial();
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest build() {
+        com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.proto.ProtobufRequest.userWaitRoomSpeek buildPartial() {
-        com.game.proto.ProtobufRequest.userWaitRoomSpeek result = new com.game.proto.ProtobufRequest.userWaitRoomSpeek(this);
+      public com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest buildPartial() {
+        com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest result = new com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9963,16 +14552,16 @@ public final class ProtobufRequest {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.proto.ProtobufRequest.userWaitRoomSpeek) {
-          return mergeFrom((com.game.proto.ProtobufRequest.userWaitRoomSpeek)other);
+        if (other instanceof com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.proto.ProtobufRequest.userWaitRoomSpeek other) {
-        if (other == com.game.proto.ProtobufRequest.userWaitRoomSpeek.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest other) {
+        if (other == com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest.getDefaultInstance()) return this;
         if (other.hasContext()) {
           bitField0_ |= 0x00000001;
           context_ = other.context_;
@@ -9993,11 +14582,11 @@ public final class ProtobufRequest {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.proto.ProtobufRequest.userWaitRoomSpeek parsedMessage = null;
+        com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.proto.ProtobufRequest.userWaitRoomSpeek) e.getUnfinishedMessage();
+          parsedMessage = (com.game.proto.ProtobufRequest.userWaitRoomSpeekRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -10132,15 +14721,15 @@ public final class ProtobufRequest {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.proto.userWaitRoomSpeek)
+      // @@protoc_insertion_point(builder_scope:com.game.proto.userWaitRoomSpeekRequest)
     }
 
     static {
-      defaultInstance = new userWaitRoomSpeek(true);
+      defaultInstance = new userWaitRoomSpeekRequest(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.proto.userWaitRoomSpeek)
+    // @@protoc_insertion_point(class_scope:com.game.proto.userWaitRoomSpeekRequest)
   }
 
   public interface excludeUserRequestOrBuilder extends
@@ -10659,6 +15248,4061 @@ public final class ProtobufRequest {
     // @@protoc_insertion_point(class_scope:com.game.proto.excludeUserRequest)
   }
 
+  public interface roleBattleIdleRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.roleBattleIdleRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    boolean hasRoleId();
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    int getRoleId();
+
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    boolean hasBaseRoleId();
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    int getBaseRoleId();
+
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    boolean hasSkill1Id();
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    int getSkill1Id();
+
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    boolean hasSkill2Id();
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    int getSkill2Id();
+
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    boolean hasSkill3Id();
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    int getSkill3Id();
+
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    boolean hasSkill4Id();
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    int getSkill4Id();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.roleBattleIdleRequest}
+   *
+   * <pre>
+   *场景加载完成后：cmd = 14 (ROLE_BATTLE_IDLE) 此时会上传当前角色的信息，然后假如服务器所有人都已经
+   *准备好了，那么此时就返回所有角色的数据并开始游戏
+   * </pre>
+   */
+  public static final class roleBattleIdleRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.roleBattleIdleRequest)
+      roleBattleIdleRequestOrBuilder {
+    // Use roleBattleIdleRequest.newBuilder() to construct.
+    private roleBattleIdleRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private roleBattleIdleRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final roleBattleIdleRequest defaultInstance;
+    public static roleBattleIdleRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public roleBattleIdleRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private roleBattleIdleRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              roleId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              baseRoleId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              skill1Id_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              skill2Id_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              skill3Id_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              skill4Id_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleIdleRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleIdleRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.roleBattleIdleRequest.class, com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<roleBattleIdleRequest> PARSER =
+        new com.google.protobuf.AbstractParser<roleBattleIdleRequest>() {
+      public roleBattleIdleRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new roleBattleIdleRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<roleBattleIdleRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ROLE_ID_FIELD_NUMBER = 1;
+    private int roleId_;
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public boolean hasRoleId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public int getRoleId() {
+      return roleId_;
+    }
+
+    public static final int BASE_ROLE_ID_FIELD_NUMBER = 2;
+    private int baseRoleId_;
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    public boolean hasBaseRoleId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    public int getBaseRoleId() {
+      return baseRoleId_;
+    }
+
+    public static final int SKILL1_ID_FIELD_NUMBER = 3;
+    private int skill1Id_;
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    public boolean hasSkill1Id() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    public int getSkill1Id() {
+      return skill1Id_;
+    }
+
+    public static final int SKILL2_ID_FIELD_NUMBER = 4;
+    private int skill2Id_;
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    public boolean hasSkill2Id() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    public int getSkill2Id() {
+      return skill2Id_;
+    }
+
+    public static final int SKILL3_ID_FIELD_NUMBER = 5;
+    private int skill3Id_;
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    public boolean hasSkill3Id() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    public int getSkill3Id() {
+      return skill3Id_;
+    }
+
+    public static final int SKILL4_ID_FIELD_NUMBER = 6;
+    private int skill4Id_;
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    public boolean hasSkill4Id() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    public int getSkill4Id() {
+      return skill4Id_;
+    }
+
+    private void initFields() {
+      roleId_ = 0;
+      baseRoleId_ = 0;
+      skill1Id_ = 0;
+      skill2Id_ = 0;
+      skill3Id_ = 0;
+      skill4Id_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, skill1Id_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, skill2Id_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, skill3Id_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, skill4Id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, skill1Id_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, skill2Id_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, skill3Id_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, skill4Id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleIdleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.roleBattleIdleRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.roleBattleIdleRequest}
+     *
+     * <pre>
+     *场景加载完成后：cmd = 14 (ROLE_BATTLE_IDLE) 此时会上传当前角色的信息，然后假如服务器所有人都已经
+     *准备好了，那么此时就返回所有角色的数据并开始游戏
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.roleBattleIdleRequest)
+        com.game.proto.ProtobufRequest.roleBattleIdleRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleIdleRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleIdleRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.roleBattleIdleRequest.class, com.game.proto.ProtobufRequest.roleBattleIdleRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.roleBattleIdleRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        roleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        baseRoleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        skill1Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        skill2Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skill3Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        skill4Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleIdleRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequest build() {
+        com.game.proto.ProtobufRequest.roleBattleIdleRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleIdleRequest buildPartial() {
+        com.game.proto.ProtobufRequest.roleBattleIdleRequest result = new com.game.proto.ProtobufRequest.roleBattleIdleRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.roleId_ = roleId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.baseRoleId_ = baseRoleId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.skill1Id_ = skill1Id_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.skill2Id_ = skill2Id_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.skill3Id_ = skill3Id_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.skill4Id_ = skill4Id_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.roleBattleIdleRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.roleBattleIdleRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.roleBattleIdleRequest other) {
+        if (other == com.game.proto.ProtobufRequest.roleBattleIdleRequest.getDefaultInstance()) return this;
+        if (other.hasRoleId()) {
+          setRoleId(other.getRoleId());
+        }
+        if (other.hasBaseRoleId()) {
+          setBaseRoleId(other.getBaseRoleId());
+        }
+        if (other.hasSkill1Id()) {
+          setSkill1Id(other.getSkill1Id());
+        }
+        if (other.hasSkill2Id()) {
+          setSkill2Id(other.getSkill2Id());
+        }
+        if (other.hasSkill3Id()) {
+          setSkill3Id(other.getSkill3Id());
+        }
+        if (other.hasSkill4Id()) {
+          setSkill4Id(other.getSkill4Id());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.roleBattleIdleRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.roleBattleIdleRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int roleId_ ;
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public boolean hasRoleId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public int getRoleId() {
+        return roleId_;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder setRoleId(int value) {
+        bitField0_ |= 0x00000001;
+        roleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder clearRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        roleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int baseRoleId_ ;
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public boolean hasBaseRoleId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public int getBaseRoleId() {
+        return baseRoleId_;
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public Builder setBaseRoleId(int value) {
+        bitField0_ |= 0x00000002;
+        baseRoleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public Builder clearBaseRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        baseRoleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill1Id_ ;
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public boolean hasSkill1Id() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public int getSkill1Id() {
+        return skill1Id_;
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public Builder setSkill1Id(int value) {
+        bitField0_ |= 0x00000004;
+        skill1Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public Builder clearSkill1Id() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        skill1Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill2Id_ ;
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public boolean hasSkill2Id() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public int getSkill2Id() {
+        return skill2Id_;
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public Builder setSkill2Id(int value) {
+        bitField0_ |= 0x00000008;
+        skill2Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public Builder clearSkill2Id() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skill2Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill3Id_ ;
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public boolean hasSkill3Id() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public int getSkill3Id() {
+        return skill3Id_;
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public Builder setSkill3Id(int value) {
+        bitField0_ |= 0x00000010;
+        skill3Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public Builder clearSkill3Id() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        skill3Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill4Id_ ;
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public boolean hasSkill4Id() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public int getSkill4Id() {
+        return skill4Id_;
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public Builder setSkill4Id(int value) {
+        bitField0_ |= 0x00000020;
+        skill4Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public Builder clearSkill4Id() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        skill4Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.roleBattleIdleRequest)
+    }
+
+    static {
+      defaultInstance = new roleBattleIdleRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.roleBattleIdleRequest)
+  }
+
+  public interface reflushRoleBattleIdleRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.reflushRoleBattleIdleRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    boolean hasRoleId();
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    int getRoleId();
+
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    boolean hasBaseRoleId();
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    int getBaseRoleId();
+
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    boolean hasSkill1Id();
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    int getSkill1Id();
+
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    boolean hasSkill2Id();
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    int getSkill2Id();
+
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    boolean hasSkill3Id();
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    int getSkill3Id();
+
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    boolean hasSkill4Id();
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    int getSkill4Id();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.reflushRoleBattleIdleRequest}
+   *
+   * <pre>
+   *重新请求开始 cmd = 15 (ROLE_BATTLE_REQUEST_START)
+   *如果角色发送了idle信息，但是其他角色并没有准备好，那么此时就要发送这个信息请求重新获取数据
+   * </pre>
+   */
+  public static final class reflushRoleBattleIdleRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.reflushRoleBattleIdleRequest)
+      reflushRoleBattleIdleRequestOrBuilder {
+    // Use reflushRoleBattleIdleRequest.newBuilder() to construct.
+    private reflushRoleBattleIdleRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private reflushRoleBattleIdleRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final reflushRoleBattleIdleRequest defaultInstance;
+    public static reflushRoleBattleIdleRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public reflushRoleBattleIdleRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private reflushRoleBattleIdleRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              roleId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              baseRoleId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              skill1Id_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              skill2Id_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              skill3Id_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              skill4Id_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_reflushRoleBattleIdleRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.class, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<reflushRoleBattleIdleRequest> PARSER =
+        new com.google.protobuf.AbstractParser<reflushRoleBattleIdleRequest>() {
+      public reflushRoleBattleIdleRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new reflushRoleBattleIdleRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<reflushRoleBattleIdleRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ROLE_ID_FIELD_NUMBER = 1;
+    private int roleId_;
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public boolean hasRoleId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 role_id = 1;</code>
+     */
+    public int getRoleId() {
+      return roleId_;
+    }
+
+    public static final int BASE_ROLE_ID_FIELD_NUMBER = 2;
+    private int baseRoleId_;
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    public boolean hasBaseRoleId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 base_role_id = 2;</code>
+     */
+    public int getBaseRoleId() {
+      return baseRoleId_;
+    }
+
+    public static final int SKILL1_ID_FIELD_NUMBER = 3;
+    private int skill1Id_;
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    public boolean hasSkill1Id() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 skill1_id = 3;</code>
+     */
+    public int getSkill1Id() {
+      return skill1Id_;
+    }
+
+    public static final int SKILL2_ID_FIELD_NUMBER = 4;
+    private int skill2Id_;
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    public boolean hasSkill2Id() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 skill2_id = 4;</code>
+     */
+    public int getSkill2Id() {
+      return skill2Id_;
+    }
+
+    public static final int SKILL3_ID_FIELD_NUMBER = 5;
+    private int skill3Id_;
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    public boolean hasSkill3Id() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 skill3_id = 5;</code>
+     */
+    public int getSkill3Id() {
+      return skill3Id_;
+    }
+
+    public static final int SKILL4_ID_FIELD_NUMBER = 6;
+    private int skill4Id_;
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    public boolean hasSkill4Id() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int32 skill4_id = 6;</code>
+     */
+    public int getSkill4Id() {
+      return skill4Id_;
+    }
+
+    private void initFields() {
+      roleId_ = 0;
+      baseRoleId_ = 0;
+      skill1Id_ = 0;
+      skill2Id_ = 0;
+      skill3Id_ = 0;
+      skill4Id_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, skill1Id_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, skill2Id_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, skill3Id_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, skill4Id_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, roleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, skill1Id_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, skill2Id_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, skill3Id_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, skill4Id_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.reflushRoleBattleIdleRequest}
+     *
+     * <pre>
+     *重新请求开始 cmd = 15 (ROLE_BATTLE_REQUEST_START)
+     *如果角色发送了idle信息，但是其他角色并没有准备好，那么此时就要发送这个信息请求重新获取数据
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.reflushRoleBattleIdleRequest)
+        com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_reflushRoleBattleIdleRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.class, com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        roleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        baseRoleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        skill1Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        skill2Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skill3Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        skill4Id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest build() {
+        com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest buildPartial() {
+        com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest result = new com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.roleId_ = roleId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.baseRoleId_ = baseRoleId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.skill1Id_ = skill1Id_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.skill2Id_ = skill2Id_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.skill3Id_ = skill3Id_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.skill4Id_ = skill4Id_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest other) {
+        if (other == com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest.getDefaultInstance()) return this;
+        if (other.hasRoleId()) {
+          setRoleId(other.getRoleId());
+        }
+        if (other.hasBaseRoleId()) {
+          setBaseRoleId(other.getBaseRoleId());
+        }
+        if (other.hasSkill1Id()) {
+          setSkill1Id(other.getSkill1Id());
+        }
+        if (other.hasSkill2Id()) {
+          setSkill2Id(other.getSkill2Id());
+        }
+        if (other.hasSkill3Id()) {
+          setSkill3Id(other.getSkill3Id());
+        }
+        if (other.hasSkill4Id()) {
+          setSkill4Id(other.getSkill4Id());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.reflushRoleBattleIdleRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int roleId_ ;
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public boolean hasRoleId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public int getRoleId() {
+        return roleId_;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder setRoleId(int value) {
+        bitField0_ |= 0x00000001;
+        roleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 role_id = 1;</code>
+       */
+      public Builder clearRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        roleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int baseRoleId_ ;
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public boolean hasBaseRoleId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public int getBaseRoleId() {
+        return baseRoleId_;
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public Builder setBaseRoleId(int value) {
+        bitField0_ |= 0x00000002;
+        baseRoleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 base_role_id = 2;</code>
+       */
+      public Builder clearBaseRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        baseRoleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill1Id_ ;
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public boolean hasSkill1Id() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public int getSkill1Id() {
+        return skill1Id_;
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public Builder setSkill1Id(int value) {
+        bitField0_ |= 0x00000004;
+        skill1Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill1_id = 3;</code>
+       */
+      public Builder clearSkill1Id() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        skill1Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill2Id_ ;
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public boolean hasSkill2Id() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public int getSkill2Id() {
+        return skill2Id_;
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public Builder setSkill2Id(int value) {
+        bitField0_ |= 0x00000008;
+        skill2Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill2_id = 4;</code>
+       */
+      public Builder clearSkill2Id() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skill2Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill3Id_ ;
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public boolean hasSkill3Id() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public int getSkill3Id() {
+        return skill3Id_;
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public Builder setSkill3Id(int value) {
+        bitField0_ |= 0x00000010;
+        skill3Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill3_id = 5;</code>
+       */
+      public Builder clearSkill3Id() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        skill3Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int skill4Id_ ;
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public boolean hasSkill4Id() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public int getSkill4Id() {
+        return skill4Id_;
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public Builder setSkill4Id(int value) {
+        bitField0_ |= 0x00000020;
+        skill4Id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill4_id = 6;</code>
+       */
+      public Builder clearSkill4Id() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        skill4Id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.reflushRoleBattleIdleRequest)
+    }
+
+    static {
+      defaultInstance = new reflushRoleBattleIdleRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.reflushRoleBattleIdleRequest)
+  }
+
+  public interface roleBattleDialogRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.roleBattleDialogRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 dialogType = 1;</code>
+     *
+     * <pre>
+     *是全体或者是队友
+     * </pre>
+     */
+    boolean hasDialogType();
+    /**
+     * <code>optional int32 dialogType = 1;</code>
+     *
+     * <pre>
+     *是全体或者是队友
+     * </pre>
+     */
+    int getDialogType();
+
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    boolean hasContext();
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    java.lang.String getContext();
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getContextBytes();
+
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    java.util.List<java.lang.Integer> getOUserIdList();
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    int getOUserIdCount();
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    int getOUserId(int index);
+  }
+  /**
+   * Protobuf type {@code com.game.proto.roleBattleDialogRequest}
+   *
+   * <pre>
+   *在battle中玩家发言 cmd = 16 (ROLE_BATTLE_DIALOG)
+   * </pre>
+   */
+  public static final class roleBattleDialogRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.roleBattleDialogRequest)
+      roleBattleDialogRequestOrBuilder {
+    // Use roleBattleDialogRequest.newBuilder() to construct.
+    private roleBattleDialogRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private roleBattleDialogRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final roleBattleDialogRequest defaultInstance;
+    public static roleBattleDialogRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public roleBattleDialogRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private roleBattleDialogRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              dialogType_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              context_ = bs;
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                oUserId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              oUserId_.add(input.readInt32());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
+                oUserId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                oUserId_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          oUserId_ = java.util.Collections.unmodifiableList(oUserId_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleDialogRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleDialogRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.roleBattleDialogRequest.class, com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<roleBattleDialogRequest> PARSER =
+        new com.google.protobuf.AbstractParser<roleBattleDialogRequest>() {
+      public roleBattleDialogRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new roleBattleDialogRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<roleBattleDialogRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int DIALOGTYPE_FIELD_NUMBER = 1;
+    private int dialogType_;
+    /**
+     * <code>optional int32 dialogType = 1;</code>
+     *
+     * <pre>
+     *是全体或者是队友
+     * </pre>
+     */
+    public boolean hasDialogType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 dialogType = 1;</code>
+     *
+     * <pre>
+     *是全体或者是队友
+     * </pre>
+     */
+    public int getDialogType() {
+      return dialogType_;
+    }
+
+    public static final int CONTEXT_FIELD_NUMBER = 2;
+    private java.lang.Object context_;
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    public boolean hasContext() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    public java.lang.String getContext() {
+      java.lang.Object ref = context_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          context_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string context = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContextBytes() {
+      java.lang.Object ref = context_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        context_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int O_USER_ID_FIELD_NUMBER = 3;
+    private java.util.List<java.lang.Integer> oUserId_;
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getOUserIdList() {
+      return oUserId_;
+    }
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    public int getOUserIdCount() {
+      return oUserId_.size();
+    }
+    /**
+     * <code>repeated int32 o_user_id = 3;</code>
+     */
+    public int getOUserId(int index) {
+      return oUserId_.get(index);
+    }
+
+    private void initFields() {
+      dialogType_ = 0;
+      context_ = "";
+      oUserId_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, dialogType_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getContextBytes());
+      }
+      for (int i = 0; i < oUserId_.size(); i++) {
+        output.writeInt32(3, oUserId_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, dialogType_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getContextBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < oUserId_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(oUserId_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getOUserIdList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.roleBattleDialogRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.roleBattleDialogRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.roleBattleDialogRequest}
+     *
+     * <pre>
+     *在battle中玩家发言 cmd = 16 (ROLE_BATTLE_DIALOG)
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.roleBattleDialogRequest)
+        com.game.proto.ProtobufRequest.roleBattleDialogRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleDialogRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleDialogRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.roleBattleDialogRequest.class, com.game.proto.ProtobufRequest.roleBattleDialogRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.roleBattleDialogRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        dialogType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        context_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        oUserId_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_roleBattleDialogRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequest build() {
+        com.game.proto.ProtobufRequest.roleBattleDialogRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.roleBattleDialogRequest buildPartial() {
+        com.game.proto.ProtobufRequest.roleBattleDialogRequest result = new com.game.proto.ProtobufRequest.roleBattleDialogRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.dialogType_ = dialogType_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.context_ = context_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          oUserId_ = java.util.Collections.unmodifiableList(oUserId_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.oUserId_ = oUserId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.roleBattleDialogRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.roleBattleDialogRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.roleBattleDialogRequest other) {
+        if (other == com.game.proto.ProtobufRequest.roleBattleDialogRequest.getDefaultInstance()) return this;
+        if (other.hasDialogType()) {
+          setDialogType(other.getDialogType());
+        }
+        if (other.hasContext()) {
+          bitField0_ |= 0x00000002;
+          context_ = other.context_;
+          onChanged();
+        }
+        if (!other.oUserId_.isEmpty()) {
+          if (oUserId_.isEmpty()) {
+            oUserId_ = other.oUserId_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureOUserIdIsMutable();
+            oUserId_.addAll(other.oUserId_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.roleBattleDialogRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.roleBattleDialogRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int dialogType_ ;
+      /**
+       * <code>optional int32 dialogType = 1;</code>
+       *
+       * <pre>
+       *是全体或者是队友
+       * </pre>
+       */
+      public boolean hasDialogType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 dialogType = 1;</code>
+       *
+       * <pre>
+       *是全体或者是队友
+       * </pre>
+       */
+      public int getDialogType() {
+        return dialogType_;
+      }
+      /**
+       * <code>optional int32 dialogType = 1;</code>
+       *
+       * <pre>
+       *是全体或者是队友
+       * </pre>
+       */
+      public Builder setDialogType(int value) {
+        bitField0_ |= 0x00000001;
+        dialogType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 dialogType = 1;</code>
+       *
+       * <pre>
+       *是全体或者是队友
+       * </pre>
+       */
+      public Builder clearDialogType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dialogType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object context_ = "";
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public boolean hasContext() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public java.lang.String getContext() {
+        java.lang.Object ref = context_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            context_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContextBytes() {
+        java.lang.Object ref = context_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          context_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public Builder setContext(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        context_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public Builder clearContext() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        context_ = getDefaultInstance().getContext();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string context = 2;</code>
+       */
+      public Builder setContextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        context_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> oUserId_ = java.util.Collections.emptyList();
+      private void ensureOUserIdIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          oUserId_ = new java.util.ArrayList<java.lang.Integer>(oUserId_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getOUserIdList() {
+        return java.util.Collections.unmodifiableList(oUserId_);
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public int getOUserIdCount() {
+        return oUserId_.size();
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public int getOUserId(int index) {
+        return oUserId_.get(index);
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public Builder setOUserId(
+          int index, int value) {
+        ensureOUserIdIsMutable();
+        oUserId_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public Builder addOUserId(int value) {
+        ensureOUserIdIsMutable();
+        oUserId_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public Builder addAllOUserId(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureOUserIdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, oUserId_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 3;</code>
+       */
+      public Builder clearOUserId() {
+        oUserId_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.roleBattleDialogRequest)
+    }
+
+    static {
+      defaultInstance = new roleBattleDialogRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.roleBattleDialogRequest)
+  }
+
+  public interface battleSceneUpdateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.battleSceneUpdateRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    java.util.List<java.lang.Integer> getOUserIdList();
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    int getOUserIdCount();
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    int getOUserId(int index);
+  }
+  /**
+   * Protobuf type {@code com.game.proto.battleSceneUpdateRequest}
+   *
+   * <pre>
+   *battle中自动刷新 cmd = 17 （ROLE_BATTLE_UPDATE)
+   * </pre>
+   */
+  public static final class battleSceneUpdateRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.battleSceneUpdateRequest)
+      battleSceneUpdateRequestOrBuilder {
+    // Use battleSceneUpdateRequest.newBuilder() to construct.
+    private battleSceneUpdateRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private battleSceneUpdateRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final battleSceneUpdateRequest defaultInstance;
+    public static battleSceneUpdateRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public battleSceneUpdateRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private battleSceneUpdateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                oUserId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              oUserId_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                oUserId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                oUserId_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          oUserId_ = java.util.Collections.unmodifiableList(oUserId_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneUpdateRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneUpdateRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.battleSceneUpdateRequest.class, com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<battleSceneUpdateRequest> PARSER =
+        new com.google.protobuf.AbstractParser<battleSceneUpdateRequest>() {
+      public battleSceneUpdateRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new battleSceneUpdateRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<battleSceneUpdateRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int O_USER_ID_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> oUserId_;
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getOUserIdList() {
+      return oUserId_;
+    }
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    public int getOUserIdCount() {
+      return oUserId_.size();
+    }
+    /**
+     * <code>repeated int32 o_user_id = 1;</code>
+     */
+    public int getOUserId(int index) {
+      return oUserId_.get(index);
+    }
+
+    private void initFields() {
+      oUserId_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < oUserId_.size(); i++) {
+        output.writeInt32(1, oUserId_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < oUserId_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(oUserId_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getOUserIdList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.battleSceneUpdateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.battleSceneUpdateRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.battleSceneUpdateRequest}
+     *
+     * <pre>
+     *battle中自动刷新 cmd = 17 （ROLE_BATTLE_UPDATE)
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.battleSceneUpdateRequest)
+        com.game.proto.ProtobufRequest.battleSceneUpdateRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneUpdateRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneUpdateRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.battleSceneUpdateRequest.class, com.game.proto.ProtobufRequest.battleSceneUpdateRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.battleSceneUpdateRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        oUserId_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_battleSceneUpdateRequest_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequest getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequest build() {
+        com.game.proto.ProtobufRequest.battleSceneUpdateRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.battleSceneUpdateRequest buildPartial() {
+        com.game.proto.ProtobufRequest.battleSceneUpdateRequest result = new com.game.proto.ProtobufRequest.battleSceneUpdateRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          oUserId_ = java.util.Collections.unmodifiableList(oUserId_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.oUserId_ = oUserId_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.battleSceneUpdateRequest) {
+          return mergeFrom((com.game.proto.ProtobufRequest.battleSceneUpdateRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.battleSceneUpdateRequest other) {
+        if (other == com.game.proto.ProtobufRequest.battleSceneUpdateRequest.getDefaultInstance()) return this;
+        if (!other.oUserId_.isEmpty()) {
+          if (oUserId_.isEmpty()) {
+            oUserId_ = other.oUserId_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOUserIdIsMutable();
+            oUserId_.addAll(other.oUserId_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.battleSceneUpdateRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.battleSceneUpdateRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> oUserId_ = java.util.Collections.emptyList();
+      private void ensureOUserIdIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          oUserId_ = new java.util.ArrayList<java.lang.Integer>(oUserId_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getOUserIdList() {
+        return java.util.Collections.unmodifiableList(oUserId_);
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public int getOUserIdCount() {
+        return oUserId_.size();
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public int getOUserId(int index) {
+        return oUserId_.get(index);
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public Builder setOUserId(
+          int index, int value) {
+        ensureOUserIdIsMutable();
+        oUserId_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public Builder addOUserId(int value) {
+        ensureOUserIdIsMutable();
+        oUserId_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public Builder addAllOUserId(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureOUserIdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, oUserId_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 o_user_id = 1;</code>
+       */
+      public Builder clearOUserId() {
+        oUserId_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.battleSceneUpdateRequest)
+    }
+
+    static {
+      defaultInstance = new battleSceneUpdateRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.battleSceneUpdateRequest)
+  }
+
+  public interface userSelectRoleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.userSelectRole)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 baseRole_id = 1;</code>
+     */
+    boolean hasBaseRoleId();
+    /**
+     * <code>optional int32 baseRole_id = 1;</code>
+     */
+    int getBaseRoleId();
+
+    /**
+     * <code>optional int64 select_time = 2;</code>
+     */
+    boolean hasSelectTime();
+    /**
+     * <code>optional int64 select_time = 2;</code>
+     */
+    long getSelectTime();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.userSelectRole}
+   *
+   * <pre>
+   *玩家选择角色
+   * </pre>
+   */
+  public static final class userSelectRole extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.userSelectRole)
+      userSelectRoleOrBuilder {
+    // Use userSelectRole.newBuilder() to construct.
+    private userSelectRole(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private userSelectRole(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final userSelectRole defaultInstance;
+    public static userSelectRole getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public userSelectRole getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private userSelectRole(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              baseRoleId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              selectTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRole_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRole_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.userSelectRole.class, com.game.proto.ProtobufRequest.userSelectRole.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<userSelectRole> PARSER =
+        new com.google.protobuf.AbstractParser<userSelectRole>() {
+      public userSelectRole parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new userSelectRole(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<userSelectRole> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int BASEROLE_ID_FIELD_NUMBER = 1;
+    private int baseRoleId_;
+    /**
+     * <code>optional int32 baseRole_id = 1;</code>
+     */
+    public boolean hasBaseRoleId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 baseRole_id = 1;</code>
+     */
+    public int getBaseRoleId() {
+      return baseRoleId_;
+    }
+
+    public static final int SELECT_TIME_FIELD_NUMBER = 2;
+    private long selectTime_;
+    /**
+     * <code>optional int64 select_time = 2;</code>
+     */
+    public boolean hasSelectTime() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 select_time = 2;</code>
+     */
+    public long getSelectTime() {
+      return selectTime_;
+    }
+
+    private void initFields() {
+      baseRoleId_ = 0;
+      selectTime_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, selectTime_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, baseRoleId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, selectTime_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectRole parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.userSelectRole prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.userSelectRole}
+     *
+     * <pre>
+     *玩家选择角色
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.userSelectRole)
+        com.game.proto.ProtobufRequest.userSelectRoleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRole_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRole_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.userSelectRole.class, com.game.proto.ProtobufRequest.userSelectRole.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.userSelectRole.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        baseRoleId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        selectTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectRole_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRole getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRole build() {
+        com.game.proto.ProtobufRequest.userSelectRole result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectRole buildPartial() {
+        com.game.proto.ProtobufRequest.userSelectRole result = new com.game.proto.ProtobufRequest.userSelectRole(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.baseRoleId_ = baseRoleId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.selectTime_ = selectTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.userSelectRole) {
+          return mergeFrom((com.game.proto.ProtobufRequest.userSelectRole)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.userSelectRole other) {
+        if (other == com.game.proto.ProtobufRequest.userSelectRole.getDefaultInstance()) return this;
+        if (other.hasBaseRoleId()) {
+          setBaseRoleId(other.getBaseRoleId());
+        }
+        if (other.hasSelectTime()) {
+          setSelectTime(other.getSelectTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.userSelectRole parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.userSelectRole) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int baseRoleId_ ;
+      /**
+       * <code>optional int32 baseRole_id = 1;</code>
+       */
+      public boolean hasBaseRoleId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 baseRole_id = 1;</code>
+       */
+      public int getBaseRoleId() {
+        return baseRoleId_;
+      }
+      /**
+       * <code>optional int32 baseRole_id = 1;</code>
+       */
+      public Builder setBaseRoleId(int value) {
+        bitField0_ |= 0x00000001;
+        baseRoleId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 baseRole_id = 1;</code>
+       */
+      public Builder clearBaseRoleId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        baseRoleId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long selectTime_ ;
+      /**
+       * <code>optional int64 select_time = 2;</code>
+       */
+      public boolean hasSelectTime() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 select_time = 2;</code>
+       */
+      public long getSelectTime() {
+        return selectTime_;
+      }
+      /**
+       * <code>optional int64 select_time = 2;</code>
+       */
+      public Builder setSelectTime(long value) {
+        bitField0_ |= 0x00000002;
+        selectTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 select_time = 2;</code>
+       */
+      public Builder clearSelectTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        selectTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.userSelectRole)
+    }
+
+    static {
+      defaultInstance = new userSelectRole(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.userSelectRole)
+  }
+
+  public interface userSelectSkillOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.game.proto.userSelectSkill)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 skill_id = 1;</code>
+     */
+    boolean hasSkillId();
+    /**
+     * <code>optional int32 skill_id = 1;</code>
+     */
+    int getSkillId();
+
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    boolean hasSkillName();
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    java.lang.String getSkillName();
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSkillNameBytes();
+
+    /**
+     * <code>optional int64 select_time = 3;</code>
+     */
+    boolean hasSelectTime();
+    /**
+     * <code>optional int64 select_time = 3;</code>
+     */
+    long getSelectTime();
+
+    /**
+     * <code>optional int32 skill_index = 4;</code>
+     *
+     * <pre>
+     *当前是第几个技能
+     * </pre>
+     */
+    boolean hasSkillIndex();
+    /**
+     * <code>optional int32 skill_index = 4;</code>
+     *
+     * <pre>
+     *当前是第几个技能
+     * </pre>
+     */
+    int getSkillIndex();
+  }
+  /**
+   * Protobuf type {@code com.game.proto.userSelectSkill}
+   *
+   * <pre>
+   *玩家选择角色后选择技能
+   * </pre>
+   */
+  public static final class userSelectSkill extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:com.game.proto.userSelectSkill)
+      userSelectSkillOrBuilder {
+    // Use userSelectSkill.newBuilder() to construct.
+    private userSelectSkill(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private userSelectSkill(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final userSelectSkill defaultInstance;
+    public static userSelectSkill getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public userSelectSkill getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private userSelectSkill(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              skillId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              skillName_ = bs;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              selectTime_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              skillIndex_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectSkill_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectSkill_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.ProtobufRequest.userSelectSkill.class, com.game.proto.ProtobufRequest.userSelectSkill.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<userSelectSkill> PARSER =
+        new com.google.protobuf.AbstractParser<userSelectSkill>() {
+      public userSelectSkill parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new userSelectSkill(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<userSelectSkill> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int SKILL_ID_FIELD_NUMBER = 1;
+    private int skillId_;
+    /**
+     * <code>optional int32 skill_id = 1;</code>
+     */
+    public boolean hasSkillId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 skill_id = 1;</code>
+     */
+    public int getSkillId() {
+      return skillId_;
+    }
+
+    public static final int SKILL_NAME_FIELD_NUMBER = 2;
+    private java.lang.Object skillName_;
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    public boolean hasSkillName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    public java.lang.String getSkillName() {
+      java.lang.Object ref = skillName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          skillName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string skill_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSkillNameBytes() {
+      java.lang.Object ref = skillName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        skillName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SELECT_TIME_FIELD_NUMBER = 3;
+    private long selectTime_;
+    /**
+     * <code>optional int64 select_time = 3;</code>
+     */
+    public boolean hasSelectTime() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 select_time = 3;</code>
+     */
+    public long getSelectTime() {
+      return selectTime_;
+    }
+
+    public static final int SKILL_INDEX_FIELD_NUMBER = 4;
+    private int skillIndex_;
+    /**
+     * <code>optional int32 skill_index = 4;</code>
+     *
+     * <pre>
+     *当前是第几个技能
+     * </pre>
+     */
+    public boolean hasSkillIndex() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 skill_index = 4;</code>
+     *
+     * <pre>
+     *当前是第几个技能
+     * </pre>
+     */
+    public int getSkillIndex() {
+      return skillIndex_;
+    }
+
+    private void initFields() {
+      skillId_ = 0;
+      skillName_ = "";
+      selectTime_ = 0L;
+      skillIndex_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, skillId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getSkillNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, selectTime_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, skillIndex_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, skillId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getSkillNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, selectTime_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, skillIndex_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.proto.ProtobufRequest.userSelectSkill parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.proto.ProtobufRequest.userSelectSkill prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.proto.userSelectSkill}
+     *
+     * <pre>
+     *玩家选择角色后选择技能
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.game.proto.userSelectSkill)
+        com.game.proto.ProtobufRequest.userSelectSkillOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectSkill_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectSkill_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.ProtobufRequest.userSelectSkill.class, com.game.proto.ProtobufRequest.userSelectSkill.Builder.class);
+      }
+
+      // Construct using com.game.proto.ProtobufRequest.userSelectSkill.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        skillId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        skillName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        selectTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        skillIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.ProtobufRequest.internal_static_com_game_proto_userSelectSkill_descriptor;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectSkill getDefaultInstanceForType() {
+        return com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance();
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectSkill build() {
+        com.game.proto.ProtobufRequest.userSelectSkill result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.proto.ProtobufRequest.userSelectSkill buildPartial() {
+        com.game.proto.ProtobufRequest.userSelectSkill result = new com.game.proto.ProtobufRequest.userSelectSkill(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.skillId_ = skillId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.skillName_ = skillName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.selectTime_ = selectTime_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.skillIndex_ = skillIndex_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.ProtobufRequest.userSelectSkill) {
+          return mergeFrom((com.game.proto.ProtobufRequest.userSelectSkill)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.ProtobufRequest.userSelectSkill other) {
+        if (other == com.game.proto.ProtobufRequest.userSelectSkill.getDefaultInstance()) return this;
+        if (other.hasSkillId()) {
+          setSkillId(other.getSkillId());
+        }
+        if (other.hasSkillName()) {
+          bitField0_ |= 0x00000002;
+          skillName_ = other.skillName_;
+          onChanged();
+        }
+        if (other.hasSelectTime()) {
+          setSelectTime(other.getSelectTime());
+        }
+        if (other.hasSkillIndex()) {
+          setSkillIndex(other.getSkillIndex());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.ProtobufRequest.userSelectSkill parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.ProtobufRequest.userSelectSkill) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int skillId_ ;
+      /**
+       * <code>optional int32 skill_id = 1;</code>
+       */
+      public boolean hasSkillId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 skill_id = 1;</code>
+       */
+      public int getSkillId() {
+        return skillId_;
+      }
+      /**
+       * <code>optional int32 skill_id = 1;</code>
+       */
+      public Builder setSkillId(int value) {
+        bitField0_ |= 0x00000001;
+        skillId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill_id = 1;</code>
+       */
+      public Builder clearSkillId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        skillId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object skillName_ = "";
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public boolean hasSkillName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public java.lang.String getSkillName() {
+        java.lang.Object ref = skillName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            skillName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSkillNameBytes() {
+        java.lang.Object ref = skillName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          skillName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public Builder setSkillName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        skillName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public Builder clearSkillName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        skillName_ = getDefaultInstance().getSkillName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string skill_name = 2;</code>
+       */
+      public Builder setSkillNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        skillName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long selectTime_ ;
+      /**
+       * <code>optional int64 select_time = 3;</code>
+       */
+      public boolean hasSelectTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 select_time = 3;</code>
+       */
+      public long getSelectTime() {
+        return selectTime_;
+      }
+      /**
+       * <code>optional int64 select_time = 3;</code>
+       */
+      public Builder setSelectTime(long value) {
+        bitField0_ |= 0x00000004;
+        selectTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 select_time = 3;</code>
+       */
+      public Builder clearSelectTime() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        selectTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int skillIndex_ ;
+      /**
+       * <code>optional int32 skill_index = 4;</code>
+       *
+       * <pre>
+       *当前是第几个技能
+       * </pre>
+       */
+      public boolean hasSkillIndex() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 skill_index = 4;</code>
+       *
+       * <pre>
+       *当前是第几个技能
+       * </pre>
+       */
+      public int getSkillIndex() {
+        return skillIndex_;
+      }
+      /**
+       * <code>optional int32 skill_index = 4;</code>
+       *
+       * <pre>
+       *当前是第几个技能
+       * </pre>
+       */
+      public Builder setSkillIndex(int value) {
+        bitField0_ |= 0x00000008;
+        skillIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 skill_index = 4;</code>
+       *
+       * <pre>
+       *当前是第几个技能
+       * </pre>
+       */
+      public Builder clearSkillIndex() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skillIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.proto.userSelectSkill)
+    }
+
+    static {
+      defaultInstance = new userSelectSkill(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.proto.userSelectSkill)
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_proto_protobufRequest_descriptor;
   private static
@@ -10679,6 +19323,11 @@ public final class ProtobufRequest {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_proto_waitRoomRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_battleSceneRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_battleSceneRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_proto_registerMessageRequest_descriptor;
   private static
@@ -10710,6 +19359,21 @@ public final class ProtobufRequest {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_proto_getRoomInfoListRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_flushRoomInfoListRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_flushRoomInfoListRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_userSelectBaseRoleRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_userSelectRoleSkillRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_proto_creatorLeaveGameRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -10720,15 +19384,45 @@ public final class ProtobufRequest {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_proto_creatorStartGameRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_proto_userWaitRoomSpeek_descriptor;
+    internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_proto_userWaitRoomSpeek_fieldAccessorTable;
+      internal_static_com_game_proto_userWaitRoomSpeekRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_proto_excludeUserRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_proto_excludeUserRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_roleBattleIdleRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_roleBattleIdleRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_reflushRoleBattleIdleRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_roleBattleDialogRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_roleBattleDialogRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_battleSceneUpdateRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_battleSceneUpdateRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_userSelectRole_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_userSelectRole_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_proto_userSelectSkill_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_proto_userSelectSkill_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10738,48 +19432,85 @@ public final class ProtobufRequest {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017protobufRequest\022\016com.game.proto\"\310\001\n\017pr" +
+      "\n\017protobufRequest\022\016com.game.proto\"\215\002\n\017pr" +
       "otobufRequest\022\013\n\003cmd\030\001 \002(\005\022\017\n\007user_id\030\002 " +
       "\002(\005\022\017\n\007hasTime\030\003 \001(\010\022\014\n\004time\030\004 \001(\003\0229\n\022ma" +
       "inUIRequest_info\030\005 \001(\0132\035.com.game.proto." +
       "mainUIRequest\022=\n\024waitRoomRequest_info\030\006 " +
-      "\001(\0132\037.com.game.proto.waitRoomRequest\"2\n\014" +
-      "userBaseInfo\022\017\n\007user_id\030\001 \001(\005\022\021\n\tuser_na" +
-      "me\030\002 \001(\t\"\305\002\n\rmainUIRequest\022=\n\rregister_i" +
-      "nfo\030\001 \001(\0132&.com.game.proto.registerMessa" +
-      "geRequest\0227\n\nlogin_info\030\002 \001(\0132#.com.game",
-      ".proto.loginMessageRequest\022:\n\017createGame" +
-      "_info\030\003 \001(\0132!.com.game.proto.createGameR" +
-      "equest\022>\n\021mainJoinGame_info\030\004 \001(\0132#.com." +
-      "game.proto.mainJoinGameRequest\022@\n\022flushG" +
-      "ameList_info\030\005 \001(\0132$.com.game.proto.flus" +
-      "hGameListRequest\"\343\002\n\017waitRoomRequest\022@\n\020" +
-      "getRoomList_info\030\001 \001(\0132&.com.game.proto." +
-      "getRoomInfoListRequest\022E\n\024createLeaveGam" +
-      "e_info\030\002 \001(\0132\'.com.game.proto.creatorLea" +
-      "veGameRequest\022F\n\025creatorStartGame_info\030\003",
-      " \001(\0132\'.com.game.proto.creatorStartGameRe" +
-      "quest\022A\n\026userWaitRoomSpeek_info\030\004 \001(\0132!." +
-      "com.game.proto.userWaitRoomSpeek\022<\n\020excl" +
-      "udeUser_info\030\005 \001(\0132\".com.game.proto.excl" +
-      "udeUserRequest\"_\n\026registerMessageRequest" +
-      "\022\020\n\010username\030\001 \002(\t\022\017\n\007country\030\002 \001(\t\022\020\n\010p" +
-      "rovince\030\003 \001(\t\022\020\n\010location\030\004 \001(\t\"\'\n\023login" +
-      "MessageRequest\022\020\n\010location\030\001 \002(\t\"b\n\021crea" +
-      "teGameRequest\022\021\n\tgame_name\030\001 \001(\t\022\022\n\nplay" +
-      "Map_id\030\002 \001(\005\022\024\n\014playMap_name\030\003 \001(\t\022\020\n\010pl",
-      "ayType\030\004 \001(\005\"9\n\023mainJoinGameRequest\022\017\n\007r" +
-      "oom_id\030\001 \001(\005\022\021\n\troom_name\030\002 \001(\t\":\n\024flush" +
-      "GameListRequest\022\021\n\tlistCount\030\001 \001(\005\022\017\n\007ro" +
-      "om_id\030\002 \003(\005\"l\n\026getRoomInfoListRequest\022\017\n" +
-      "\007room_id\030\001 \001(\005\022\021\n\tuserCount\030\002 \001(\005\022.\n\010use" +
-      "rInfo\030\003 \003(\0132\034.com.game.proto.userBaseInf" +
-      "o\"*\n\027creatorLeaveGameRequest\022\017\n\007room_id\030" +
-      "\001 \002(\005\"=\n\027creatorStartGameRequest\022\017\n\007room" +
-      "_id\030\001 \002(\005\022\021\n\tgame_name\030\002 \002(\t\"4\n\021userWait" +
-      "RoomSpeek\022\017\n\007context\030\001 \001(\t\022\016\n\006target\030\002 \001",
-      "(\005\"@\n\022excludeUserRequest\022*\n\004user\030\001 \001(\0132\034" +
-      ".com.game.proto.userBaseInfo"
+      "\001(\0132\037.com.game.proto.waitRoomRequest\022C\n\027" +
+      "battleSceneRequest_info\030\007 \001(\0132\".com.game" +
+      ".proto.battleSceneRequest\"2\n\014userBaseInf" +
+      "o\022\017\n\007user_id\030\001 \001(\005\022\021\n\tuser_name\030\002 \001(\t\"\305\002" +
+      "\n\rmainUIRequest\022=\n\rregister_info\030\001 \001(\0132&",
+      ".com.game.proto.registerMessageRequest\0227" +
+      "\n\nlogin_info\030\002 \001(\0132#.com.game.proto.logi" +
+      "nMessageRequest\022:\n\017createGame_info\030\003 \001(\013" +
+      "2!.com.game.proto.createGameRequest\022>\n\021m" +
+      "ainJoinGame_info\030\004 \001(\0132#.com.game.proto." +
+      "mainJoinGameRequest\022@\n\022flushGameList_inf" +
+      "o\030\005 \001(\0132$.com.game.proto.flushGameListRe" +
+      "quest\"\305\004\n\017waitRoomRequest\022@\n\020getRoomList" +
+      "_info\030\001 \001(\0132&.com.game.proto.getRoomInfo" +
+      "ListRequest\022E\n\024createLeaveGame_info\030\002 \001(",
+      "\0132\'.com.game.proto.creatorLeaveGameReque" +
+      "st\022F\n\025creatorStartGame_info\030\003 \001(\0132\'.com." +
+      "game.proto.creatorStartGameRequest\022H\n\026us" +
+      "erWaitRoomSpeek_info\030\004 \001(\0132(.com.game.pr" +
+      "oto.userWaitRoomSpeekRequest\022<\n\020excludeU" +
+      "ser_info\030\005 \001(\0132\".com.game.proto.excludeU" +
+      "serRequest\022C\n\021flushRoomInfoList\030\006 \001(\0132(." +
+      "com.game.proto.flushRoomInfoListRequest\022" +
+      "J\n\027userSelectBaseRole_info\030\007 \001(\0132).com.g" +
+      "ame.proto.userSelectBaseRoleRequest\022H\n\024u",
+      "serSelectSkill_info\030\010 \001(\0132*.com.game.pro" +
+      "to.userSelectRoleSkillRequest\"\315\002\n\022battle" +
+      "SceneRequest\022\017\n\007role_id\030\001 \001(\005\022F\n\025roleBat" +
+      "tleDialog_info\030\002 \001(\0132\'.com.game.proto.ro" +
+      "leBattleDialogRequest\022B\n\023roleBattleIdle_" +
+      "info\030\003 \001(\0132%.com.game.proto.roleBattleId" +
+      "leRequest\022P\n\032reflushRoleBattleIdle_info\030" +
+      "\004 \001(\0132,.com.game.proto.reflushRoleBattle" +
+      "IdleRequest\022H\n\026battleSceneUpdate_info\030\005 " +
+      "\001(\0132(.com.game.proto.battleSceneUpdateRe",
+      "quest\"_\n\026registerMessageRequest\022\020\n\010usern" +
+      "ame\030\001 \002(\t\022\017\n\007country\030\002 \001(\t\022\020\n\010province\030\003" +
+      " \001(\t\022\020\n\010location\030\004 \001(\t\"\'\n\023loginMessageRe" +
+      "quest\022\020\n\010location\030\001 \002(\t\"b\n\021createGameReq" +
+      "uest\022\021\n\tgame_name\030\001 \001(\t\022\022\n\nplayMap_id\030\002 " +
+      "\001(\005\022\024\n\014playMap_name\030\003 \001(\t\022\020\n\010playType\030\004 " +
+      "\001(\005\"9\n\023mainJoinGameRequest\022\017\n\007room_id\030\001 " +
+      "\001(\005\022\021\n\troom_name\030\002 \001(\t\"\'\n\024flushGameListR" +
+      "equest\022\017\n\007room_id\030\001 \003(\005\")\n\026getRoomInfoLi" +
+      "stRequest\022\017\n\007room_id\030\001 \001(\005\"[\n\030flushRoomI",
+      "nfoListRequest\022\017\n\007room_id\030\001 \001(\005\022.\n\010userI" +
+      "nfo\030\002 \003(\0132\034.com.game.proto.userBaseInfo\"" +
+      "}\n\031userSelectBaseRoleRequest\022/\n\007oldRole\030" +
+      "\001 \001(\0132\036.com.game.proto.userSelectRole\022/\n" +
+      "\007newRole\030\002 \001(\0132\036.com.game.proto.userSele" +
+      "ctRole\"\202\001\n\032userSelectRoleSkillRequest\0221\n" +
+      "\010oldSkill\030\001 \001(\0132\037.com.game.proto.userSel" +
+      "ectSkill\0221\n\010newSkill\030\002 \001(\0132\037.com.game.pr" +
+      "oto.userSelectSkill\"*\n\027creatorLeaveGameR" +
+      "equest\022\017\n\007room_id\030\001 \002(\005\"=\n\027creatorStartG",
+      "ameRequest\022\017\n\007room_id\030\001 \002(\005\022\021\n\tgame_name" +
+      "\030\002 \002(\t\";\n\030userWaitRoomSpeekRequest\022\017\n\007co" +
+      "ntext\030\001 \001(\t\022\016\n\006target\030\002 \001(\005\"@\n\022excludeUs" +
+      "erRequest\022*\n\004user\030\001 \001(\0132\034.com.game.proto" +
+      ".userBaseInfo\"\212\001\n\025roleBattleIdleRequest\022" +
+      "\017\n\007role_id\030\001 \001(\005\022\024\n\014base_role_id\030\002 \001(\005\022\021" +
+      "\n\tskill1_id\030\003 \001(\005\022\021\n\tskill2_id\030\004 \001(\005\022\021\n\t" +
+      "skill3_id\030\005 \001(\005\022\021\n\tskill4_id\030\006 \001(\005\"\221\001\n\034r" +
+      "eflushRoleBattleIdleRequest\022\017\n\007role_id\030\001" +
+      " \001(\005\022\024\n\014base_role_id\030\002 \001(\005\022\021\n\tskill1_id\030",
+      "\003 \001(\005\022\021\n\tskill2_id\030\004 \001(\005\022\021\n\tskill3_id\030\005 " +
+      "\001(\005\022\021\n\tskill4_id\030\006 \001(\005\"Q\n\027roleBattleDial" +
+      "ogRequest\022\022\n\ndialogType\030\001 \001(\005\022\017\n\007context" +
+      "\030\002 \001(\t\022\021\n\to_user_id\030\003 \003(\005\"-\n\030battleScene" +
+      "UpdateRequest\022\021\n\to_user_id\030\001 \003(\005\":\n\016user" +
+      "SelectRole\022\023\n\013baseRole_id\030\001 \001(\005\022\023\n\013selec" +
+      "t_time\030\002 \001(\003\"a\n\017userSelectSkill\022\020\n\010skill" +
+      "_id\030\001 \001(\005\022\022\n\nskill_name\030\002 \001(\t\022\023\n\013select_" +
+      "time\030\003 \001(\003\022\023\n\013skill_index\030\004 \001(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10798,7 +19529,7 @@ public final class ProtobufRequest {
     internal_static_com_game_proto_protobufRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_protobufRequest_descriptor,
-        new java.lang.String[] { "Cmd", "UserId", "HasTime", "Time", "MainUIRequestInfo", "WaitRoomRequestInfo", });
+        new java.lang.String[] { "Cmd", "UserId", "HasTime", "Time", "MainUIRequestInfo", "WaitRoomRequestInfo", "BattleSceneRequestInfo", });
     internal_static_com_game_proto_userBaseInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_proto_userBaseInfo_fieldAccessorTable = new
@@ -10816,67 +19547,127 @@ public final class ProtobufRequest {
     internal_static_com_game_proto_waitRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_waitRoomRequest_descriptor,
-        new java.lang.String[] { "GetRoomListInfo", "CreateLeaveGameInfo", "CreatorStartGameInfo", "UserWaitRoomSpeekInfo", "ExcludeUserInfo", });
-    internal_static_com_game_proto_registerMessageRequest_descriptor =
+        new java.lang.String[] { "GetRoomListInfo", "CreateLeaveGameInfo", "CreatorStartGameInfo", "UserWaitRoomSpeekInfo", "ExcludeUserInfo", "FlushRoomInfoList", "UserSelectBaseRoleInfo", "UserSelectSkillInfo", });
+    internal_static_com_game_proto_battleSceneRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_com_game_proto_battleSceneRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_battleSceneRequest_descriptor,
+        new java.lang.String[] { "RoleId", "RoleBattleDialogInfo", "RoleBattleIdleInfo", "ReflushRoleBattleIdleInfo", "BattleSceneUpdateInfo", });
+    internal_static_com_game_proto_registerMessageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_game_proto_registerMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_registerMessageRequest_descriptor,
         new java.lang.String[] { "Username", "Country", "Province", "Location", });
     internal_static_com_game_proto_loginMessageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_game_proto_loginMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_loginMessageRequest_descriptor,
         new java.lang.String[] { "Location", });
     internal_static_com_game_proto_createGameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_game_proto_createGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_createGameRequest_descriptor,
         new java.lang.String[] { "GameName", "PlayMapId", "PlayMapName", "PlayType", });
     internal_static_com_game_proto_mainJoinGameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_game_proto_mainJoinGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_mainJoinGameRequest_descriptor,
         new java.lang.String[] { "RoomId", "RoomName", });
     internal_static_com_game_proto_flushGameListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_game_proto_flushGameListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_flushGameListRequest_descriptor,
-        new java.lang.String[] { "ListCount", "RoomId", });
+        new java.lang.String[] { "RoomId", });
     internal_static_com_game_proto_getRoomInfoListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_game_proto_getRoomInfoListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_getRoomInfoListRequest_descriptor,
-        new java.lang.String[] { "RoomId", "UserCount", "UserInfo", });
+        new java.lang.String[] { "RoomId", });
+    internal_static_com_game_proto_flushRoomInfoListRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_com_game_proto_flushRoomInfoListRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_flushRoomInfoListRequest_descriptor,
+        new java.lang.String[] { "RoomId", "UserInfo", });
+    internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_com_game_proto_userSelectBaseRoleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_userSelectBaseRoleRequest_descriptor,
+        new java.lang.String[] { "OldRole", "NewRole", });
+    internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_com_game_proto_userSelectRoleSkillRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_userSelectRoleSkillRequest_descriptor,
+        new java.lang.String[] { "OldSkill", "NewSkill", });
     internal_static_com_game_proto_creatorLeaveGameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_game_proto_creatorLeaveGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_creatorLeaveGameRequest_descriptor,
         new java.lang.String[] { "RoomId", });
     internal_static_com_game_proto_creatorStartGameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_game_proto_creatorStartGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_creatorStartGameRequest_descriptor,
         new java.lang.String[] { "RoomId", "GameName", });
-    internal_static_com_game_proto_userWaitRoomSpeek_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_com_game_proto_userWaitRoomSpeek_fieldAccessorTable = new
+    internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_com_game_proto_userWaitRoomSpeekRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_com_game_proto_userWaitRoomSpeek_descriptor,
+        internal_static_com_game_proto_userWaitRoomSpeekRequest_descriptor,
         new java.lang.String[] { "Context", "Target", });
     internal_static_com_game_proto_excludeUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_game_proto_excludeUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_proto_excludeUserRequest_descriptor,
         new java.lang.String[] { "User", });
+    internal_static_com_game_proto_roleBattleIdleRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_com_game_proto_roleBattleIdleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_roleBattleIdleRequest_descriptor,
+        new java.lang.String[] { "RoleId", "BaseRoleId", "Skill1Id", "Skill2Id", "Skill3Id", "Skill4Id", });
+    internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_com_game_proto_reflushRoleBattleIdleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_reflushRoleBattleIdleRequest_descriptor,
+        new java.lang.String[] { "RoleId", "BaseRoleId", "Skill1Id", "Skill2Id", "Skill3Id", "Skill4Id", });
+    internal_static_com_game_proto_roleBattleDialogRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_com_game_proto_roleBattleDialogRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_roleBattleDialogRequest_descriptor,
+        new java.lang.String[] { "DialogType", "Context", "OUserId", });
+    internal_static_com_game_proto_battleSceneUpdateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_com_game_proto_battleSceneUpdateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_battleSceneUpdateRequest_descriptor,
+        new java.lang.String[] { "OUserId", });
+    internal_static_com_game_proto_userSelectRole_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_com_game_proto_userSelectRole_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_userSelectRole_descriptor,
+        new java.lang.String[] { "BaseRoleId", "SelectTime", });
+    internal_static_com_game_proto_userSelectSkill_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_com_game_proto_userSelectSkill_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_com_game_proto_userSelectSkill_descriptor,
+        new java.lang.String[] { "SkillId", "SkillName", "SelectTime", "SkillIndex", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Base_RoleMapper" >
+  <resultMap id="BaseRoleResultMap" type="com.game.mybatis.model.Base_Role" >
+    <id column="baseRole_id" property="baseroleId" jdbcType="INTEGER" />
+    <result column="attack_type" property="attackType" jdbcType="INTEGER" />
+    <result column="role_type" property="roleType" jdbcType="INTEGER" />
+    <result column="rolename" property="rolename" jdbcType="VARCHAR" />
+    <result column="maxLevel" property="maxlevel" jdbcType="INTEGER" />
+    <result column="minLevel" property="minlevel" jdbcType="INTEGER" />
+    <result column="minSpeed" property="minspeed" jdbcType="INTEGER" />
+    <result column="maxSpeed" property="maxspeed" jdbcType="INTEGER" />
+    <result column="baseHp" property="basehp" jdbcType="INTEGER" />
+    <result column="attackSpeed" property="attackspeed" jdbcType="REAL" />
+    <result column="maxAttackSpeed" property="maxattackspeed" jdbcType="REAL" />
+    <result column="baseAttack" property="baseAttack" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectById" resultMap="BaseRoleResultMap" parameterType="java.lang.Integer" >
+    select * from base_role
+    where baseRole_id = #{baseroleId,jdbcType=INTEGER}
+  </select>
+  <select id="getBaseRoleList" resultMap="BaseRoleResultMap" parameterType="java.lang.Integer" >
+    select * from base_role
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from base_role
+    where baseRole_id = #{baseroleId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE base_role
+  </delete>
+  <insert id="insertBaseRole" parameterType="com.game.mybatis.model.Base_Role" 
+      useGeneratedKeys="true" keyProperty="baseroleId">
+    insert into base_role (baseRole_id, attack_type, role_type, 
+      rolename, maxLevel, minLevel, 
+      minSpeed, maxSpeed, baseHp, 
+      attackSpeed, maxAttackSpeed, baseAttack)
+    values (#{baseroleId,jdbcType=INTEGER}, #{attackType,jdbcType=INTEGER}, #{roleType,jdbcType=INTEGER}, 
+      #{rolename,jdbcType=VARCHAR}, #{maxlevel,jdbcType=INTEGER}, #{minlevel,jdbcType=INTEGER}, 
+      #{minspeed,jdbcType=INTEGER}, #{maxspeed,jdbcType=INTEGER}, #{basehp,jdbcType=INTEGER}, 
+      #{attackspeed,jdbcType=REAL}, #{maxattackspeed,jdbcType=REAL}, #{baseAttack})
+  </insert>
+  <update id="updateBaseRole" parameterType="com.game.mybatis.model.Base_Role" >
+    update base_role
+    <set >
+      <if test="attackType != null" >
+        attack_type = #{attackType,jdbcType=INTEGER},
+      </if>
+      <if test="roleType != null" >
+        role_type = #{roleType,jdbcType=INTEGER},
+      </if>
+      <if test="rolename != null" >
+        rolename = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="maxlevel != null" >
+        maxLevel = #{maxlevel,jdbcType=INTEGER},
+      </if>
+      <if test="minlevel != null" >
+        minLevel = #{minlevel,jdbcType=INTEGER},
+      </if>
+      <if test="minspeed != null" >
+        minSpeed = #{minspeed,jdbcType=INTEGER},
+      </if>
+      <if test="maxspeed != null" >
+        maxSpeed = #{maxspeed,jdbcType=INTEGER},
+      </if>
+      <if test="basehp != null" >
+        baseHp = #{basehp,jdbcType=INTEGER},
+      </if>
+      <if test="attackspeed != null" >
+        attackSpeed = #{attackspeed,jdbcType=REAL},
+      </if>
+      <if test="maxattackspeed != null" >
+        maxAttackSpeed = #{maxattackspeed,jdbcType=REAL},
+      </if>
+      <if test="baseAttack != null" >
+        baseAttack = #{baseAttack,jdbcType=REAL},
+      </if>
+    </set>
+    where baseRole_id = #{baseroleId,jdbcType=INTEGER}
+  </update>
+</mapper>

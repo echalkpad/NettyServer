@@ -1,6 +1,6 @@
 package com.game.mybatis.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class User {
     private Integer user_id;
@@ -23,9 +23,15 @@ public class User {
 
     private Room_Info room_Info;
 
+    private Date joinRoomTime;
+    
     private Battle_Info battle_Info;
 
+    private Date joinBattleTime;
+    
     private Role_Info role_Info;
+    
+    private Date selectRoleTime;
     
     private String ipAddress;
     
@@ -37,7 +43,7 @@ public class User {
     }
     
     public User(){
-    	
+    	createTime = new Date(System.currentTimeMillis());
     }
     
     public User(String username){
@@ -131,10 +137,12 @@ public class User {
 	}
 
 	public void setBattle_Info(Battle_Info battle_Info) {
+		this.joinBattleTime = new Date(System.currentTimeMillis());
 		this.battle_Info = battle_Info;
 	}
 
 	public void setRole_Info(Role_Info role_Info) {
+		this.selectRoleTime = new Date(System.currentTimeMillis());
 		this.role_Info = role_Info;
 	}
 
@@ -151,11 +159,36 @@ public class User {
 	}
 
 	public void setRoom_Info(Room_Info room_Info) {
+		this.joinRoomTime = new Date(System.currentTimeMillis());
 		this.room_Info = room_Info;
 	}
 
 	public void setLastConnectTime(Date lastConnectTime) {
 		this.lastConnectTime = lastConnectTime;
+	}
+
+	public Date getJoinRoomTime() {
+		return joinRoomTime;
+	}
+
+	public Date getJoinBattleTime() {
+		return joinBattleTime;
+	}
+
+	public Date getSelectRoleTime() {
+		return selectRoleTime;
+	}
+
+	public void setJoinRoomTime(Date joinRoomTime) {
+		this.joinRoomTime = joinRoomTime;
+	}
+
+	public void setJoinBattleTime(Date joinBattleTime) {
+		this.joinBattleTime = joinBattleTime;
+	}
+
+	public void setSelectRoleTime(Date selectRoleTime) {
+		this.selectRoleTime = selectRoleTime;
 	}
 	
 }

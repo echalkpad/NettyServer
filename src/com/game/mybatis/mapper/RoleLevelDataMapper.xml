@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.RoleLevelDataMapper" >
+  <resultMap id="BaseResultMap" type="com.game.mybatis.model.RoleLevelData" >
+    <id column="level_id" property="levelId" jdbcType="INTEGER" />
+    <result column="baseRole_id" property="baseroleId" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="addHpBase" property="addhpbase" jdbcType="INTEGER" />
+    <result column="addHpFactor" property="addhpfactor" jdbcType="REAL" />
+    <result column="addAttackBase" property="addattackbase" jdbcType="INTEGER" />
+    <result column="addAttackFactor" property="addattackfactor" jdbcType="REAL" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from roleleveldata
+    where level_id = #{levelId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from roleleveldata
+    where level_id = #{levelId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE roleleveldata
+  </delete>
+  <insert id="insertRoleLevelData" parameterType="com.game.mybatis.model.RoleLevelData" 
+      useGeneratedKeys="true" keyProperty="levelId">
+    insert into roleleveldata (level_id, baseRole_id, level, 
+      addHpBase, addHpFactor, addAttackBase, 
+      addAttackFactor, comment)
+    values (#{levelId,jdbcType=INTEGER}, #{baseroleId,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
+      #{addhpbase,jdbcType=INTEGER}, #{addhpfactor,jdbcType=REAL}, #{addattackbase,jdbcType=INTEGER}, 
+      #{addattackfactor,jdbcType=REAL}, #{comment,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateRoleLevelData" parameterType="com.game.mybatis.model.RoleLevelData" >
+    update roleleveldata
+    <set >
+      <if test="baseroleId != null" >
+        baseRole_id = #{baseroleId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="addhpbase != null" >
+        addHpBase = #{addhpbase,jdbcType=INTEGER},
+      </if>
+      <if test="addhpfactor != null" >
+        addHpFactor = #{addhpfactor,jdbcType=REAL},
+      </if>
+      <if test="addattackbase != null" >
+        addAttackBase = #{addattackbase,jdbcType=INTEGER},
+      </if>
+      <if test="addattackfactor != null" >
+        addAttackFactor = #{addattackfactor,jdbcType=REAL},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where level_id = #{levelId,jdbcType=INTEGER}
+  </update>
+</mapper>

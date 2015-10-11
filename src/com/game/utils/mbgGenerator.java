@@ -18,7 +18,15 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 //http://wiki.jikexueyuan.com/project/mybatis-in-action/code-generation-tool.html
 public class mbgGenerator {
     public static void main(String[] args) {
-        String dir = "src/com/game/mbgConfig/";
+    	generatorStart(null);
+    }
+    
+    public static void generatorStart(String dir_)
+    {
+    	String dir = "src/com/game/mbgConfig/";
+    	if(dir_ != null){
+    		dir = dir_;
+    	}
         File f = new File(dir);
         File[] files = f.listFiles();
         for(int i=0; i<files.length; i++){

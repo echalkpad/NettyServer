@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Kill_RankMapper" >
+  <resultMap id="KillRankResultMap" type="com.game.mybatis.model.Kill_Rank" >
+    <id column="rank_id" property="rankId" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="killUserCount" property="killusercount" jdbcType="INTEGER" />
+    <result column="AssistsUserCount" property="assistsusercount" jdbcType="INTEGER" />
+    <association property="user" column="user_id" javaType="User" 
+        select="com.game.mybatis.dao.UserMapper.selectById">
+    </association>
+  </resultMap>
+  
+  <select id="selectById" resultMap="KillRankResultMap" parameterType="java.lang.Integer" >
+    select * from kill_rank where rank_id = #{rankId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from kill_rank where rank_id = #{rankId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE kill_rank
+  </delete>
+  <insert id="insertKillerRank" parameterType="com.game.mybatis.model.Kill_Rank" 
+      useGeneratedKeys="true" keyProperty="rankId">
+    insert into kill_rank (rank_id, user_id, username, 
+      killUserCount, AssistsUserCount)
+    values (#{rankId,jdbcType=INTEGER}, #{user.user_id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{killusercount,jdbcType=INTEGER}, #{assistsusercount,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByKillerRank" parameterType="com.game.mybatis.model.Kill_Rank" >
+    update kill_rank
+    <set >
+      <if test="userId != null" >
+        user_id = #{user.user_id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="killusercount != null" >
+        killUserCount = #{killusercount,jdbcType=INTEGER},
+      </if>
+      <if test="assistsusercount != null" >
+        AssistsUserCount = #{assistsusercount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where rank_id = #{rankId,jdbcType=INTEGER}
+  </update>
+</mapper>

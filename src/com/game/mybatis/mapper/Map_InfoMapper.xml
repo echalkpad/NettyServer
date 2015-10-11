@@ -4,6 +4,8 @@
   <resultMap id="MapResult" type="com.game.mybatis.model.Map_Info" >
     <id column="map_id" property="mapId" jdbcType="INTEGER" />
     <result column="map_name" property="mapName" jdbcType="VARCHAR" />
+    <result column="mapResName" property="map_resname" jdbcType="VARCHAR" />
+    <result column="mapDataName" property="map_dataname" jdbcType="VARCHAR" />
     <result column="playerMinCount" property="playermincount" jdbcType="INTEGER" />
     <result column="playerMaxCount" property="playermaxcount" jdbcType="INTEGER" />
     <result column="support_tangled_fight" property="supportTangledFight" jdbcType="INTEGER" />
@@ -16,9 +18,15 @@
     select * from map_info
     where map_id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="getMapList" resultMap="MapResult" parameterType="java.lang.Integer" >
+    select * from map_info
+  </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from map_info
     where map_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE map_info
   </delete>
   <insert id="insertMapInfo" parameterType="com.game.mybatis.model.Map_Info" useGeneratedKeys="true"
       keyProperty="mapId">
@@ -29,6 +37,12 @@
       </if>
       <if test="mapName != null" >
         map_name,
+      </if>
+      <if test="mapResName != null" >
+        map_resname,
+      </if>
+      <if test="mapDataName != null" >
+        map_dataname,
       </if>
       <if test="playermincount != null" >
         playerMinCount,
@@ -81,6 +95,12 @@
     <set >
       <if test="mapName != null" >
         map_name = #{mapName},
+      </if>
+      <if test="mapResName != null" >
+        map_resname = #{mapResName},
+      </if>
+      <if test="mapDataName != null" >
+        map_dataname = #{mapDataName},
       </if>
       <if test="playermincount != null" >
         playerMinCount = #{playermincount,jdbcType=INTEGER},

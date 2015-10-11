@@ -8,7 +8,9 @@ public class Skill_Info {
     private Integer skillType;
 
     private Float duration;
-
+    
+    private Float interval;
+    
     private Boolean isGroup;
 
     private Integer skillBaseHurt;
@@ -169,5 +171,13 @@ public class Skill_Info {
 
 	public void setSkillBufferFactor(Float skillBufferFactor) {
 		this.skillBufferFactor = skillBufferFactor;
+	}
+
+	public Float getInterval() {
+		return interval;
+	}
+
+	public void setInterval(Float interval) {
+		this.interval = interval;
 	}
 }

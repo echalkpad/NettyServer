@@ -10,6 +10,7 @@ public class UserState {
 	//加载资源
 	public static final Integer LOADING = 4;
 	//战斗类型
+	//混战
 	public static final Integer TANGLEDFIGHT = 5;
 	public static final Integer TEAMBATTLE = 6;
 	public static final Integer FLAGBATTLE = 7;

@@ -6,6 +6,7 @@
     <result column="skill_name" property="skillName" jdbcType="VARCHAR" />
     <result column="skill_type" property="skillType" jdbcType="INTEGER" />
     <result column="duration" property="duration" jdbcType="REAL" />
+    <result column="interval" property="interval" jdbcType="REAL" />
     <result column="is_Group" property="isGroup" jdbcType="INTEGER" />
     <result column="skill_base_hurt" property="skillBaseHurt" jdbcType="INTEGER" />
     <result column="can_Vertigo" property="canVertigo" jdbcType="INTEGER" />
@@ -25,9 +26,15 @@
     select * from skill_info
     where skill_id = #{skillId,jdbcType=INTEGER}
   </select>
+  <select id="getSkillList" resultMap="SkillResult" parameterType="java.lang.Integer" >
+    select * from skill_info
+  </select>
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from skill_info
     where skill_id = #{skillId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE skill_info
   </delete>
   <insert id="insertSkill" parameterType="com.game.mybatis.model.Skill_Info" useGeneratedKeys="true"
       keyProperty="skillId">

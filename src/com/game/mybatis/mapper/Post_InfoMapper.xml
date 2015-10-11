@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Post_InfoMapper" >
+  <resultMap id="BaseResultMap" type="com.game.mybatis.model.Post_Info" >
+    <id column="post_id" property="postId" jdbcType="INTEGER" />
+    <result column="post_title" property="postTitle" jdbcType="VARCHAR" />
+    <result column="post_comment" property="postComment" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from post_info
+    where post_id = #{postId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from post_info
+    where post_id = #{postId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE post_info
+  </delete>
+  <insert id="insertPostInfo" parameterType="com.game.mybatis.model.Post_Info" 
+      useGeneratedKeys="true" keyProperty="postId">
+    insert into post_info (post_id, post_title, post_comment
+      )
+    values (#{postId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR}, #{postComment,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updatePostInfoe" parameterType="com.game.mybatis.model.Post_Info" >
+    update post_info
+    <set >
+      <if test="postTitle != null" >
+        post_title = #{postTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="postComment != null" >
+        post_comment = #{postComment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+</mapper>

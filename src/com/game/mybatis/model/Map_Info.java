@@ -4,7 +4,11 @@ public class Map_Info {
     private Integer mapId;
 
     private String mapName;
-
+    
+    private String mapResName;
+    
+    private String mapDataName;
+    
     private Integer playermincount;
 
     private Integer playermaxcount;
@@ -79,5 +83,21 @@ public class Map_Info {
 
 	public void setSupportBossAnnihilateBattle(Boolean supportBossAnnihilateBattle) {
 		this.supportBossAnnihilateBattle = supportBossAnnihilateBattle;
+	}
+
+	public String getMapResName() {
+		return mapResName;
+	}
+
+	public String getMapDataName() {
+		return mapDataName;
+	}
+
+	public void setMapResName(String mapResName) {
+		this.mapResName = mapResName;
+	}
+
+	public void setMapDataName(String mapDataName) {
+		this.mapDataName = mapDataName;
 	}
 }

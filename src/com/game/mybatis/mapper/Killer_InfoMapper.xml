@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.game.mybatis.dao.Killer_InfoMapper" >
+  <resultMap id="KillerInfoResultMap" type="com.game.mybatis.model.Killer_Info" >
+    <id column="killer_id" property="killerId" jdbcType="INTEGER" />
+    <result column="isKiller" property="iskiller" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR"
+        javaType="Date" typeHandler="com.game.mybatis.handler.DateToVarcharTypeHandler"/>
+    <association property="role" column="role_id" javaType="Role_Info" 
+        select="com.game.mybatis.dao.Role_InfoMapper.selectById">
+    </association>
+    <association property="taregt" column="target_id" javaType="Role_Info" 
+        select="com.game.mybatis.dao.Role_InfoMapper.selectById">
+    </association>
+    <association property="battle" column="battle_id" javaType="battle_Info" 
+        select="com.game.mybatis.dao.Battle_InfoMapper.selectById">
+    </association>
+  </resultMap>
+  
+  <select id="getAllKillerData" resultMap="KillerInfoResultMap">
+      select * from killer_info where battle_id = #{0} and create_time > 
+      #{1, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler} and isKiller = 1
+  </select>
+  <select id="getAllKillerDataByKiller" resultMap="KillerInfoResultMap">
+      select * from killer_info where battle_id = #{0} and role_id = #{1} and create_time > 
+      #{2, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler} and isKiller = 1
+  </select>
+  <select id="getAllAssistDataByAssist" resultMap="KillerInfoResultMap">
+      select * from killer_info where battle_id = #{0} and role_id = #{1} and create_time > 
+      #{2, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler} and isKiller = 0
+  </select>
+  <select id="getAssistDataByTarget" resultMap="KillerInfoResultMap">
+      select * from killer_info where battle_id = #{0} and target_id = #{1} and create_time > 
+      #{2, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler} and isKiller = 0
+  </select>
+  <select id="selectById" resultMap="KillerInfoResultMap" parameterType="java.lang.Integer" >
+    select * from killer_info
+    where killer_id = #{killerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from killer_info
+    where killer_id = #{killerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE killer_info
+  </delete>
+  <insert id="insertKillerInfo" parameterType="com.game.mybatis.model.Killer_Info" 
+      useGeneratedKeys="true" keyProperty="killerId">
+    insert into killer_info (killer_id, isKiller, role_id, 
+      create_time, taregt_id， battle_id)
+    values (#{killerId,jdbcType=INTEGER}, #{iskiller,jdbcType=INTEGER}, #{role.roleId,jdbcType=INTEGER}, 
+      #{createTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler}, 
+      #{taregt.roleId,jdbcType=INTEGER}, #{battle.battle_id})
+  </insert>
+  
+  <update id="updateByKillerInfo" parameterType="com.game.mybatis.model.Killer_Info" >
+    update killer_info
+    <set >
+      <if test="iskiller != null" >
+        isKiller = #{iskiller,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{role.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime, typeHandler=com.game.mybatis.handler.DateToVarcharTypeHandler},
+      </if>
+      <if test="taregtId != null" >
+        taregt_id = #{taregt.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="battle != null" >
+        battle_id = #{battle.battle_id,jdbcType=INTEGER},
+      </if>
+    </set>
+    where killer_id = #{killerId,jdbcType=INTEGER}
+  </update>
+</mapper>

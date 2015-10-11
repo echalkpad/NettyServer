@@ -19,18 +19,12 @@
     <association property="creator" column="creator_id" javaType="User"
     		select="com.game.mybatis.dao.UserMapper.selectById">
     </association>
-    <collection property="dialogsList" ofType="Dialog_Info" column="room_id"
-        select="selectDialogList">
-    </collection>
-    <collection property="usersList" ofType="User" column="room_id"
-        select="selectUserList">
-    </collection>
   </resultMap>
   
-  <select id="selectDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+  <select id="getRoomDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap" parameterType="java.lang.Integer">
       select * from dialog_info where type = 0 and group_id = #{id}
   </select>
-  <select id="selectUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+  <select id="getRoomUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult" parameterType="java.lang.Integer">
       select * from user where room_info_id = #{id}
   </select>
   
@@ -46,16 +40,22 @@
     delete from room_info
     where room_id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE room_info
+  </delete>
   <insert id="insertRoomInfo" parameterType="com.game.mybatis.model.Room_Info" useGeneratedKeys="true"
       keyProperty="roomId">
     insert into room_info (room_id, room_name, UserCount, game_type, play_map_id,
-    	isUsed, creator_id, battle_info_id, current_dialog_id)
+    	isUsed, creator_id, battle_info_id)
     values (#{roomId}, #{roomName}, #{usercount}, #{gameType}, #{playMap.mapId},
-    	#{isUsed}, #{creator.user_id}, #{battle_Info.battle_id}, #{currentDialog.dialog_id})
+    	#{isUsed}, #{creator.user_id}, #{battle_Info.battle_id})
   </insert>
   <update id="updateRoomInfo" parameterType="com.game.mybatis.model.Room_Info" >
     update room_info
     <set >
+      <if test="roomName != null" >
+        room_name = #{roomName,jdbcType=VARCHAR},
+      </if>
       <if test="usercount != null" >
         UserCount = #{usercount,jdbcType=INTEGER},
       </if>
@@ -64,6 +64,15 @@
       </if>
       <if test="playMapId != null" >
         play_map_id = #{playMapId,jdbcType=INTEGER},
+      </if>
+       <if test="battle_Info != null" >
+        battle_info_id = #{battle_Info.battle_id},
+      </if>
+       <if test="isUsed != null" >
+        isUsed = #{isUsed},
+      </if>
+       <if test="creator != null" >
+        creator_id = #{creator.user_id},
       </if>
     </set>
     where room_id = #{id,jdbcType=INTEGER}

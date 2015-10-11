@@ -10,4 +10,6 @@ public interface Dialog_InfoMapper {
     Dialog_Info selectById(Integer id);
 
     int updateDialog(Dialog_Info info);
+    
+    void deleteAllData();
 }

@@ -48,7 +48,7 @@
     </javaClientGenerator>
 
     <!-- tableName：数据库表 -->
-    <table schema="batissql" tableName="Team_Info" domainObjectName="Team_Info" 
+    <table schema="batissql" tableName="Post_Info" domainObjectName="Post_Info" 
         enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="false"
         selectByExampleQueryId="false">     

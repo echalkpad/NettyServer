@@ -48,7 +48,7 @@
     </javaClientGenerator>
 
     <!-- tableName：数据库表 -->
-    <table schema="batissql" tableName="User" domainObjectName="User" 
+    <table schema="batissql" tableName="Kill_Rank" domainObjectName="Kill_Rank" 
         enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="false"
         selectByExampleQueryId="false">     

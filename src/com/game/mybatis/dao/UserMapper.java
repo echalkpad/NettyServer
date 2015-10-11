@@ -13,4 +13,6 @@ public interface UserMapper {
     User selectByUserName(String username);
     
     int updateUser(User user);
+    
+    void deleteAllData();
 }

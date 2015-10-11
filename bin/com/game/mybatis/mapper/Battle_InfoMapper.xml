@@ -9,21 +9,12 @@
     <association property="playMap" column="play_Map_id" javaType="Map_Info"
     		select="com.game.mybatis.dao.Map_InfoMapper.selectById">
     </association>
-    <association property="current_dialog_Info" column="current_dialog_Info_id" javaType="Dialog_Info"
-    		select="com.game.mybatis.dao.Dialog_InfoMapper.selectById">
-    </association>
-    <collection property="userList" ofType="User"  column="battle_id"
-    	select="selectUserList">
-    </collection>
-    <collection property="dialogList" ofType="Dialog_Info" column="battle_id"
-    	select="selectDialogList">
-    </collection>
   </resultMap>
   
-  <select id="selectDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap">
+  <select id="getDialogList" resultMap="com.game.mybatis.dao.Dialog_InfoMapper.DialogInfoResultMap" parameterType="java.lang.Integer">
       select * from dialog_info where type = 1 and group_id = #{id}
   </select>
-  <select id="selectUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult">
+  <select id="getUserList" resultMap="com.game.mybatis.dao.UserMapper.UserResult" parameterType="java.lang.Integer">
       select * from user where battle_info_id = #{id}
   </select>
   <select id="selectById" resultMap="BattleResultMap" parameterType="java.lang.Integer" >
@@ -33,11 +24,14 @@
     delete from battle_info
     where battle_id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteAllData">
+    TRUNCATE TABLE battle_info
+  </delete>
   
   <insert id="insertBattleInfo" parameterType="com.game.mybatis.model.Battle_Info" useGeneratedKeys="true"
       keyProperty="battle_id">
-    insert into battle_info (battle_id, battle_name, type, UserCount, play_map_id, current_dialog_Info_id)
-    values (#{battle_id}, #{battle_name}, #{type}, #{userCount}, #{playMap.mapId}, #{current_dialog_Info.dialog_id})
+    insert into battle_info (battle_id, battle_name, type, UserCount, play_map_id)
+    values (#{battle_id}, #{battle_name}, #{type}, #{userCount}, #{playMap.mapId})
   </insert>
   <update id="updateBattleInfo" parameterType="com.game.mybatis.model.Battle_Info" >
     update battle_info
@@ -53,9 +47,6 @@
       </if>
       <if test="playMap != null" >
         play_map_id = #{playMap.mapId},
-      </if>
-      <if test="current_dialog_Info != null" >
-        current_dialog_Info_id = #{current_dialog_Info.dialog_id},
       </if>
     </set>
     where battle_id = #{battle_id}

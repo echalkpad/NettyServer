@@ -13,12 +13,6 @@ public class Room_Info {
 
     private Map_Info playMap;
     
-    private List<User> usersList;
-    
-    private Dialog_Info	currentDialog;
-    
-    private List<Dialog_Info> dialogsList;
-    
     private Battle_Info battle_Info;
     
     private Boolean isUsed;
@@ -35,14 +29,6 @@ public class Room_Info {
 
 	public Map_Info getPlayMap() {
 		return playMap;
-	}
-
-	public Dialog_Info getCurrentDialog() {
-		return currentDialog;
-	}
-
-	public List<Dialog_Info> getDialogsList() {
-		return dialogsList;
 	}
 
 	public Battle_Info getBattle_Info() {
@@ -67,14 +53,6 @@ public class Room_Info {
 
 	public void setPlayMap(Map_Info playMap) {
 		this.playMap = playMap;
-	}
-
-	public void setCurrentDialog(Dialog_Info currentDialog) {
-		this.currentDialog = currentDialog;
-	}
-
-	public void setDialogsList(List<Dialog_Info> dialogsList) {
-		this.dialogsList = dialogsList;
 	}
 
 	public void setBattle_Info(Battle_Info battle_Info) {
@@ -104,12 +82,4 @@ public class Room_Info {
     public void setGameType(Integer gameType) {
         this.gameType = gameType;
     }
-
-	public List<User> getUsersList() {
-		return usersList;
-	}
-
-	public void setUsersList(List<User> usersList) {
-		this.usersList = usersList;
-	}
 }

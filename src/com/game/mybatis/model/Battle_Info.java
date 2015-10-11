@@ -13,12 +13,6 @@ public class Battle_Info {
     
     private Integer userCount;
     
-    private List<User> userList;
-    
-    private Dialog_Info current_dialog_Info;
-    
-    private List<Dialog_Info> dialogList;
-    
     public Integer getBattle_id() {
 		return battle_id;
 	}
@@ -51,35 +45,11 @@ public class Battle_Info {
 		return userCount;
 	}
 
-	public List<User> getUserList() {
-		return userList;
-	}
-
-	public List<Dialog_Info> getDialogList() {
-		return dialogList;
-	}
-
 	public void setBattle_name(String battle_name) {
 		this.battle_name = battle_name;
 	}
 
 	public void setUserCount(Integer userCount) {
 		this.userCount = userCount;
-	}
-
-	public void setUserList(List<User> userList) {
-		this.userList = userList;
-	}
-
-	public void setDialogList(List<Dialog_Info> dialogList) {
-		this.dialogList = dialogList;
-	}
-
-	public Dialog_Info getCurrent_dialog_Info() {
-		return current_dialog_Info;
-	}
-
-	public void setCurrent_dialog_Info(Dialog_Info current_dialog_Info) {
-		this.current_dialog_Info = current_dialog_Info;
 	}
 }

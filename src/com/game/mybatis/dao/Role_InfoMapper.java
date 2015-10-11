@@ -10,4 +10,6 @@ public interface Role_InfoMapper {
     Role_Info selectById(Integer id);
 
     int updateRoleInfo(Role_Info role);
+    
+    void deleteAllData();
 }

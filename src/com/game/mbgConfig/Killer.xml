@@ -48,7 +48,7 @@
     </javaClientGenerator>
 
     <!-- tableName：数据库表 -->
-    <table schema="batissql" tableName="Dialog_Info" domainObjectName="Dialog_Info" 
+    <table schema="batissql" tableName="Killer_Info" domainObjectName="Killer_Info" 
         enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="false"
         selectByExampleQueryId="false">     

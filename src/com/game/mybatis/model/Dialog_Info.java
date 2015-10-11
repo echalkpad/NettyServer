@@ -1,6 +1,6 @@
 package com.game.mybatis.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Dialog_Info {
     private Integer dialog_id;
@@ -16,6 +16,10 @@ public class Dialog_Info {
     private Integer target_id;
     
     private	Date createTime;
+    
+    public Dialog_Info(){
+    	createTime = new Date(System.currentTimeMillis());
+    }
     
     public Integer getDialog_id() {
 		return dialog_id;

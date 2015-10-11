@@ -16,18 +16,24 @@
 	</settings>
 	
     <typeAliases> 
-        <typeAlias alias="User" type="com.game.mybatis.model.User"/> 
-        <typeAlias alias="Battle_Info" type="com.game.mybatis.model.Battle_Info"/> 
-        <typeAlias alias="Skill_Info" type="com.game.mybatis.model.Skill_Info"/>
-        <typeAlias alias="Role_Info" type="com.game.mybatis.model.Role_Info"/> 
+        <typeAlias alias="Base_Role" type="com.game.mybatis.model.Base_Role"/> 
+        <typeAlias alias="Battle_Info" type="com.game.mybatis.model.Battle_Info"/>
+        <typeAlias alias="Dialog_Info" type="com.game.mybatis.model.Dialog_Info"/>
+        <typeAlias alias="Kill_Rank" type="com.game.mybatis.model.Kill_Rank"/>
+        <typeAlias alias="Killer_Info" type="com.game.mybatis.model.Killer_Info"/>
         <typeAlias alias="Map_Info" type="com.game.mybatis.model.Map_Info"/>
-        <typeAlias alias="Room_Info" type="com.game.mybatis.model.Room_Info"/> 
-        <typeAlias alias="Dialog_Info" type="com.game.mybatis.model.Dialog_Info"/>   
+        <typeAlias alias="Post_Info" type="com.game.mybatis.model.Post_Info"/>  
+        <typeAlias alias="Role_Info" type="com.game.mybatis.model.Role_Info"/>
+        <typeAlias alias="RoleLevelData" type="com.game.mybatis.model.RoleLevelData"/> 
+        <typeAlias alias="Room_Info" type="com.game.mybatis.model.Room_Info"/>
+        <typeAlias alias="Skill_Info" type="com.game.mybatis.model.Skill_Info"/>
+        <typeAlias alias="User" type="com.game.mybatis.model.User"/>
     </typeAliases> 
 	
     <typeHandlers>
 	    <typeHandler handler="com.game.mybatis.handler.BooleanToIntTypeHandler"/>
-	    <typeHandler handler="com.game.mybatis.handler.DateToIntTypeHandler"/>
+	    <typeHandler handler="com.game.mybatis.handler.DateToVarcharTypeHandler"
+	        javaType="java.sql.Date" jdbcType="INTEGER"/>
 	</typeHandlers>
 	
     <environments default="development">
@@ -43,13 +49,18 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/game/mybatis/mapper/UserMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Base_RoleMapper.xml"/>
         <mapper resource="com/game/mybatis/mapper/Battle_InfoMapper.xml"/>
-        <mapper resource="com/game/mybatis/mapper/Skill_InfoMapper.xml"/>
-        <mapper resource="com/game/mybatis/mapper/Role_InfoMapper.xml"/>
-        <mapper resource="com/game/mybatis/mapper/Map_InfoMapper.xml"/>
-        <mapper resource="com/game/mybatis/mapper/Room_InfoMapper.xml"/>
         <mapper resource="com/game/mybatis/mapper/Dialog_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Kill_RankMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Killer_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Map_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Post_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Role_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/RoleLevelDataMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Room_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/Skill_InfoMapper.xml"/>
+        <mapper resource="com/game/mybatis/mapper/UserMapper.xml"/>
     </mappers>
     
 </configuration>

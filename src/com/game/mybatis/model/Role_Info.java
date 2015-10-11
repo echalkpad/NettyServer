@@ -1,6 +1,6 @@
 package com.game.mybatis.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Role_Info {
     private Integer roleId;
@@ -9,7 +9,11 @@ public class Role_Info {
 
     private Integer order_id;
     
+    private Base_Role baseRole;
+    
     private Integer type;
+    
+    private Boolean isIdle;
     
     private Integer level;
     
@@ -38,13 +42,39 @@ public class Role_Info {
     private Date lastUpdateAttackTime;
     
     private Skill_Info skill1;
-
+    
+    private Date selectSkill1Time;
+    
     private Skill_Info skill2;
 
+    private Date selectSkill2Time;
+    
     private Skill_Info skill3;
 
+    private Date selectSkill3Time;
+    
     private Skill_Info skill4;
 
+    private Date selectSkill4Time;
+    
+    public Role_Info(){
+    	this.isIdle = false;
+    }
+    
+    public Role_Info(Base_Role baseRole){
+    	this.isIdle = false;
+    	setValueFromBaseRole(baseRole);
+    }
+    
+    public void setValueFromBaseRole(Base_Role baseRole){
+    	this.baseRole = baseRole;
+    	this.type = baseRole.getRoleType();
+    	this.hp = baseRole.getBasehp();
+    	this.level = baseRole.getMinlevel();
+    	this.speed = baseRole.getMinspeed();
+    	this.attack = baseRole.getBaseAttack();
+    }
+    
     public Integer getRoleId() {
 		return roleId;
 	}
@@ -182,18 +212,22 @@ public class Role_Info {
 	}
 
 	public void setSkill1(Skill_Info skill1) {
+		this.selectSkill1Time = new Date(System.currentTimeMillis());
 		this.skill1 = skill1;
 	}
 
 	public void setSkill2(Skill_Info skill2) {
+		this.selectSkill2Time = new Date(System.currentTimeMillis());
 		this.skill2 = skill2;
 	}
 
 	public void setSkill3(Skill_Info skill3) {
+		this.selectSkill3Time = new Date(System.currentTimeMillis());
 		this.skill3 = skill3;
 	}
 
 	public void setSkill4(Skill_Info skill4) {
+		this.selectSkill4Time = new Date(System.currentTimeMillis());
 		this.skill4 = skill4;
 	}
 
@@ -211,5 +245,53 @@ public class Role_Info {
 
 	public void setCastSkillTarget(User castSkillTarget) {
 		this.castSkillTarget = castSkillTarget;
+	}
+
+	public Base_Role getBaseRole() {
+		return baseRole;
+	}
+
+	public void setBaseRole(Base_Role baseRole) {
+		this.baseRole = baseRole;
+	}
+
+	public Date getSelectSkill1Time() {
+		return selectSkill1Time;
+	}
+
+	public Date getSelectSkill2Time() {
+		return selectSkill2Time;
+	}
+
+	public Date getSelectSkill3Time() {
+		return selectSkill3Time;
+	}
+
+	public Date getSelectSkill4Time() {
+		return selectSkill4Time;
+	}
+
+	public void setSelectSkill1Time(Date selectSkill1Time) {
+		this.selectSkill1Time = selectSkill1Time;
+	}
+
+	public void setSelectSkill2Time(Date selectSkill2Time) {
+		this.selectSkill2Time = selectSkill2Time;
+	}
+
+	public void setSelectSkill3Time(Date selectSkill3Time) {
+		this.selectSkill3Time = selectSkill3Time;
+	}
+
+	public void setSelectSkill4Time(Date selectSkill4Time) {
+		this.selectSkill4Time = selectSkill4Time;
+	}
+
+	public Boolean getIsIdle() {
+		return isIdle;
+	}
+
+	public void setIsIdle(Boolean isIdle) {
+		this.isIdle = isIdle;
 	}
 }
